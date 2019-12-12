@@ -8,7 +8,6 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import BackgroundImage from 'gatsby-background-image'
 
 const HeroBlock = styled.div`
     margin: 0 auto;
