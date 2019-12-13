@@ -58,8 +58,52 @@ class NavMobile extends React.Component {
         event.preventDefault();
     }
     render () {
+        const styles = {
+            bmBurgerButton: {
+                position: 'fixed',
+                width: '36px',
+                height: '30px',
+                left: '36px',
+                top: '36px'
+            },
+            bmBurgerBars: {
+                background: '#373a47'
+            },
+            bmBurgerBarsHover: {
+                background: '#a90000'
+            },
+            bmCrossButton: {
+                height: '24px',
+                width: '24px'
+            },
+            bmCross: {
+                background: '#bdc3c7'
+            },
+            bmMenuWrap: {
+                position: 'fixed',
+                height: '100%'
+            },
+            bmMenu: {
+                background: '#373a47',
+                padding: '2.5em 1.5em 0',
+                fontSize: '1.15em'
+            },
+            bmMorphShape: {
+                fill: '#373a47'
+            },
+            bmItemList: {
+                color: '#b8b7ad',
+                padding: '0.8em'
+            },
+            bmItem: {
+                display: 'inline-block'
+            },
+            bmOverlay: {
+                background: 'rgba(0, 0, 0, 0.3)'
+            }
+        }
         return (
-            <Menu>
+            <Menu styles={ styles } right>
                 <Link to="/about" activeClassName="active">About</Link>
                 <Link to="/projects" activeClassName="active">Projects</Link>
                 <Link to="/services" activeClassName="active">Services</Link>
@@ -76,7 +120,8 @@ const Header = () => {
     )
     const { height, width } = Dimensions();
 
-    const Nav = width < nums.vp4 ? NavMobile : NavDesktop
+    //    const Nav = width < nums.vp4 ? NavMobile : NavDesktop
+    const Nav = NavDesktop
 
     return (
         <Container>
