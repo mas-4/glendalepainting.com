@@ -82,7 +82,7 @@ class IndexPage extends React.Component {
         window.addEventListener('resize', this.handleResize)
     }
 
-    componentWillMount(){
+    componentWillUnmount(){
         window.removeEventListener('resize', this.handleResize)
     }
 
