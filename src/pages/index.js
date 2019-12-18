@@ -11,7 +11,6 @@ import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
 import Fade from "react-reveal/Fade"
 
 import { breakpoints, numbers } from "../breakpoints"
-import useWindowDimensions from "../dimensions"
 
 const HeroBlock = styled.div`
     margin: 0 auto;
@@ -146,13 +145,6 @@ class IndexPage extends React.Component {
         )
     }
 }
-
-// function withWindowHook(Component) {
-//   return function WrappedComponent(props) {
-//     const dimensions = useWindowDimensions()
-//     return <Component {...props} width={dimensions.width} />
-//   }
-// }
 
 export default IndexPage
 
