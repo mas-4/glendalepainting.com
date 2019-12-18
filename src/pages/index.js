@@ -74,13 +74,29 @@ const MissionText = styled.h1`
 `
 
 class IndexPage extends React.Component {
+    state = {
+        width: 0,
+        height: 0
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.handleResize)
+    }
+
+    componentWillMount(){
+        window.removeEventListener('resize', this.handleResize)
+    }
+    
+    handleResize = () => {
+        this.setState({width: window.innerWidth, height: window.innerHeight})
+    }
   render() {
     const heroImage =
-      this.props.width < numbers.vp7
+      this.state.width < numbers.vp7
         ? this.props.data.heroTall.childImageSharp.fluid
         : this.props.data.hero.childImageSharp.fluid
     const missionImage =
-      this.props.width < numbers.vp9
+      this.state.width < numbers.vp9
         ? this.props.data.missionTall.childImageSharp.fluid
         : this.props.data.mission.childImageSharp.fluid
     return (
@@ -130,14 +146,14 @@ class IndexPage extends React.Component {
   }
 }
 
-function withWindowHook(Component) {
-  return function WrappedComponent(props) {
-    const dimensions = useWindowDimensions()
-    return <Component {...props} width={dimensions.width} />
-  }
-}
+// function withWindowHook(Component) {
+//   return function WrappedComponent(props) {
+//     const dimensions = useWindowDimensions()
+//     return <Component {...props} width={dimensions.width} />
+//   }
+// }
 
-export default withWindowHook(IndexPage)
+export default IndexPage
 
 // fragment for simpmle fluid imports
 export const BGImg = graphql`
