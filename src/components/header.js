@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { slide as Menu } from "react-burger-menu"
 import logo from "../images/logo.png"
 import Dimensions from "../dimensions"
-import { nums } from "../breakpoints"
+import { numbers } from "../breakpoints"
 
 const Container = styled.header`
     background-color: white;
@@ -113,14 +113,20 @@ class NavMobile extends React.Component {
     }
 }
 
-
-const Header = () => {
+const Name = () => {
     const data = useStaticQuery(
         graphql`query { site { siteMetadata { title } } }`
     )
+    return (
+        <Link to="/">{data.site.siteMetadata.title}</Link>
+    )
+}
+
+
+const Header = () => {
     const { height, width } = Dimensions();
 
-    //    const Nav = width < nums.vp4 ? NavMobile : NavDesktop
+    //    const Nav = width < numbers.vp4 ? NavMobile : NavDesktop
     const Nav = NavDesktop
 
     return (
@@ -129,7 +135,7 @@ const Header = () => {
                 <Link to="/" >
                     <img src={logo} alt="Logo" height="25" />
                 </Link>
-                <Link to="/">{data.site.siteMetadata.title}</Link>
+                <Name />
             </Title>
             <Nav />
         </Container>
