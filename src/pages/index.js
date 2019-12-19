@@ -76,6 +76,9 @@ const HeroBlock = styled.div`
         @media ${breakpoints.vp4_2} {
             font-size: 3.5rem;
         }
+        @media ${breakpoints.vp3} {
+            font-size: 3rem;
+        }
     }
     h2 {
         text-align: left;
@@ -89,7 +92,8 @@ const HeroBlock = styled.div`
         @media ${breakpoints.vp7} {
             font-size: 2.25rem;
         }
-        @media ${breakpoints.vp4} {
+        @media ${breakpoints.vp3} {
+            font-size: 2rem;
         }
     }
 `
@@ -108,6 +112,25 @@ const MissionText = styled.h1`
     @media ${breakpoints.vp12} {
         font-size: 400%;
     }
+    @media ${breakpoints.vp9} {
+        font-size: 350%;
+        margin: 0 0 0 35%;
+    }
+    @media ${breakpoints.vp7} {
+        font-size: 275%;
+        border-left: 1.5rem solid black;
+        padding-left: 1.5rem;
+    }
+    @media ${breakpoints.vp6} {
+        font-size: 250%;
+        margin: 0 0 0 25%;
+        border-left: 1rem solid black;
+        padding-left: 1rem;
+    }
+    @media ${breakpoints.vp6} {
+        width: 50%;
+    }
+
 `
 function calculateMissionOffset(width) {
     /* Calculate the offset for the white behind the mission text to hide
@@ -115,16 +138,23 @@ function calculateMissionOffset(width) {
      * now. */
     let missionOffset = 1;
     let missionTextOffset = 1.1;
+    let missionTextSpeed = 0.5;
     if (width <= numbers.vp12 && width > numbers.vp9) {
         missionOffset = 0.75;
+        missionTextOffset = 0.98;
+        missionTextSpeed = -0.1;
     } else if (width <= numbers.vp9 && width > numbers.vp7) {
         missionOffset = 0.65;
+        missionTextOffset = 0.95;
+        missionTextSpeed = 0.5;
     } else if (width <= numbers.vp7 && width > numbers.vp4) {
         missionOffset = 1;
+        missionTextOffset = 1.2;
+        missionTextSpeed = 0.5;
     } else {
         missionOffset = 0.95;
     }
-    return [missionOffset, missionTextOffset]
+    return [missionOffset, missionTextOffset, missionTextSpeed]
 }
 
 class IndexPage extends React.Component {
@@ -158,7 +188,7 @@ class IndexPage extends React.Component {
             ? this.props.data.aboutTall.childImageSharp.fluid
             : this.props.data.about.childImageSharp.fluid;
 
-        const [ missionOffset, missionTextOffset ] = calculateMissionOffset(this.state.width);
+        const [ missionOffset, missionTextOffset, missionTextSpeed ] = calculateMissionOffset(this.state.width);
 
         return (
             <Layout>
@@ -195,7 +225,7 @@ class IndexPage extends React.Component {
                         style={{ backgroundColor: "#FFFFFF" }}
                     />
 
-                    <ParallaxLayer offset={missionTextOffset} speed={0.5}>
+                    <ParallaxLayer offset={missionTextOffset} speed={missionTextSpeed}>
                         <MissionText>
                             Take care of the customer and everything else will take care of itself.
                         </MissionText>
