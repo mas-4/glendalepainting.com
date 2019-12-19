@@ -105,12 +105,16 @@ const MissionText = styled.h1`
     color: red;
     width: 35%;
     margin: 0 0 0 45%;
+    @media ${breakpoints.vp12} {
+        font-size: 400%;
+    }
 `
 function calculateMissionOffset(width) {
     /* Calculate the offset for the white behind the mission text to hide
      * background for breakpoints. God do I have this crap. But this is my life
      * now. */
     let missionOffset = 1;
+    let missionTextOffset = 1.1;
     if (width <= numbers.vp12 && width > numbers.vp9) {
         missionOffset = 0.75;
     } else if (width <= numbers.vp9 && width > numbers.vp7) {
@@ -120,7 +124,7 @@ function calculateMissionOffset(width) {
     } else {
         missionOffset = 0.95;
     }
-    return missionOffset
+    return [missionOffset, missionTextOffset]
 }
 
 class IndexPage extends React.Component {
@@ -154,7 +158,7 @@ class IndexPage extends React.Component {
             ? this.props.data.aboutTall.childImageSharp.fluid
             : this.props.data.about.childImageSharp.fluid;
 
-        const missionOffset = calculateMissionOffset(this.state.width);
+        const [ missionOffset, missionTextOffset ] = calculateMissionOffset(this.state.width);
 
         return (
             <Layout>
@@ -191,7 +195,7 @@ class IndexPage extends React.Component {
                         style={{ backgroundColor: "#FFFFFF" }}
                     />
 
-                    <ParallaxLayer offset={1.25} speed={0.5}>
+                    <ParallaxLayer offset={missionTextOffset} speed={0.5}>
                         <MissionText>
                             Take care of the customer and everything else will take care of itself.
                         </MissionText>
