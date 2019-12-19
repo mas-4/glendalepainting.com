@@ -5,7 +5,7 @@
  * single page is an obnoxious piece of crap. Each panel is separated by a block
  * comment with double slashes. I wish I could split them out into components,
  * but because React doesn't like having two root level JSX thingies, we can't
- * exactly do that. (I'm not sure if I could
+ * exactly do that. (I'm not sure if I could.)
  *
  * <><ParallaxLayer /><ParallaxLayer /></>
  *
@@ -25,7 +25,6 @@ import Img from "gatsby-image"
 
 import styled from "styled-components"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
-import Fade from "react-reveal/Fade"
 
 import { breakpoints, numbers } from "../breakpoints"
 
@@ -132,31 +131,6 @@ const MissionText = styled.h1`
     }
 
 `
-function calculateMissionOffset(width) {
-    /* Calculate the offset for the white behind the mission text to hide
-     * background for breakpoints. God do I have this crap. But this is my life
-     * now. */
-    let missionOffset = 1;
-    let missionTextOffset = 1.1;
-    let missionTextSpeed = 0.5;
-    if (width <= numbers.vp12 && width > numbers.vp9) {
-        missionOffset = 0.75;
-        missionTextOffset = 0.98;
-        missionTextSpeed = -0.1;
-    } else if (width <= numbers.vp9 && width > numbers.vp7) {
-        missionOffset = 0.65;
-        missionTextOffset = 0.95;
-        missionTextSpeed = 0.5;
-    } else if (width <= numbers.vp7 && width > numbers.vp4) {
-        missionOffset = 1;
-        missionTextOffset = 1.2;
-        missionTextSpeed = 0.5;
-    } else {
-        missionOffset = 0.95;
-    }
-    return [missionOffset, missionTextOffset, missionTextSpeed]
-}
-
 class IndexPage extends React.Component {
     state = {
         width: window.innerWidth,
@@ -178,7 +152,7 @@ class IndexPage extends React.Component {
     render() {
         // Shift heroImage on the vp7 breakpoint
         const heroImage =
-            this.state.width <= numbers.vp7
+            this.state.width <= numbers.vp9
             ? this.props.data.heroTall.childImageSharp.fluid
             : this.props.data.hero.childImageSharp.fluid;
 
@@ -188,24 +162,21 @@ class IndexPage extends React.Component {
             ? this.props.data.aboutTall.childImageSharp.fluid
             : this.props.data.about.childImageSharp.fluid;
 
-        const [ missionOffset, missionTextOffset, missionTextSpeed ] = calculateMissionOffset(this.state.width);
-
         return (
             <Layout>
                 <SEO title="Home" />
                 <Parallax
                     pages={3}
                     ref={ref => (this.parallax = ref)}
-                    style={{ backgroundColor: "#333333" }}
+                    style={{ backgroundColor: "#FFFFFF" }}
                 >
                     <ParallaxLayer
                         offset={0}
-                        speed={0}
-                        style={{ backgroundColor: "#000000" }}
+                        speed={0.5}
                     >
                         <Img fluid={heroImage} />
                     </ParallaxLayer>
-                    <ParallaxLayer offset={0.25} speed={0.4}>
+                    <ParallaxLayer offset={0.25} speed={0.1}>
                         <HeroBlock>
                             <h1>Serving the Southeast Since 1985</h1>
                             <h2>
@@ -215,17 +186,34 @@ class IndexPage extends React.Component {
                         </HeroBlock>
                     </ParallaxLayer>
 
-                    <ParallaxLayer offset={1.75} speed={0.2}>
-                        <Img fluid={aboutImage} />
+                    <ParallaxLayer offset={2} speed={0.4}>
+                        <Img
+                            fluid={aboutImage}
+                        />
                     </ParallaxLayer>
 
-                    <ParallaxLayer
-                        offset={missionOffset}
-                        speed={0.1}
-                        style={{ backgroundColor: "#FFFFFF" }}
-                    />
+                    <ParallaxLayer offset={1.5} speed={-0.1}>
+                        <Img
+                            fluid={this.props.data.brush.childImageSharp.fluid}
+                            style={{ marginLeft: "30%", width: "20%" }}
+                        />
+                    </ParallaxLayer>
 
-                    <ParallaxLayer offset={missionTextOffset} speed={missionTextSpeed}>
+                    <ParallaxLayer offset={1.25} speed={0.1}>
+                        <Img
+                            fluid={this.props.data.brushStroke.childImageSharp.fluid}
+                            style={{ marginLeft: "10%", width: "40%" }}
+                        />
+                    </ParallaxLayer>
+
+                    <ParallaxLayer offset={1.8} speed={0.2}>
+                        <Img
+                            fluid={this.props.data.brushCircle.childImageSharp.fluid}
+                            style={{ marginLeft: "70%", width: "30%" }}
+                        />
+                    </ParallaxLayer>
+
+                    <ParallaxLayer offset={1.5} speed={0.3}>
                         <MissionText>
                             Take care of the customer and everything else will take care of itself.
                         </MissionText>
@@ -282,6 +270,30 @@ export const query = graphql`
       }
       aboutTall: file(relativePath: { eq: "buildings-stock.jpg" }) {
           ...DuoToneImg
+      }
+      brush: file(relativePath: { eq: "brushClip.png" }) {
+          childImageSharp {
+              fluid(
+                  duotone: { highlight: "#f00e2e", shadow: "#000000" }
+              )
+              {
+                  ...GatsbyImageSharpFluid
+              }
+          }
+      }
+      brushStroke: file(relativePath: { eq: "brushstroke.png" }) {
+          childImageSharp {
+              fluid {
+                  ...GatsbyImageSharpFluid
+              }
+          }
+      }
+      brushCircle: file(relativePath: { eq: "brushCircle.png" }) {
+          childImageSharp {
+              fluid {
+                  ...GatsbyImageSharpFluid
+              }
+          }
       }
   }
 `
