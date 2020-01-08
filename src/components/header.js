@@ -3,7 +3,6 @@ import React from "react"
 import styled from "styled-components"
 import { slide as Menu } from "react-burger-menu"
 import logo from "../images/logo.png"
-import Dimensions from "../dimensions"
 import { numbers } from "../breakpoints"
 
 const Container = styled.header`
@@ -124,9 +123,6 @@ const Name = () => {
 
 
 const Header = () => {
-    const { height, width } = Dimensions();
-
-    //    const Nav = width < numbers.vp4 ? NavMobile : NavDesktop
     const Nav = NavDesktop
 
     return (
