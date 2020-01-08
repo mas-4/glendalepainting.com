@@ -192,26 +192,6 @@ class IndexPage extends React.Component {
                         />
                     </ParallaxLayer>
 
-                    <ParallaxLayer offset={1.5} speed={-0.1}>
-                        <Img
-                            fluid={this.props.data.brush.childImageSharp.fluid}
-                            style={{ marginLeft: "30%", width: "20%" }}
-                        />
-                    </ParallaxLayer>
-
-                    <ParallaxLayer offset={1.25} speed={0.1}>
-                        <Img
-                            fluid={this.props.data.brushStroke.childImageSharp.fluid}
-                            style={{ marginLeft: "10%", width: "40%" }}
-                        />
-                    </ParallaxLayer>
-
-                    <ParallaxLayer offset={1.8} speed={0.2}>
-                        <Img
-                            fluid={this.props.data.brushCircle.childImageSharp.fluid}
-                            style={{ marginLeft: "70%", width: "30%" }}
-                        />
-                    </ParallaxLayer>
 
                     <ParallaxLayer offset={1.5} speed={0.3}>
                         <MissionText>
