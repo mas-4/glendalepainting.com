@@ -9,6 +9,18 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import ProjectsPanel from '../components/landing/projects'
+import ServicesBox from '../components/landing/services'
+
+const Title = styled.h1`
+    font-size: 5rem;
+    width: ${props => props.width};
+    margin: 0 auto;
+    padding: 0 0 0 1rem;
+    line-height: 0.9;
+    border-left 1rem solid red;
+    color: white;
+    text-align: left;
+`
 
 const HeroBlock = styled.div`
     margin: 0 auto;
@@ -17,15 +29,6 @@ const HeroBlock = styled.div`
     color: white;
     width: 50%;
     text-align: center;
-    h1 {
-        text-align: left;
-        width: 80%;
-        margin: 0 0 0 3rem;
-        line-height: 1;
-        font-size: 5rem;
-        border-left: 1rem solid red;
-        padding: 0 0 0 1rem;
-    }
     h2 {
         text-align: left;
         font-size: 2.25rem;
@@ -42,72 +45,6 @@ const MissionText = styled.h1`
     margin: 0 0 0 45%;
 `
 
-const ServicesBox = () => {
-    const Title = styled.h1`
-        font-size: 500%;
-        width: 10rem;
-        margin: 0 auto 5rem auto;
-        padding: 0 0 0 1rem;
-        line-height: 0.9;
-        border-left 1rem solid red;
-        color: white;
-    `
-    const Boxes = styled.div`
-        display: flex;
-    `
-    const Box = styled.div`
-        width: 50%;
-        background: ${props => props.color};
-        display: flex;
-        flex-direction: column;
-        align-items: flex-${props => props.align};
-        padding: 5%;
-    `
-    const Text = styled.div`
-        width: 70%;
-        color: white;
-        h1 {
-            line-height: 0.8;
-        }
-    `
-    return (
-        <>
-            <Title>What We Do</Title>
-            <Boxes>
-                <Box
-                    color="rgba(41, 41, 41, 0.78)"
-                    align="end"
-                >
-                    <Text>
-                        <h1>Repaint &amp; Restoration</h1>
-                        <p>
-                            Whether it's the typical repaint, or a full-out
-                            restoration, our rehabilitation division has the
-                            knowledge and experience to get the job done.  Our
-                            employees know how to work with discerning clientele
-                            and make every resident happy with the end-product.
-                        </p>
-                    </Text>
-                </Box>
-                <Box
-                    color="rgba(241, 14, 14, 0.6)"
-                    align="start"
-                >
-                    <Text>
-                        <h1>New Construction Painting</h1>
-                        <p>
-                            Our new construction division boasts some of the
-                            largest and most complex structures in Florida.  We
-                            know how to meet the ever tightening deadlines
-                            developers and general contractors require these
-                            days.
-                        </p>
-                    </Text>
-                </Box>
-            </Boxes>
-        </>
-    )
-}
 
 
 class IndexPage extends React.Component {
@@ -148,15 +85,12 @@ class IndexPage extends React.Component {
                     </ParallaxLayer>
 
 
-                    <ParallaxLayer
-                        offset={0}
-                        speed={0.5}
-                    >
+                    <ParallaxLayer offset={0} speed={0.5}>
                         <Img fluid={heroImage} />
                     </ParallaxLayer>
-                    <ParallaxLayer offset={0.25} speed={0.1}>
+                    <ParallaxLayer offset={0.25} speed={0.2}>
                         <HeroBlock>
-                            <h1>Serving the Southeast Since 1985</h1>
+                            <Title width='30rem'>Serving the Southeast since 1985</Title>
                             <h2>
                                 With over three decades in the industry, Glendale has you
                                 covered.
@@ -174,6 +108,9 @@ class IndexPage extends React.Component {
 
                     <ParallaxLayer offset={4.5} speed={0}>
                         <Img fluid={servicesImage} />
+                    </ParallaxLayer>
+                    <ParallaxLayer offset={4.8} speed={0.2}>
+                        <Title width='20rem'>What We Do</Title>
                     </ParallaxLayer>
                     <ParallaxLayer offset={4.97} speed={0}>
                         <ServicesBox />
