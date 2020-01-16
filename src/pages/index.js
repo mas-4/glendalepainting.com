@@ -12,13 +12,13 @@ import ProjectsPanel from '../components/landing/projects'
 import ServicesBox from '../components/landing/services'
 
 const Title = styled.h1`
-    font-size: 5rem;
+    font-size: ${props => props.size || '5rem'};
     width: ${props => props.width};
+    border-left ${props => props.borderSize || '1'}rem solid ${props => props.borderColor};
+    color: ${props => props.color};
     margin: 0 auto;
     padding: 0 0 0 1rem;
     line-height: 0.9;
-    border-left 1rem solid red;
-    color: white;
     text-align: left;
 `
 
@@ -45,6 +45,15 @@ const MissionText = styled.h1`
     margin: 0 0 0 45%;
 `
 
+const AboutBlock = styled.div`
+    margin: 0 auto;
+    width: 55%;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 2rem;
+    color: white;
+    padding: 3rem;
+    font-family: Roboto;
+`
 
 
 class IndexPage extends React.Component {
@@ -90,7 +99,7 @@ class IndexPage extends React.Component {
                     </ParallaxLayer>
                     <ParallaxLayer offset={0.25} speed={0.2}>
                         <HeroBlock>
-                            <Title width='30rem'>Serving the Southeast since 1985</Title>
+                            <Title width='30rem' color='white' borderColor='red'>Serving the Southeast since 1985</Title>
                             <h2>
                                 With over three decades in the industry, Glendale has you
                                 covered.
@@ -110,7 +119,7 @@ class IndexPage extends React.Component {
                         <Img fluid={servicesImage} />
                     </ParallaxLayer>
                     <ParallaxLayer offset={4.8} speed={0.2}>
-                        <Title width='20rem'>What We Do</Title>
+                        <Title width='20rem' color='white' borderColor='red' size='5rem'>What We Do</Title>
                     </ParallaxLayer>
                     <ParallaxLayer offset={4.97} speed={0}>
                         <ServicesBox />
@@ -120,7 +129,34 @@ class IndexPage extends React.Component {
                     <ParallaxLayer offset={5.62} speed={0}>
                         <Img fluid={aboutImage} />
                     </ParallaxLayer>
-
+                    <ParallaxLayer offset={5.95} speed={0.09}>
+                        <Title
+                            width='25rem'
+                            color='white'
+                            size='7rem'
+                            borderColor='black'
+                            borderSize='2'>
+                            Who We Are
+                        </Title>
+                    </ParallaxLayer>
+                    <ParallaxLayer offset={6.25} speed={0.2}>
+                        <AboutBlock>
+                            <p>
+                                Glendale is a family business in the Tampa Bay Area
+                                servicing the State of Florida for over 3 decades. Run
+                                by two brothers, Rick and Kevin, since 1985, over the
+                                last 33 years the company has grown into a premier
+                                quality painting and restoration contractor in Florida.
+                            </p>
+                            <p>
+                                Our work history speaks to our capabilities. Our
+                                testimonials speak to our quality and customer service. The
+                                age of our company speaks to our integrity, commitment and
+                                work ethic. The importance we place on communication with
+                                our clients speaks to our success.
+                            </p>
+                        </AboutBlock>
+                    </ParallaxLayer>
 
                 </Parallax>
             </Layout>
@@ -132,45 +168,45 @@ export default IndexPage
 
 // fragment for simple fluid imports
 export const BGImg = graphql`
-  fragment BGImg on File {
-      childImageSharp {
-          fluid(
-              quality: 100
-              maxWidth: 1920
-              duotone: { highlight: "#000000", shadow: "#000000", opacity: 50 }
-              toFormat: PNG
-          ) {
-              # the duotone is just a black screen for darkening bg images. To be adjusted when desired.
-                  ...GatsbyImageSharpFluid
-          }
-      }
-  }
+fragment BGImg on File {
+    childImageSharp {
+        fluid(
+            quality: 100
+            maxWidth: 1920
+            duotone: { highlight: "#000000", shadow: "#000000", opacity: 50 }
+            toFormat: PNG
+        ) {
+            # the duotone is just a black screen for darkening bg images. To be adjusted when desired.
+                ...GatsbyImageSharpFluid
+        }
+    }
+}
 `
 export const DuoToneImg = graphql`
-  fragment DuoToneImg on File {
-      childImageSharp {
-          fluid(
-              quality: 100
-              maxWidth: 1920
-              duotone: { highlight: "#f00e2e", shadow: "#000000" }
-              toFormat: PNG
-          ) {
-              ...GatsbyImageSharpFluid
-          }
-      }
-  }
+fragment DuoToneImg on File {
+    childImageSharp {
+        fluid(
+            quality: 100
+            maxWidth: 1920
+            duotone: { highlight: "#f00e2e", shadow: "#000000" }
+            toFormat: PNG
+        ) {
+            ...GatsbyImageSharpFluid
+        }
+    }
+}
 `
 
 export const query = graphql`
-  query {
-      hero: file(relativePath: { eq: "jobs/BelleHarbor.jpg" }) {
-          ...BGImg
-      }
-      about: file(relativePath: { eq: "office-stock.jpg" }) {
-          ...DuoToneImg
-      }
-      services: file(relativePath: { eq: "work/LaFirenzaDecksAdjusted.jpg" }) {
-          ...BGImg
-      }
-  }
+query {
+    hero: file(relativePath: { eq: "jobs/BelleHarbor.jpg" }) {
+        ...BGImg
+    }
+    about: file(relativePath: { eq: "office-stock.jpg" }) {
+        ...DuoToneImg
+    }
+    services: file(relativePath: { eq: "work/LaFirenzaDecksAdjusted.jpg" }) {
+        ...BGImg
+    }
+}
 `
