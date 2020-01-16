@@ -83,7 +83,7 @@ class IndexPage extends React.Component {
             <Layout>
                 <SEO title="Home" />
                 <Parallax
-                    pages={10}
+                    pages={7}
                     ref={ref => (this.parallax = ref)}
                     style={{ backgroundColor: "#FFFFFF" }}
                 >

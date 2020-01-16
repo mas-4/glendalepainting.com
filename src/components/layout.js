@@ -6,9 +6,7 @@ import Header from './header'
 import './layout.css'
 
 const Main = styled.main`
-    display: flex;
-    flex-direction: column;
-    height: 1rem;
+    padding-top: 5rem;
 `
 const Footer = styled.footer`
     height: 5rem;
