@@ -7,7 +7,7 @@ import logo from "../images/gpHeaderLogo.png"
 const Nav = styled.nav`
     overflow: hidden; /* no scroll bar */
     position: fixed; /* keep it fixed */
-    top: 100; /* Position the navbar at the top of the page */
+    top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
     z-index: 1; /* in front of parallax*/
 

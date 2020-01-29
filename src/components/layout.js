@@ -6,7 +6,8 @@ import Header from './header'
 import './layout.css'
 
 const Main = styled.main`
-    padding-top: 5rem;
+    display: grid;
+    grid-template-rows: 6rem auto;
 `
 const Footer = styled.footer`
     height: 5rem;
@@ -21,18 +22,19 @@ const Layout = ({ children }) => {
             }
         }
     }
-  `)
+    `)
 
     return (
         <>
             <Header siteTitle={data.site.siteMetadata.title} />
-            <div>
-                <Main>{children}</Main>
-                <Footer>
-                    © {new Date().getFullYear()} Glendale Painting Corporation,{` `}
-                    Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
-                </Footer>
-            </div>
+            <Main>
+                <div />
+                {children}
+            </Main>
+            <Footer>
+                © {new Date().getFullYear()} Glendale Painting Corporation,{` `}
+                Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </Footer>
         </>
     )
 }
