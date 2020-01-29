@@ -68,6 +68,7 @@ const ProjectsPanel = () => {
         }
     `)
     const dataArr = Object.entries(data)
+    console.log(dataArr)
     return (
         <>
             <TitlePanel>
@@ -76,7 +77,7 @@ const ProjectsPanel = () => {
             <Panel>
                 {dataArr.map(([key, value]) => {
                     return (
-                        <Project>
+                        <Project key={key}>
                             <Img fluid={{...value.childImageSharp.fluid, aspectRatio: 1.1}} />
                         </Project>
                     )

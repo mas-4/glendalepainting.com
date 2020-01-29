@@ -1,28 +1,28 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
-import Header from './header'
-import './layout.css'
+import Header from './header';
+import './layout.css';
 
 const Main = styled.main`
     display: grid;
     grid-template-rows: 6rem auto;
-`
+`;
 const Footer = styled.footer`
     height: 5rem;
-`
+`;
 
 const Layout = ({ children }) => {
     const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-        site {
-            siteMetadata {
-                title
+        query SiteTitleQuery {
+            site {
+                siteMetadata {
+                    title
+                }
             }
         }
-    }
-    `)
+    `);
 
     return (
         <>
@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
                 Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
             </Footer>
         </>
-    )
-}
+    );
+};
 
-export default Layout
+export default Layout;
