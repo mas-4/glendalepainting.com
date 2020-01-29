@@ -64,7 +64,7 @@ const Data = [
     },
     {
         h1: "Texture Coating",
-        h1: "Texturing the largest Commercial and Industrial Spaces around.",
+        h2: "Texturing the largest Commercial and Industrial Spaces around.",
         pic: text,
         body: [
             "Applying Texture Coating to new facilities isn't that special.  Applying Texture Coating to New Facilities that will last a lifetime is an art.  It also requires skill and well trained staff who are used to the rigorous cleaning, preparation and priming needed to insure the coating adhesion lasts forever.",
