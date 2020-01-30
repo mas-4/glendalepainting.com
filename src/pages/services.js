@@ -35,7 +35,7 @@ const Item = styled.div`
 const Panel =({info}) => {
     return (
         <Item>
-            <img src={info.pic} style={{ width: '300px', margin: '2rem auto 0 auto' }} />
+            <img src={info.pic} style={{ width: '300px', margin: '2rem auto 0 auto' }} alt={info.h1} />
             <h1>{info.h1}</h1>
             <h2>{info.h2}</h2>
             {info.body.map(para => <p>{para}</p>)}

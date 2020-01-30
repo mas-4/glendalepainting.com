@@ -45,7 +45,7 @@ const Links = () => {
 
 const Name = () => {
     return (
-        <Link to="/" style={{ padding: '0 1rem' }}><img src={logo}  /></Link>
+        <Link to="/" style={{ padding: '0 1rem' }}><img src={logo} alt="logo" /></Link>
     )
 }
 
