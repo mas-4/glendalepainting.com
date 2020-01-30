@@ -1,7 +1,6 @@
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import { slide as Menu } from "react-burger-menu"
 import logo from "../images/gpHeaderLogo.png"
 
 const Nav = styled.nav`
@@ -45,9 +44,6 @@ const Links = () => {
 }
 
 const Name = () => {
-    const data = useStaticQuery(
-        graphql`query { site { siteMetadata { title } } }`
-    )
     return (
         <Link to="/" style={{ padding: '0 1rem' }}><img src={logo}  /></Link>
     )
