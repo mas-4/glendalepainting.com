@@ -7,7 +7,6 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-
 const HeroTitle = styled.h1`
     color: white;
     font-size: 5rem;
@@ -15,6 +14,7 @@ const HeroTitle = styled.h1`
     width: 25%;
     border-left 1rem solid red;
     padding-left: 1rem;
+    line-height: 0.9;
 `
 const AboutBox = styled.div`
     background: rgba(0, 0, 0, 0.2);
@@ -29,23 +29,34 @@ const AboutParagraph = styled.div`
     color: white;
     font-size: 1.2rem;
 `
+const Testimonial = styled.div`
+    background: rgba(0, 0, 0, 0.2);
+    width: 70%;
+    padding: 1rem;
+    color: white;
+    margin: 0 auto;
+`
 
 class AboutPage extends React.Component {
     render() {
         const heroImage = this.props.data.hero.childImageSharp.fluid;
+        const testimonialsImage = this.props.data.testimonials.childImageSharp.fluid;
         return (
             <Layout>
                 <SEO title="About" />
                 <Parallax
-                    pages={7}
+                    pages={2.15}
                     ref={ref => (this.parallax = ref)}
                     style={{ backgroundColor: "#FFFFFF" }}
                 >
                     <ParallaxLayer offset={0} speed={0}>
                         <Img fluid={heroImage} />
                     </ParallaxLayer>
-                    <ParallaxLayer offset={0.3} speed={0.25}>
-                        <HeroTitle>About Us</HeroTitle>
+                    <ParallaxLayer offset={1} speed={0}>
+                        <Img fluid={testimonialsImage} />
+                    </ParallaxLayer>
+                    <ParallaxLayer offset={0.25} speed={0.25}>
+                        <HeroTitle>Who We Are</HeroTitle>
                     </ParallaxLayer>
                     <ParallaxLayer offset={0.50} speed={0.45}>
                         <AboutBox />
@@ -91,6 +102,78 @@ class AboutPage extends React.Component {
                             these new entrepreneurs have learned it the right way.
                         </AboutParagraph>
                     </ParallaxLayer>
+                    <ParallaxLayer offset={1.25} speed={0.4}>
+                        <HeroTitle>What People Say</HeroTitle>
+                    </ParallaxLayer>
+                    <ParallaxLayer offset={1.5} speed={0.5}>
+                        <Testimonial>
+                            <p>
+                                As Glendale nears the final stage of completing
+                                touch-ups and wrapping up remaining punch list items
+                                here at Belle Harbor, I wanted to extend to you and
+                                your entire staff a congratulatory 'Thank You', for
+                                a big job that was well done, and which remained on
+                                schedule. With 200 individual owners here, which
+                                often can translate into 200 individual “bosses”,
+                                the hands-on, customer responsiveness skills
+                                practiced by you and your employees were quite
+                                evident and always on display. In particular, having
+                                Kevin as an on-site supervisor coupled with your
+                                extremely capable crew foreman “Jared”, and with
+                                each of them working hand in hand with one another,
+                                their jointly coordinated efforts have contributed
+                                to a well scheduled smooth and effectively
+                                orchestrated project for us at Belle Harbor.
+                            </p>
+                            <p>
+                                Don Mestas, Jr. - President - Belle Harbor Owner's Association
+                            </p>
+                        </Testimonial>
+                    </ParallaxLayer>
+                    <ParallaxLayer offset={1.75} speed={0.6}>
+                        <Testimonial>
+                            <p>
+                                We can’t say enough to convey how pleased we
+                                were with Kevin’s ability, as well as his
+                                personality, in overseeing the crew supervisor
+                                and entire project. We were equally pleased with
+                                Jared, the crew supervisor who managed the crew
+                                daily.
+                            </p>
+
+                            <p>
+                                "Additionally, I’d like to convey our Board
+                                received many compliments from our residents
+                                regarding the selection of Glendale Painting.
+                                They commented on how the crew supervisor and
+                                painters were courteous and interacted
+                                pleasantly with our residents. The overall
+                                experience and expectations were not only met,
+                                but exceeded.
+                            </p>
+
+                            <p>
+                                Henri Tackett – President – Bermuda Board of Directors
+                            </p>
+                        </Testimonial>
+                    </ParallaxLayer>
+                    <ParallaxLayer offset={1.99} speed={0.7}>
+                        <Testimonial>
+                            <p>
+                                Thanks for everything Rick.  The project has
+                                turned out great and I appreciate your
+                                professionalism.  Kevin was experienced,
+                                efficient and motivated.  He provided constant
+                                on-site supervision and immediate solutions.
+                                Rick, you were always willing to accommodate
+                                requests.
+                            </p>
+                            <p>
+                                Gail Chase - Chief Operating Officer - Freedom Senior Management
+                            </p>
+                        </Testimonial>
+                    </ParallaxLayer>
+
 
                 </Parallax>
             </Layout>
@@ -118,6 +201,9 @@ fragment BGImg on File {
 export const query = graphql`
 query {
     hero: file(relativePath: { eq: "work/ScaffoldBanner.jpg" }) {
+        ...BGImg
+    }
+    testimonials: file(relativePath: { eq: "jobs/OneSinger.jpg" }) {
         ...BGImg
     }
 }
