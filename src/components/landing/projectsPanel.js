@@ -6,13 +6,13 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 const TitlePanel = styled.div`
     width: 100%;
-    margin: 10rem 0;
+    margin: 16rem 0;
 `
 const Title = styled.h1`
-    font-size: 500%;
+    font-size: 8rem;
     margin: 0 auto;
     text-align: center;
-    padding: 1.5rem;
+    padding: 2.4rem;
     width: 20%;
     line-height: 0.8;
     border: 1rem solid red;
@@ -28,7 +28,7 @@ const Project = styled.div`
     width: 33.3333%
 `
 
-const ProjectsPanel = () => {
+export const ProjectsPanel = () => {
     const data = useStaticQuery(graphql`
         fragment squareImage on File {
             childImageSharp {
@@ -68,7 +68,6 @@ const ProjectsPanel = () => {
         }
     `)
     const dataArr = Object.entries(data)
-    console.log(dataArr)
     return (
         <>
             <TitlePanel>
@@ -87,4 +86,3 @@ const ProjectsPanel = () => {
     )
 }
 
-export default ProjectsPanel

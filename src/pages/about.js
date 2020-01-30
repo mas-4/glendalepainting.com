@@ -4,35 +4,34 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import {Layout, SEO} from '../components/global'
 
 const HeroTitle = styled.h1`
     color: white;
-    font-size: 5rem;
+    font-size: 8rem;
     margin: 0 auto;
     width: 25%;
-    border-left 1rem solid red;
-    padding-left: 1rem;
+    border-left 1.6rem solid red;
+    padding-left: 1.6rem;
     line-height: 0.9;
 `
 const AboutBox = styled.div`
     background: rgba(0, 0, 0, 0.2);
     width: 70%;
     margin: 0 auto;
-    height: 60rem;
+    height: 96rem;
 `
 const AboutParagraph = styled.div`
-    margin-left: ${props => props.left ? '30' : '40'}rem;
-    margin-top: 5rem;
+    margin-left: ${props => props.left ? '48' : '64'}rem;
+    margin-top: 8rem;
     width: 45%;
     color: white;
-    font-size: 1.2rem;
+    font-size: 2rem;
 `
 const Testimonial = styled.div`
     background: rgba(0, 0, 0, 0.2);
     width: 70%;
-    padding: 1rem;
+    padding: 1.6rem;
     color: white;
     margin: 0 auto;
 `
