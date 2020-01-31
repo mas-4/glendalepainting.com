@@ -1,9 +1,8 @@
 import React from 'react'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import {Layout, SEO} from '../components/global'
 import styled from 'styled-components'
 
-import Data from '../servicesJSON'
+import Data from '../data/servicesJSON'
 
 const Container = styled.div`
     display: flex;
@@ -12,23 +11,32 @@ const Container = styled.div`
 `
 const Item = styled.div`
     width: 20%;
-    background-color: #e6e6e6;
-    margin: 0.5rem;
+    background-color: ${({theme}) => theme.lightGray};
+    margin: 0.8rem;
     padding: 0 2%;
-    border-radius: 1rem;
+    border-radius: 1.6rem;
     border: 2px solid #d7d7d7;
+
     img {
-        border-radius: 0.4rem;
+        width: 100%;
+        margin: 3.2rem auto 0;
+        border-radius: 0.64rem;
         border: 1px solid #d7d7d7;
     }
     h1 {
-        font-size: 1.1rem;
+        font-size: 1.8rem;
         color: red;
+        margin: 11.8px 0;
     }
+
     h2 {
-        font-size: 1rem;
+        font-size: 1.6rem;
+        margin-top: 13.2px;
     }
+
     p {
+        font-size: 1.6rem;
+        margin: 2rem 0;
     }
 `
 

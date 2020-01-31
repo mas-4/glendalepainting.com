@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ServicesBox = () => {
+export const ServicesBox = () => {
     const Boxes = styled.div`
         display: flex;
     `
@@ -16,8 +16,12 @@ const ServicesBox = () => {
     const Text = styled.div`
         width: 70%;
         color: white;
-        h1 {
+        h3{
             line-height: 0.8;
+        }
+        p{
+            font-size: 1.6rem;
+            margin-top: 3rem;
         }
     `
     return (
@@ -27,7 +31,7 @@ const ServicesBox = () => {
                 align="end"
             >
                 <Text>
-                    <h1>Repaint &amp; Restoration</h1>
+                    <h3>Repaint &amp; Restoration</h3>
                     <p>
                         Whether it's the typical repaint, or a full-out
                         restoration, our rehabilitation division has the
@@ -42,7 +46,7 @@ const ServicesBox = () => {
                 align="start"
             >
                 <Text>
-                    <h1>New Construction Painting</h1>
+                    <h3>New Construction Painting</h3>
                     <p>
                         Our new construction division boasts some of the
                         largest and most complex structures in Florida.  We
@@ -56,4 +60,3 @@ const ServicesBox = () => {
     )
 }
 
-export default ServicesBox

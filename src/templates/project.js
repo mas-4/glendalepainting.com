@@ -1,10 +1,10 @@
-import React from "react"
-import Layout from "../components/layout"
+import React from 'react';
+import { Layout } from '../components/global';
 
 export default () => {
-  return (
-    <Layout>
-      <div>Hello blog post</div>
-    </Layout>
-  )
-}
+    return (
+        <Layout>
+            <div>Hello blog post</div>
+        </Layout>
+    );
+};

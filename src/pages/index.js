@@ -1,45 +1,35 @@
 import React from 'react'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import {Layout, SEO} from '../components/global'
 
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
-import ProjectsPanel from '../components/landing/projects'
-import ServicesBox from '../components/landing/services'
+import {ProjectsPanel, ServicesBox} from '../components/landing'
+import {TitleBox} from '../styled-components'
 
-const Title = styled.h1`
-    font-size: ${props => props.size || '5rem'};
-    width: ${props => props.width};
-    border-left ${props => props.borderSize || '1'}rem solid ${props => props.borderColor};
-    color: ${props => props.color};
-    margin: 0 auto;
-    padding: 0 0 0 1rem;
-    line-height: 0.9;
-    text-align: left;
-`
 
 const HeroBlock = styled.div`
     margin: 0 auto;
     background: rgba(0, 0, 0, 0.2);
-    padding: 4rem;
+    padding: 6.4rem;
     color: white;
     width: 50%;
     text-align: center;
     h2 {
         text-align: left;
-        font-size: 2.25rem;
+        font-size: 3.6rem;
+        margin: 30px 0;
     }
 `
 
 const MissionText = styled.h1`
-    padding-left: 2rem;
-    font-size: 500%;
+    padding-left: 3.2rem;
+    font-size: ${({theme}) => theme.size8};
     line-height: 0.9;
-    border-left 2rem solid black;
+    border-left 3.2rem solid black;
     color: red;
     width: 35%;
     margin: 0 0 0 45%;
@@ -49,10 +39,13 @@ const AboutBlock = styled.div`
     margin: 0 auto;
     width: 55%;
     background: rgba(255, 255, 255, 0.2);
-    font-size: 2rem;
+    font-size: 3.2rem;
     color: white;
-    padding: 3rem;
+    padding: 4.8rem;
     font-family: Roboto;
+    p{
+        margin: 3.2rem 0;
+    }
 `
 
 
@@ -99,7 +92,7 @@ class IndexPage extends React.Component {
                     </ParallaxLayer>
                     <ParallaxLayer offset={0.25} speed={0.2}>
                         <HeroBlock>
-                            <Title width='30rem' color='white' borderColor='red'>Serving the Southeast since 1985</Title>
+                            <TitleBox width='48rem' color='white' borderColor='red'>Serving the Southeast since 1985</TitleBox>
                             <h2>
                                 With over three decades in the industry, Glendale has you
                                 covered.
@@ -119,7 +112,7 @@ class IndexPage extends React.Component {
                         <Img fluid={servicesImage} />
                     </ParallaxLayer>
                     <ParallaxLayer offset={4.8} speed={0.2}>
-                        <Title width='20rem' color='white' borderColor='red' size='5rem'>What We Do</Title>
+                        <TitleBox width='32rem' color='white' borderColor='red' size='8rem'>What We Do</TitleBox>
                     </ParallaxLayer>
                     <ParallaxLayer offset={4.97} speed={0}>
                         <ServicesBox />
@@ -130,14 +123,14 @@ class IndexPage extends React.Component {
                         <Img fluid={aboutImage} />
                     </ParallaxLayer>
                     <ParallaxLayer offset={5.95} speed={0.09}>
-                        <Title
-                            width='25rem'
+                        <TitleBox
+                            width='40rem'
                             color='white'
-                            size='7rem'
+                            size='11.2rem'
                             borderColor='black'
-                            borderSize='2'>
+                            borderSize='3.2rem'>
                             Who We Are
-                        </Title>
+                        </TitleBox>
                     </ParallaxLayer>
                     <ParallaxLayer offset={6.25} speed={0.2}>
                         <AboutBlock>

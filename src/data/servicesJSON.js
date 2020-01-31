@@ -1,11 +1,11 @@
-import vb from './images/services/vb.jpg'
-import rig from './images/services/rig.jpg'
-import stucco from './images/services/stucco.jpg'
-import floor from './images/services/floor.jpg'
-import bead from './images/services/bead.jpg'
-import waterproof from './images/services/waterproof.jpg'
-import text from './images/services/text.jpg'
-import paint from './images/services/paint.jpg'
+import vb from '../images/services/vb.jpg'
+import rig from '../images/services/rig.jpg'
+import stucco from '../images/services/stucco.jpg'
+import floor from '../images/services/floor.jpg'
+import bead from '../images/services/bead.jpg'
+import waterproof from '../images/services/waterproof.jpg'
+import text from '../images/services/text.jpg'
+import paint from '../images/services/paint.jpg'
 
 const Data = [
     {

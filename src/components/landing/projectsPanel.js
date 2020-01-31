@@ -1,20 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import {Transition} from 'react-spring/renderprops'
 import { useStaticQuery, graphql } from 'gatsby'
 
 const TitlePanel = styled.div`
     width: 100%;
-    margin: 10rem 0;
+    margin: 16rem 0;
 `
 const Title = styled.h1`
-    font-size: 500%;
+    font-size: 8rem;
     margin: 0 auto;
     text-align: center;
-    padding: 1.5rem;
+    padding: 2.4rem;
     width: 20%;
     line-height: 0.8;
-    border: 1rem solid red;
+    border: 1.6rem solid red;
 `
 
 const Panel = styled.div`
@@ -27,7 +28,7 @@ const Project = styled.div`
     width: 33.3333%
 `
 
-const ProjectsPanel = () => {
+export const ProjectsPanel = () => {
     const data = useStaticQuery(graphql`
         fragment squareImage on File {
             childImageSharp {
@@ -75,7 +76,7 @@ const ProjectsPanel = () => {
             <Panel>
                 {dataArr.map(([key, value]) => {
                     return (
-                        <Project>
+                        <Project key={key}>
                             <Img fluid={{...value.childImageSharp.fluid, aspectRatio: 1.1}} />
                         </Project>
                     )
@@ -85,4 +86,3 @@ const ProjectsPanel = () => {
     )
 }
 
-export default ProjectsPanel
