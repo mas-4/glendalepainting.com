@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import {Transition} from 'react-spring/renderprops'
 import { useStaticQuery, graphql } from 'gatsby'
 
 const TitlePanel = styled.div`
