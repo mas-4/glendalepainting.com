@@ -1,9 +1,11 @@
 ---
 title: "Belle Harbor"
 featuredImage: ./images/BelleHarbor.jpg
+tags: [ "Painting", "Exterior", "Sealant", "Replacement", "Stucco Repair", "Concrete Restoration", "Parking Garage Re-striping", "Multi-Unit Residential" ]
+category: Repaint
+quote: []
+location: Clearwater Beach
 ---
-
-Located on Clearwater Beach
 
 Belle Harbor is a large luxury condominium property on Clearwater Beach. Sitting
 directly across the street from the Sand Pearl Resort, Belle Harbor consists of
