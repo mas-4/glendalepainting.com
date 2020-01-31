@@ -1,5 +1,6 @@
 ---
 title: "Westin/Vue"
+featuredImage: ./images/VueFront.jpg
 ---
 
 Located in Downtown Sarasota

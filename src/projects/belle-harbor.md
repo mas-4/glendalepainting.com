@@ -1,5 +1,6 @@
 ---
 title: "Belle Harbor"
+featuredImage: ./images/BelleHarbor.jpg
 ---
 
 Located on Clearwater Beach

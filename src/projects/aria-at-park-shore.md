@@ -1,5 +1,6 @@
 ---
-Title: "Aria at Park Shore"
+title: "Aria at Park Shore"
+featuredImage: ./images/Aria.jpg
 ---
 
 Located in Naples
