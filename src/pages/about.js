@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
