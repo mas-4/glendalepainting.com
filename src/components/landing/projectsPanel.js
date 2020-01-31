@@ -15,7 +15,7 @@ const Title = styled.h1`
     padding: 2.4rem;
     width: 20%;
     line-height: 0.8;
-    border: 1rem solid red;
+    border: 1.6rem solid red;
 `
 
 const Panel = styled.div`

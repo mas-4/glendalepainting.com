@@ -34,6 +34,7 @@ const Testimonial = styled.div`
     padding: 1.6rem;
     color: white;
     margin: 0 auto;
+    font-size: 1.6rem;
 `
 
 class AboutPage extends React.Component {

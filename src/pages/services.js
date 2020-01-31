@@ -2,7 +2,7 @@ import React from 'react'
 import {Layout, SEO} from '../components/global'
 import styled from 'styled-components'
 
-import Data from '../servicesJSON'
+import Data from '../data/servicesJSON'
 
 const Container = styled.div`
     display: flex;
@@ -26,11 +26,17 @@ const Item = styled.div`
     h1 {
         font-size: 1.8rem;
         color: red;
+        margin: 11.8px 0;
     }
+
     h2 {
         font-size: 1.6rem;
+        margin-top: 13.2px;
     }
+
     p {
+        font-size: 1.6rem;
+        margin: 2rem 0;
     }
 `
 

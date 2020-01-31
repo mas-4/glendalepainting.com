@@ -1,10 +1,9 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { createGlobalStyle } from 'styled-components';
-import * as reset from '../styles/reset.css'
-import * as global from '../styles/global.css';
-import Header from './header';
-
+import * as reset from '../../styles/reset.css';
+import * as global from '../../styles/global.css';
+import { Header } from './header';
 
 const GlobalStyle = createGlobalStyle`     
     ${reset}

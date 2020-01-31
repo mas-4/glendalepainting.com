@@ -27,7 +27,7 @@ const HeroBlock = styled.div`
 
 const MissionText = styled.h1`
     padding-left: 3.2rem;
-    font-size: 500%;
+    font-size: ${({theme}) => theme.size8};
     line-height: 0.9;
     border-left 3.2rem solid black;
     color: red;

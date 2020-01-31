@@ -2,7 +2,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import { slide as Menu } from 'react-burger-menu';
-import logo from '../images/gpHeaderLogo.png';
+import logo from '../../images/gpHeaderLogo.png';
 
 const Nav = styled.nav`
     overflow: hidden; /* no scroll bar */
@@ -21,7 +21,7 @@ const Nav = styled.nav`
 
 const NavLink = styled(Link)`
     color: ${({ theme }) => theme.black};
-    font-size: ${({ theme }) => theme.size3};
+    font-size: ${({ theme }) => theme.size4};
     text-decoration: none;
     text-transform: uppercase;
     padding: 0 1.6rem;
