@@ -1,6 +1,6 @@
 ---
 title: Oceanside on Pompano Beach
-image: ./images/Oceanside.jpg
+featuredImage: ./images/Oceanside.jpg
 tags: [ "Wallcovering", "Painting", "Exterior", "Floor Coatings", "Bead Blasting", "Multi-Unit Residential", "Interior" ]
 category: New Construction
 quote: []

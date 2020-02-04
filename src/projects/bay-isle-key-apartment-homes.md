@@ -1,7 +1,7 @@
 ---
 title: Bay Isle Key Apartment Homes
 featuredImage: null
-tag: ["Painting", "Exterior", "Multi-Unit Residential", "Interior"]
+tags: ["Painting", "Exterior", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []
 location: St. Petersburg
