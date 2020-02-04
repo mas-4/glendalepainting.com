@@ -8,6 +8,7 @@ export const ProjectsFilter = ({ selectedTab, setSelectedTab }) => {
         repaint: false,
     };
     tabSelected[selectedTab] = true;
+
     return (
         <FilterContainer>
             <h4>Filter by category</h4>
@@ -29,7 +30,7 @@ export const ProjectsFilter = ({ selectedTab, setSelectedTab }) => {
                     NEW CONSTRUCTION
                 </FilterButton>
                 <FilterButton
-                    onClick={e => setSelectedTab('repaint')}
+                    onClick={e => setSelectedTab(e.target.name)}
                     name="repaint"
                     width="240px"
                     chosen={tabSelected['repaint']}
@@ -42,13 +43,13 @@ export const ProjectsFilter = ({ selectedTab, setSelectedTab }) => {
 };
 
 const FilterContainer = styled.div`
+    margin: 0 auto;
     h4 {
         color: ${({ theme }) => theme.black};
         font-size: ${({ theme }) => theme.size2};
     }
 `;
 const ButtonContainer = styled.div`
-    max-width: 700px
     display: flex;
     justify-content: space-between;
 `;

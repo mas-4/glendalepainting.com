@@ -3,11 +3,9 @@ import styled from 'styled-components';
 
 export const ProjectsPagination = ({
     changePage,
-    currentProjects,
-    itemPerPage,
+    totalPages,
     chosenPage,
 }) => {
-    const totalPages = Math.ceil(currentProjects.length / itemPerPage);
     let pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) pageNumbers.push(i);
     return (
@@ -43,6 +41,7 @@ export const ProjectsPagination = ({
 };
 
 const PaginateContainer = styled.div`
+    margin: 0 auto;
     max-width: 600px;
     display: flex;
     justify-content: space-between;

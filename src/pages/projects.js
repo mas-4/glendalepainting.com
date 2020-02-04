@@ -6,14 +6,19 @@ import {
     ProjectsFilter,
     ProjectsPagination,
 } from '../components/projects';
+import styled from 'styled-components';
 
 const ProjectsPage = ({ data }) => {
     const [currentProjects, setCurrentProjects] = useState([]);
     const [chosenPage, setChosenPage] = useState(1);
     const [displayedProjects, setDisplayedProjects] = useState([]);
     const [selectedTab, setSelectedTab] = useState('show all');
-    let projects = data.allMarkdownRemark.edges;
-    let itemPerPage = 15
+
+    let projects = data.allMarkdownRemark.edges.sort((a, b) =>
+        a.node.frontmatter.title > b.node.frontmatter.title ? 1 : -1
+    );
+
+    let itemPerPage = 15;
 
     useEffect(() => {
         let filteredProjects;
@@ -28,17 +33,17 @@ const ProjectsPage = ({ data }) => {
                 project => project.node.frontmatter.category === 'Repaint'
             );
         let filterSliced = filteredProjects.slice(0, itemPerPage);
-        setCurrentProjects([...filteredProjects]);
-        setDisplayedProjects([...filterSliced]);
-        setChosenPage(1)
+        setCurrentProjects(filteredProjects);
+        setDisplayedProjects(filterSliced);
+        setChosenPage(1);
     }, [selectedTab, itemPerPage, projects]);
 
     const changePage = page => {
-        setChosenPage(page)
+        setChosenPage(page);
         setDisplayedProjects(
             currentProjects.slice(itemPerPage * (page - 1), itemPerPage * page)
         );
-        window.scroll(0,0)
+        window.scroll(0, 0);
     };
 
     return (
@@ -49,13 +54,17 @@ const ProjectsPage = ({ data }) => {
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
             />
-            {displayedProjects.map(project => (
-                <Project key={project.node.frontmatter.title} data={project.node.frontmatter} />
-            ))}
+            <ProjectsContainer>
+                {displayedProjects.map(project => (
+                    <Project
+                        key={project.node.frontmatter.title}
+                        data={project.node.frontmatter}
+                    />
+                ))}
+            </ProjectsContainer>
             <ProjectsPagination
                 changePage={changePage}
-                currentProjects={currentProjects}
-                itemPerPage={itemPerPage}
+                totalPages={Math.ceil(currentProjects.length / itemPerPage)}
                 chosenPage={chosenPage}
             />
         </Layout>
@@ -66,7 +75,9 @@ export default ProjectsPage;
 
 export const query = graphql`
     query {
-        allMarkdownRemark {
+        allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/projects/" } }
+        ) {
             edges {
                 node {
                     frontmatter {
@@ -76,7 +87,7 @@ export const query = graphql`
                         title
                         featuredImage {
                             childImageSharp {
-                                fluid(quality: 100, maxWidth: 1980) {
+                                fluid(quality: 100, maxWidth: 250) {
                                     ...GatsbyImageSharpFluid
                                 }
                             }
@@ -86,4 +97,13 @@ export const query = graphql`
             }
         }
     }
+`;
+
+const ProjectsContainer = styled.div`
+    max-width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: 0 auto;
 `;
