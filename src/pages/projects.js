@@ -59,6 +59,7 @@ const ProjectsPage = ({ data }) => {
                     <Project
                         key={project.node.frontmatter.title}
                         data={project.node.frontmatter}
+                        slug={project.node.fields.slug}
                     />
                 ))}
             </ProjectsContainer>
@@ -80,6 +81,9 @@ export const query = graphql`
         ) {
             edges {
                 node {
+                    fields {
+                        slug
+                    }
                     frontmatter {
                         category
                         location
@@ -87,7 +91,7 @@ export const query = graphql`
                         title
                         featuredImage {
                             childImageSharp {
-                                fluid(quality: 100, maxWidth: 250) {
+                                fluid(quality: 100, maxWidth: 380) {
                                     ...GatsbyImageSharpFluid
                                 }
                             }
@@ -100,7 +104,7 @@ export const query = graphql`
 `;
 
 const ProjectsContainer = styled.div`
-    max-width: 1000px;
+    max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

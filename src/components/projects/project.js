@@ -1,25 +1,30 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-export const Project = ({ data }) => {
-    console.log(data.featuredImage)
+export const Project = ({ data, slug }) => {
     return (
         <ProjectContainer>
             {data.featuredImage && (
                 <Img
                     style={{ width: '100%' }}
-                    fluid={data.featuredImage.childImageSharp.fluid}
+                    fluid={{
+                        ...data.featuredImage.childImageSharp.fluid,
+                        aspectRatio: 1.5,
+                    }}
                 />
             )}
-            <HoverContainer>{data.tags}</HoverContainer>
+            <Link to={`/${slug}`}>
+                <HoverContainer>{data.tags}</HoverContainer>
+            </Link>
         </ProjectContainer>
     );
 };
 
 const ProjectContainer = styled.div`
-    min-width: 275px;
-    margin: 15px 0;
+    width: 380px;
+    margin: 15px 10px;
     height: auto;
     position: relative;
 `;
@@ -27,12 +32,13 @@ const ProjectContainer = styled.div`
 const HoverContainer = styled.div`
     position: absolute;
     top: 0px;
-    background: rgba(0, 0, 0, 0.5);
+    background: #fff;
     height: 100%;
+    width: 100%;
     opacity: 0;
     transition: 0.5s ease;
 
     &:hover {
-        opacity: 1;
+        opacity: 0.7;
     }
 `;
