@@ -1,6 +1,6 @@
 ---
 title: Tampa West Industrial
-featuredImage: null
+featuredImage: ./images/TampaWestIndustrial.jpg
 tags: ["Painting", "Exterior", "Sealant Replacement", "Commercial Projects"]
 category: Repaint
 quote: []

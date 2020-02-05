@@ -1,6 +1,6 @@
 ---
 title: Bay Isle Key Apartment Homes
-featuredImage: null
+featuredImage: ./images/BayIsleKeyApartmentHomes.jpg
 tags: ["Painting", "Exterior", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []

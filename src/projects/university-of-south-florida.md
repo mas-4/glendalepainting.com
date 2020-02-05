@@ -1,6 +1,6 @@
 ---
 title: The University of South Florida
-featuredImage: null
+featuredImage: ./images/USF.jpg
 tags: ["Painting", "Exterior", "Sealant Replacement", "Commercial Projects", "Interior"]
 category: Repaint
 quote: []

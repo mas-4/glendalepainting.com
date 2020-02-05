@@ -1,6 +1,6 @@
 ---
 title: Tuscany at Hammock Dunes
-featuredImage: null
+featuredImage: ./images/TuscanyAtHammockDunes.jpg
 tags: ["Wallcovering", "Beauty Bead Sealants", "Painting", "Exterior", "Floor Coatings", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []

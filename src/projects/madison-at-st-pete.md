@@ -1,6 +1,6 @@
 ---
 title: Madison at St. Petersburg
-featuredImage: null
+featuredImage: ./images/MadisonAtStPete.jpg
 tags: ["Beauty Bead Sealants", "Painting", "Exterior", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []

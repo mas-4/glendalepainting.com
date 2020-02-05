@@ -1,6 +1,6 @@
 ---
 title: The Esplanade Shoppes, Residences and Marina
-featuredImage: null
+featuredImage: ./images/EsplanadeShoppes.jpg
 tags: [ "Painting", "Exterior", "Commercial Projects", "Interior" ]
 category: New Construction
 quote: []

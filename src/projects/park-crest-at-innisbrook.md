@@ -1,6 +1,6 @@
 ---
 title: Park Crest at Innisbrook
-featuredImage: null
+featuredImage: ./images/ParkCrestInnisbrook.jpg
 tags: ["Painting", "Exterior", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []

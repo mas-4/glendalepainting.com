@@ -1,6 +1,6 @@
 ---
 title: Gulfstream Isles
-featuredImage: null
+featuredImage: ./images/GulfstreamIsles.jpg
 tags: ["Painting", "Exterior", "Sealant Replacement", "Multi-Unit Residential"]
 category: Repaint
 quote: []

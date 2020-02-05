@@ -1,6 +1,6 @@
 ---
 title: Tuscany by the Sea
-featuredImage: null
+featuredImage: ./images/TuscanyByTheSea.jpg
 tags: ["Painting", "Deck Membrane", "Stucco Repair", "General Construction Repairs", "Multi-Unit Residential"]
 category: Repaint
 quote: []

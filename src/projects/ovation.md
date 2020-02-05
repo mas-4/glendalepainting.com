@@ -1,6 +1,6 @@
 ---
 title: Ovation
-featuredImage: null
+featuredImage: ./images/Ovation.jpg
 tags: ["Painting", "Sealant Replacement", "Exterior", "Stucco Repair", "Multi-Unit Residential"]
 category: Repaint
 quote: []

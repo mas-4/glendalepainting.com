@@ -1,6 +1,6 @@
 ---
 title: Avalon Heights
-featuredImage: null
+featuredImage: ./images/AvalonHeights.jpg
 tags: ["Painting", "Exterior", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []

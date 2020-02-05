@@ -1,6 +1,6 @@
 ---
 title: Embassy House
-featuredImage: null
+featuredImage: ./images/EmbassyHouse.jpg
 tags: ["Deck Membrane", "Painting", "Exterior", "Stucco Replair", "Multi-Unit Residential"]
 category: Repaint
 quote: []

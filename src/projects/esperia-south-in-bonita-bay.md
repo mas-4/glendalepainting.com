@@ -1,6 +1,6 @@
 ---
 title: Esperia South in Bonita Bay
-featuredImage: Esperia.jpg
+featuredImage: ./images/Esperia.jpg
 tags: ["Beauty Bead Sealants", "Painting", "Exterior", "Floor Coatings", "Multi-Unit Residential", "Interior" ]
 category: New Construction
 quote: []

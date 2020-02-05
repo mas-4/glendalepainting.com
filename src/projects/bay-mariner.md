@@ -1,6 +1,6 @@
 ---
 title: Bay Mariner
-featuredImage: null
+featuredImage: ./images/BayMariner.jpg
 tags: ["Painting", "Sealant Replacement", "Stucco Repair", "Exterior", "Multi-Unit Residential"]
 category: Repaint
 quote: []
