@@ -24,7 +24,7 @@ export const Project = ({ data, slug }) => {
 
 const ProjectContainer = styled.div`
     width: 380px;
-    margin: 15px 10px;
+    margin: 10px 10px;
     height: auto;
     position: relative;
 `;
