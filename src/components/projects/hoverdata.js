@@ -55,7 +55,8 @@ const Tag = styled.div`
     font-size: ${({ theme }) => theme.size1};
     width: auto;
     margin: 5px;
-    padding: 3px;
+    padding: 3px 6px;
+    border-radius: 5px;
 `;
 
 const TagsContainer = styled.div`
