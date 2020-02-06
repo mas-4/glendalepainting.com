@@ -50,23 +50,6 @@ const AboutBlock = styled.div`
 
 
 class IndexPage extends React.Component {
-    state = {
-        width: window.innerWidth,
-        height: window.innerHeight
-    }
-
-    componentDidMount() {
-        window.addEventListener('resize', this.handleResize)
-    }
-
-    componentWillUnmount(){
-        window.removeEventListener('resize', this.handleResize)
-    }
-
-    handleResize = () => {
-        this.setState({width: window.innerWidth, height: window.innerHeight})
-    }
-
     render() {
         const heroImage = this.props.data.hero.childImageSharp.fluid;
         const aboutImage = this.props.data.about.childImageSharp.fluid;
