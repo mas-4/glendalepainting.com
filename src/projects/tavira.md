@@ -1,7 +1,7 @@
 ---
 title: Tavira
 featuredImage: ./images/Tavira.jpg
-tags: ["Wallcovering", "Painting" "Exterior", "Floor Coatings", "Bead Blasting", "Multi-Unit Residential", "Interior"]
+tags: ["Wallcovering", "Painting", "Exterior", "Floor Coatings", "Bead Blasting", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []
 location: Bonita Bay
