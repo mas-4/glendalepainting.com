@@ -91,8 +91,8 @@ export const query = graphql`
                         title
                         featuredImage {
                             childImageSharp {
-                                fluid(quality: 100, maxWidth: 380) {
-                                    ...GatsbyImageSharpFluid
+                                fixed(quality: 100, width: 420, height: 280 ) {
+                                    ...GatsbyImageSharpFixed
                                 }
                             }
                         }
@@ -104,7 +104,7 @@ export const query = graphql`
 `;
 
 const ProjectsContainer = styled.div`
-    max-width: 1200px;
+    max-width: 1320px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
