@@ -1,6 +1,6 @@
 ---
 title: Batiki West
-featuredImage: null
+featuredImage: ./images/BatikiWest.jpg
 tags: ["Painting", "Exterior", "Sealant Replacement", "Multi-Unit Residential", "Carpentry"]
 category: Repaint
 quote: []

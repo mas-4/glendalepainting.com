@@ -1,6 +1,6 @@
 ---
 title: Beacon on Third
-featuredImage: null
+featuredImage: ./images/BeaconOnThird.jpg
 tags: ["Deck Membrane", "Painting", "Sealant Replacement", "Stucco Repair", "Concrete Restoration", "Floor Coatings", "Multi-Unit Residential"]
 category: Repaint
 quote: []

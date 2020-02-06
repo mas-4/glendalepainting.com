@@ -1,6 +1,6 @@
 ---
 title: Beauty Alliance
-featuredImage: null
+featuredImage: ./images/BeautyAlliance.jpg
 tags: ["Painting", "Exterior", "Sealant Replacement", "Commercial Projects"]
 category: Repaint
 quote: []

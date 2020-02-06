@@ -1,6 +1,6 @@
 ---
 title: Fountainview
-featuredImage: null
+featuredImage: ./images/FountainView.jpg
 tags: ["Painting", "Exterior", "Sealant Replacement", "Commercial Projects"]
 category: Repaint
 quote: []

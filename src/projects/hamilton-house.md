@@ -1,6 +1,6 @@
 ---
 title: Hamilton House
-featuredImage: null
+featuredImage: ./images/HamiltonHouse.jpg
 tags: ["Painting", "Exterior", "Sealant Replacement", "Multi-Unit Residential", "EIFS Repair"]
 category: Repaint
 quote: []

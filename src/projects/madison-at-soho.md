@@ -1,6 +1,6 @@
 ---
 title: Madison at SOHO
-featuredImage: null
+featuredImage: ./images/MadisonAtSOHO.jpg
 tags: ["Painting", "Exterior", "Multi-Unit Residential", "Interior", "Sealant Installation"]
 category: New Construction
 quote: []

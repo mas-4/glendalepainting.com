@@ -1,6 +1,6 @@
 ---
 title: Sand Dollar
-featuredImage: null
+featuredImage: ./images/SandDollar.jpg
 tags: ["Floor Coating", "Painting", "Exterior", "Sealant Replacement", "Multi-Unit Residential", "Interior", "Railing Refinishing"]
 category: Repaint
 quote: []

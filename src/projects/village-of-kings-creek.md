@@ -1,6 +1,6 @@
 ---
 title: Village of King's Creek
-featuredImage: null
+featuredImage: ./images/VillageKingsCreek.jpg
 tags: ["Painting", "Exterior", "Sealant Replacement", "Multi-Unit Residential"]
 category: Repaint
 quote: []

@@ -1,6 +1,6 @@
 ---
 title: Bardmoor Palms East
-featuredImage: null
+featuredImage: ./images/BardmoorPalmsEast.jpg
 tags: ["Painting", "Exterior", "Sealant Replacement", "Commercial Projects"]
 category: Repaint
 quote: []

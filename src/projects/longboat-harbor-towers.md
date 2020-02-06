@@ -1,6 +1,6 @@
 ---
 title: Longboat Harbor Towers
-featuredImage: ./images/LongboatHarborTowers.jpg
+featuredImage: "./images/LongboatHarborTowers.jpg"
 tags: ["Painting", "Exterior", "Sealant Replacement", "Multi-Unit Residential", "Stucco Repair"]
 category: Repaint
 quote: []

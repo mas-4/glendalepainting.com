@@ -1,6 +1,6 @@
 ---
 title: Gatewood Corporate Center
-featuredImage: null
+featuredImage: ./images/Gatewood.jpg
 tags: ["Painting", "Exterior", "Commercial Project", "Sealant Installation", "Texture Coatings"]
 category: New Construction
 quote: ["The Service and Quality of work Glendale has provided to us is as good as any subcontractor can provide to an Owner.  We engage their services for big and small jobs and they have never let us down.  Rick and Kevin are true to their word people.", "Roy Dicke - Harrod Properties", "https://www.harrodproperties.com/"]

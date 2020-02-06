@@ -1,6 +1,6 @@
 ---
 title: Aston Gardens
-featuredImage: null
+featuredImage: ./images/AstonGardens.jpg
 tags: ["Painting", "Exterior", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []

@@ -1,6 +1,6 @@
 ---
 title: Aqua 280
-featuredImage: null
+featuredImage: ./images/Aqua280.jpg
 tags: ["Beauty Bead Sealants", "Painting", "Exterior", "High Build Coatings", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []

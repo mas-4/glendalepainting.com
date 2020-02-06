@@ -1,6 +1,6 @@
 ---
 title: Echelon on Palm
-featuredImage: null
+featuredImage: ./images/EchelonOnPalm.jpg
 tags: ["Beauty Bead Sealants", "Painting", "Exterior", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []
