@@ -1,7 +1,7 @@
 ---
 title: Palm Beach County Convention Center
 featuredImage: ./images/PalmBeachCountyConventionCenter.jpg
-tags: ["Wallcovering", "Painting", "Exterior", "Floor Coatings", "Venetian Plaster", "Duraplex Finishes", "Commercial Projects", "Interior"
+tags: ["Wallcovering", "Painting", "Exterior", "Floor Coatings", "Venetian Plaster", "Duraplex Finishes", "Commercial Projects", "Interior"]
 category: New Construction
 quote: []
 location: West Palm Beach
