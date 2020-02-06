@@ -11,7 +11,6 @@ export const ProjectsFilter = ({ selectedTab, setSelectedTab }) => {
 
     return (
         <FilterContainer>
-            <h4>Filter by category</h4>
             <ButtonContainer>
                 <FilterButton
                     onClick={e => setSelectedTab(e.target.name)}
@@ -63,7 +62,7 @@ const FilterButton = styled.button`
         props.chosen ? props.theme.red : props.theme.lightGray};
     border: none;
     cursor: pointer;
-
+   
     &:focus {
         outline: none;
     }

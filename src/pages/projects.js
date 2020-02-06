@@ -49,7 +49,7 @@ const ProjectsPage = ({ data }) => {
     return (
         <Layout>
             <SEO title="Projects" />
-            <h1>A Few of our Projects</h1>
+            <h1 style={{textAlign: 'center', marginBottom: '15px'}}>A Few of our Projects</h1>
             <ProjectsFilter
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}

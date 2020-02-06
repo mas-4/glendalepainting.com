@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import { HoverData } from './hoverdata';
 
 export const Project = ({ data, slug }) => {
     return (
@@ -9,15 +10,17 @@ export const Project = ({ data, slug }) => {
             {data.featuredImage && (
                 <Img
                     style={{ width: '100%' }}
-                    imgStyle={{transition: 'opacity 0.5s ease 0s, transform 1s ease'}}
+                    imgStyle={{
+                        transition: 'opacity 0.5s ease 0s, transform 1s ease',
+                    }}
                     fixed={{
                         ...data.featuredImage.childImageSharp.fixed,
                         aspectRatio: 1.5,
                     }}
                 />
             )}
-            <Link to={`/${slug}`}>
-                <HoverContainer className="mask">{data.tags}</HoverContainer>
+            <Link to={`${slug}`}>
+                <HoverData data={data} />
             </Link>
         </ProjectContainer>
     );
@@ -35,16 +38,6 @@ const ProjectContainer = styled.div`
     }
 
     &:hover .mask {
-        opacity: 0.7;
+        opacity: 1;
     }
-`;
-
-const HoverContainer = styled.div`
-    position: absolute;
-    top: 0px;
-    background: rgba(0, 0, 0, 0.7);
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: 0.5s ease;
 `;
