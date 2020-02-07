@@ -43,10 +43,10 @@ export default ({ data }) => {
         <Layout>
             <SEO title={post.frontmatter.title} />
             <div>
-                <Title>{post.frontmatter.title}</Title>
                 <Picture>
                     <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />
                 </Picture>
+                <Title>{post.frontmatter.title}</Title>
                 <Tags>
                     {post.frontmatter.tags.map(tag => (
                         <Tag>{tag}</Tag>
