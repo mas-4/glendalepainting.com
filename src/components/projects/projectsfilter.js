@@ -62,7 +62,7 @@ const FilterButton = styled.button`
         props.chosen ? props.theme.red : props.theme.lightGray};
     border: none;
     cursor: pointer;
-   
+
     &:focus {
         outline: none;
     }

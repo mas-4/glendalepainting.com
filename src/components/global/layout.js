@@ -5,7 +5,7 @@ import * as reset from '../../styles/reset.css';
 import * as global from '../../styles/global.css';
 import { Header } from './header';
 
-const GlobalStyle = createGlobalStyle`     
+const GlobalStyle = createGlobalStyle`
     ${reset}
     ${global}
 `;
@@ -17,6 +17,11 @@ const Main = styled.main`
 
 const Footer = styled.footer`
     height: 8rem;
+    background-color: ${({theme}) => theme.lightGray};
+    margin-top: 4rem;
+    padding: 4rem;
+    text-align: center;
+    font-size: ${({theme}) => theme.size2};
 `;
 
 export const Layout = ({ children }) => {
