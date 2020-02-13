@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const NavBar = styled.nav`
     width: fit-content;
-    background-color: white;
+    background-color: rgb(255, 255, 255, 0.65);
     margin: 0 auto;
     display: flex;
     justify-content: space-between;

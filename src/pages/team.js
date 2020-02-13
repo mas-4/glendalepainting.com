@@ -27,6 +27,7 @@ const Item = styled.div`
     }
     p {
         font-size: ${({theme}) => theme.size2}
+        color: ${({ theme }) => theme.gray};
     }
 
 `
