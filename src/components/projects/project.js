@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { HoverData } from './hoverdata';
 
-export const Project = ({ data, slug }) => {
+export const Project = ({ data, slug, storePage }) => {
     return (
         <ProjectContainer>
             {data.featuredImage && (
@@ -19,7 +19,7 @@ export const Project = ({ data, slug }) => {
                     }}
                 />
             )}
-            <Link to={`${slug}`}>
+            <Link to={`${slug}`} onClick={storePage}>
                 <HoverData data={data} />
             </Link>
         </ProjectContainer>

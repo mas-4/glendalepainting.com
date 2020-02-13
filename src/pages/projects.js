@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { StateContext, storePageAction } from '../globalState';
 import { Layout, SEO } from '../components/global';
 import { graphql } from 'gatsby';
 import {
@@ -9,11 +10,11 @@ import {
 import styled from 'styled-components';
 
 const ProjectsPage = ({ data }) => {
+    const [{ pageInfo }, dispatch] = useContext(StateContext);
     const [currentProjects, setCurrentProjects] = useState([]);
-    const [chosenPage, setChosenPage] = useState(1);
+    const [chosenPage, setChosenPage] = useState(pageInfo.number);
     const [displayedProjects, setDisplayedProjects] = useState([]);
     const [selectedTab, setSelectedTab] = useState('show all');
-
     let projects = data.allMarkdownRemark.edges.sort((a, b) =>
         a.node.frontmatter.title > b.node.frontmatter.title ? 1 : -1
     );
@@ -32,10 +33,12 @@ const ProjectsPage = ({ data }) => {
             filteredProjects = projects.filter(
                 project => project.node.frontmatter.category === 'Repaint'
             );
-        let filterSliced = filteredProjects.slice(0, itemPerPage);
+        let filterSliced = filteredProjects.slice(
+            itemPerPage * (pageInfo.number - 1),
+            itemPerPage * pageInfo.number
+        );
         setCurrentProjects(filteredProjects);
         setDisplayedProjects(filterSliced);
-        setChosenPage(1);
     }, [selectedTab, itemPerPage, projects]);
 
     const changePage = page => {
@@ -46,10 +49,16 @@ const ProjectsPage = ({ data }) => {
         window.scroll(0, 0);
     };
 
+    const storePage = () => {
+        storePageAction(dispatch, chosenPage);
+    };
+
     return (
         <Layout>
             <SEO title="Projects" />
-            <h1 style={{textAlign: 'center', marginBottom: '15px'}}>A Few of our Projects</h1>
+            <h1 style={{ textAlign: 'center', marginBottom: '15px' }}>
+                A Few of our Projects
+            </h1>
             <ProjectsFilter
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
@@ -60,6 +69,7 @@ const ProjectsPage = ({ data }) => {
                         key={project.node.frontmatter.title}
                         data={project.node.frontmatter}
                         slug={project.node.fields.slug}
+                        storePage={storePage}
                     />
                 ))}
             </ProjectsContainer>
@@ -91,7 +101,7 @@ export const query = graphql`
                         title
                         featuredImage {
                             childImageSharp {
-                                fixed(quality: 100, width: 420, height: 280 ) {
+                                fixed(quality: 100, width: 420, height: 280) {
                                     ...GatsbyImageSharpFixed
                                 }
                             }
