@@ -15,12 +15,12 @@ const HeroBlock = styled.div`
     margin: 0 auto;
     background: rgba(0, 0, 0, 0.2);
     padding: 6.4rem;
-    color: white;
+    color: ${({theme}) => theme.white};
     width: 50%;
     text-align: center;
     h2 {
         text-align: left;
-        font-size: 3.6rem;
+        font-size: ${({theme}) => theme.size5};
         margin: 30px 0;
     }
 `
@@ -29,8 +29,8 @@ const MissionText = styled.h1`
     padding-left: 3.2rem;
     font-size: ${({theme}) => theme.size8};
     line-height: 0.9;
-    border-left 3.2rem solid black;
-    color: red;
+    border-left 3.2rem solid ${({theme}) => theme.black};
+    color: ${({theme}) => theme.red};
     width: 35%;
     margin: 0 0 0 45%;
 `
@@ -39,8 +39,8 @@ const AboutBlock = styled.div`
     margin: 0 auto;
     width: 55%;
     background: rgba(255, 255, 255, 0.2);
-    font-size: 3.2rem;
-    color: white;
+    font-size: ${({theme}) => theme.size7} ;
+    color: ${({theme}) => theme.white};
     padding: 4.8rem;
     font-family: Roboto;
     p{
