@@ -53,7 +53,7 @@ class AboutPage extends React.Component {
                     <ParallaxLayer offset={0} speed={0}>
                         <Img fluid={heroImage} />
                     </ParallaxLayer>
-                    <ParallaxLayer offset={0.15} speed={0}>
+                    <ParallaxLayer offset={0.1} speed={0}>
                         <AboutNav />
                     </ParallaxLayer>
                     <ParallaxLayer offset={1} speed={0}>
