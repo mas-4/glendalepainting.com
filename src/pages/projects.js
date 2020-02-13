@@ -7,7 +7,30 @@ import {
     ProjectsFilter,
     ProjectsPagination,
 } from '../components/projects';
+import Order from '../data/projectsOrderJSON.js'
 import styled from 'styled-components';
+
+function sortProjects(raw) {
+    const specified = [];
+    const unspecified = [];
+    for (let el of raw) {
+        let slug = el.node.fields.slug;
+        if (Order.includes(slug)) {
+            specified.push(el);
+        } else {
+            unspecified.push(el);
+        }
+    }
+    let orderedSpecified = specified.sort((a, b) =>
+        Order.indexOf(a.node.fields.slug) > Order.indexOf(b.node.fields.slug) ? 1 : -1
+    );
+    let orderedUnspecified = unspecified.sort((a, b) =>
+        a.node.frontmatter.title > b.node.frontmatter.title ? 1 : -1
+    );
+    let projects = [ ...orderedSpecified, ...orderedUnspecified ];
+
+    return projects;
+}
 
 const ProjectsPage = ({ data }) => {
     const [{ pageInfo }, dispatch] = useContext(StateContext);
@@ -15,9 +38,8 @@ const ProjectsPage = ({ data }) => {
     const [chosenPage, setChosenPage] = useState(pageInfo.number);
     const [displayedProjects, setDisplayedProjects] = useState([]);
     const [selectedTab, setSelectedTab] = useState('show all');
-    let projects = data.allMarkdownRemark.edges.sort((a, b) =>
-        a.node.frontmatter.title > b.node.frontmatter.title ? 1 : -1
-    );
+
+    let projects = sortProjects(data.allMarkdownRemark.edges);
 
     let itemPerPage = 15;
 
