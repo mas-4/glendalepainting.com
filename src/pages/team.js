@@ -8,17 +8,22 @@ const Team = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding: 5rem;
-    width: 85%;
+    width: 75%;
     margin: 0 auto;
 `
 const Item = styled.div`
     width: 45%;
     margin: 3rem;
+    img {
+        float: left;
+        margin: 1rem;
+    }
     h1 {
         font-size: ${({theme}) => theme.size4}
     }
     h2 {
         font-size: ${({theme}) => theme.size3}
+        color: ${({theme}) => theme.red}
     }
     p {
         font-size: ${({theme}) => theme.size2}
