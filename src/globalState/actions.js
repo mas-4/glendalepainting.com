@@ -20,4 +20,5 @@ export const setSelectedTab = (dispatch, selection) => {
 
 export const changeFilters = (dispatch, option, selection = '') => {
     dispatch({ type: filterDict[option], payload: selection });
+    dispatch({ type: STORE_PAGE, payload: 1 });
 };
