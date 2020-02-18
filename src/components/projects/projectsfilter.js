@@ -1,38 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const ProjectsFilter = ({ selectedTab, setSelectedTab }) => {
+export const ProjectsFilter = ({ selectedTab, setSelectedTab, dispatch }) => {
     let tabSelected = {
-        'show all': false,
-        'new construction': false,
-        repaint: false,
+        'Show All': false,
+        'New Construction': false,
+        Repaint: false,
     };
     tabSelected[selectedTab] = true;
-
+   
     return (
         <FilterContainer>
             <ButtonContainer>
                 <FilterButton
-                    onClick={e => setSelectedTab(e.target.name)}
-                    name="show all"
+                    onClick={e => setSelectedTab(dispatch, e.target.name)}
+                    name="Show All"
                     width="120px"
-                    chosen={tabSelected['show all']}
+                    chosen={tabSelected['Show All']}
                 >
                     SHOW ALL
                 </FilterButton>
                 <FilterButton
-                    onClick={e => setSelectedTab(e.target.name)}
-                    name="new construction"
+                    onClick={e => setSelectedTab(dispatch, e.target.name)}
+                    name="New Construction"
                     width="240px"
-                    chosen={tabSelected['new construction']}
+                    chosen={tabSelected['New Construction']}
                 >
                     NEW CONSTRUCTION
                 </FilterButton>
                 <FilterButton
-                    onClick={e => setSelectedTab(e.target.name)}
-                    name="repaint"
+                    onClick={e => setSelectedTab(dispatch, e.target.name)}
+                    name="Repaint"
                     width="240px"
-                    chosen={tabSelected['repaint']}
+                    chosen={tabSelected['Repaint']}
                 >
                     REPAINT/RESTORATION
                 </FilterButton>

@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const ProjectsPagination = ({
-    changePage,
+    setSelectedPage,
+    dispatch,
     totalPages,
     chosenPage,
 }) => {
@@ -10,11 +11,11 @@ export const ProjectsPagination = ({
     for (let i = 1; i <= totalPages; i++) pageNumbers.push(i);
     return (
         <PaginateContainer>
-            <TextButton onClick={() => changePage(1)} color="black">
+            <TextButton onClick={() => setSelectedPage(dispatch, 1)} color="black">
                 START
             </TextButton>
             <TextButton
-                onClick={() => changePage(chosenPage - 1)}
+                onClick={() => setSelectedPage(dispatch, chosenPage - 1)}
                 color="black"
             >
                 PREV
@@ -24,16 +25,16 @@ export const ProjectsPagination = ({
                     <PageButton
                         chosen={number === chosenPage}
                         key={number}
-                        onClick={() => changePage(number)}
+                        onClick={() => setSelectedPage(dispatch, number)}
                     >
                         {number}
                     </PageButton>
                 );
             })}
-            <TextButton onClick={() => changePage(chosenPage + 1)} color="red">
+            <TextButton onClick={() => setSelectedPage(dispatch, chosenPage + 1)} color="red">
                 NEXT
             </TextButton>
-            <TextButton onClick={() => changePage(totalPages)} color="red">
+            <TextButton onClick={() => setSelectedPage(dispatch, totalPages)} color="red">
                 END
             </TextButton>
         </PaginateContainer>
