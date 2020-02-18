@@ -1,7 +1,7 @@
 ---
 title: Devonshire at PGA National
 featuredImage: ./images/SarasotaBayClub.jpg
-tags: ["Painting", "Exterior", "Sealant Replacement", "Commerical Projects"]
+tags: ["Painting", "Exterior", "Sealant Replacement", "Commercial Projects"]
 category: Repaint
 quote: []
 location: West Palm Beach

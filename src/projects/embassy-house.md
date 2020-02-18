@@ -1,7 +1,7 @@
 ---
 title: Embassy House
 featuredImage: ./images/EmbassyHouse.jpg
-tags: ["Deck Membrane", "Painting", "Exterior", "Stucco Replair", "Multi-Unit Residential"]
+tags: ["Deck Membrane", "Painting", "Exterior", "Stucco Repair", "Multi-Unit Residential"]
 category: Repaint
 quote: []
 location: Sarasota

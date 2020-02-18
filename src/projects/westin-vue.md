@@ -1,7 +1,7 @@
 ---
 title: Westin/Vue
 featuredImage: ./images/VueFront.jpg
-tags: [ "Waterpoofing", "Wallcovering", "Epoxies", "Beauty Bead Sealants", "Painting", "Wallcovering Murals", "Exterior", "Commercial Projects", "Multi-Unit Residential", "Interior", ]
+tags: [ "Waterproofing", "Wallcovering", "Epoxies", "Beauty Bead Sealants", "Painting", "Murals", "Exterior", "Commercial Projects", "Multi-Unit Residential", "Interior", ]
 category: New Construction
 quote: []
 location: Downtown Sarasota

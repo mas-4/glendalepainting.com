@@ -1,7 +1,7 @@
 ---
 title: Beau Rivage, St. Tropez, & Riviera
 featuredImage: ./images/BeauRivageStTropezAndRiviera.jpg
-tags: [ "Beauty Bead Sealant", "Painting", "Exterior", "Floor Coatings", "Bead Blasting", "Multi-Unit Residential", "Interior" ]
+tags: [ "Beauty Bead Sealants", "Painting", "Exterior", "Floor Coatings", "Bead Blasting", "Multi-Unit Residential", "Interior" ]
 category: New Construction
 quote: []
 location: Fort Myers

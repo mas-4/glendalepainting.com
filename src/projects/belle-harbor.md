@@ -1,7 +1,7 @@
 ---
 title: "Belle Harbor"
 featuredImage: ./images/BelleHarbor.jpg
-tags: [ "Painting", "Exterior", "Sealant", "Replacement", "Stucco Repair", "Concrete Restoration", "Parking Garage Re-striping", "Multi-Unit Residential" ]
+tags: [ "Painting", "Exterior", "Sealant Replacement", "Replacement", "Stucco Repair", "Concrete Restoration", "Parking Garage Re-striping", "Multi-Unit Residential" ]
 category: Repaint
 quote: []
 location: Clearwater Beach

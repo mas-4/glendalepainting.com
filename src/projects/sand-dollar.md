@@ -1,7 +1,7 @@
 ---
 title: Sand Dollar
 featuredImage: ./images/SandDollar.jpg
-tags: ["Floor Coating", "Painting", "Exterior", "Sealant Replacement", "Multi-Unit Residential", "Interior", "Railing Refinishing"]
+tags: ["Floor Coatings", "Painting", "Exterior", "Sealant Replacement", "Multi-Unit Residential", "Interior", "Railing Refinishing"]
 category: Repaint
 quote: []
 location: Indian Shores

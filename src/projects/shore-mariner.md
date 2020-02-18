@@ -1,7 +1,7 @@
 ---
 title: "Shore Mariner"
 featuredImage: ./images/ShoreMariner.jpg
-tags: ["Waterproofing", "Floor Coating", "Painting", "Sealant Replacement", "Exterior", "Multi-Unit Residential"]
+tags: ["Waterproofing", "Floor Coatings", "Painting", "Sealant Replacement", "Exterior", "Multi-Unit Residential"]
 category: "Repaint"
 quote: []
 location: Redington Shores

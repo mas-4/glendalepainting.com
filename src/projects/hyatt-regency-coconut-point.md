@@ -1,7 +1,7 @@
 ---
 title: Hyatt Regency Coconut Point
 featuredImage: ./images/HyattExterior.jpg
-tags: ["Painting", "Exterior", "Faux Finishes", "Stain Work", "Commercial Project", "Interior"]
+tags: ["Painting", "Exterior", "Faux Finishes", "Stain Work", "Commercial Projects", "Interior"]
 category: Naples
 quote: []
 location: Naples

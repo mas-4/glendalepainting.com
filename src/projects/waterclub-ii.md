@@ -1,7 +1,7 @@
 ---
 title: Waterclub II
 featuredImage: ./images/Waterclub.jpg
-tags: ["Floor Coating", "Painting", "Exterior", "Multi-Unit Residential", "Interior"]
+tags: ["Floor Coatings", "Painting", "Exterior", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []
 location: Longboat Key

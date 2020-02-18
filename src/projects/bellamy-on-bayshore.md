@@ -1,7 +1,7 @@
 ---
 title: Bellamy on Bayshore
 featuredImage: ./images/BellamyonBayshore.jpg
-tags: ["Waterproofing", Painting", "Exterior", "Sealant Replacement", "Stucco Repair", "Multi-Unit Residential"]
+tags: ["Waterproofing", "Painting", "Exterior", "Sealant Replacement", "Stucco Repair", "Multi-Unit Residential"]
 category: Repaint
 quote: []
 location: Tampa

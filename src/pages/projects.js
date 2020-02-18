@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
-import { StateContext, setSelectedPage, setSelectedTab } from '../globalState';
+import { StateContext, setSelectedPage, setSelectedTab, changeFilters } from '../globalState';
 import { Layout, SEO } from '../components/global';
 import { graphql } from 'gatsby';
 import {
     Project,
     ProjectsFilter,
     ProjectsPagination,
+    TagsFilter,
 } from '../components/projects';
 import Order from '../data/projectsOrderJSON.js';
 import styled from 'styled-components';
@@ -47,12 +48,21 @@ const ProjectsPage = ({ data }) => {
 
     useEffect(() => {
         let filteredProjects = sortedProjects;
+        if(pageInfo.filters.length > 0){
+            filteredProjects = filteredProjects.filter(project => {
+                let tags = project.node.frontmatter.tags
+                let allPresent = pageInfo.filters.every(tag => tags.includes(tag))
+                if(allPresent)
+                    return project
+            })
+        }
+        
         if (pageInfo.tab === 'Repaint')
-            filteredProjects = sortedProjects.filter(
+            filteredProjects = filteredProjects.filter(
                 project => project.node.frontmatter.category === 'Repaint'
             );
         else if (pageInfo.tab === 'New Construction')
-            filteredProjects = sortedProjects.filter(
+            filteredProjects = filteredProjects.filter(
                 project =>
                     project.node.frontmatter.category === 'New Construction'
             );
@@ -64,7 +74,7 @@ const ProjectsPage = ({ data }) => {
         setCurrentProjects(filteredProjects);
         setDisplayedProjects(filterSliced);
         window.scroll(0, 0);
-    }, [pageInfo.page, pageInfo.tab, itemPerPage, sortedProjects]);
+    }, [pageInfo.filters, pageInfo.page, pageInfo.tab, itemPerPage, sortedProjects]);
 
     return (
         <Layout>
@@ -75,6 +85,11 @@ const ProjectsPage = ({ data }) => {
             <ProjectsFilter
                 selectedTab={pageInfo.tab}
                 setSelectedTab={setSelectedTab}
+                dispatch={dispatch}
+            />
+            <TagsFilter
+                selectedFilters={pageInfo.filters}
+                changeFilters ={changeFilters}
                 dispatch={dispatch}
             />
             <ProjectsContainer>
@@ -131,7 +146,7 @@ const ProjectsContainer = styled.div`
     max-width: 1320px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: align-start;
     align-content: space-between;
     margin: 0 auto;
 `;

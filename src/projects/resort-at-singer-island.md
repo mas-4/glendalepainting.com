@@ -1,7 +1,7 @@
 ---
 title: The Resort at Singer Island
 featuredImage: ./images/ResortAtSinger.jpg
-tags: ["Beauty Beauty Sealants", "Painting", "Exterior", "Floor Coatings", "Multi-Unit Residential", "Interior"]
+tags: ["Beauty Bead Sealants", "Painting", "Exterior", "Floor Coatings", "Multi-Unit Residential", "Interior"]
 category: New Construction
 quote: []
 location: Singer Island

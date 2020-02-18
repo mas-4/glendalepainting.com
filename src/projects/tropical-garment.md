@@ -1,7 +1,7 @@
 ---
 title: Tropical Garment
 featuredImage: ./images/TropicalGarment.jpg
-tags: ["Floor Coating", "Exterior", "Commercial Projects", "Interior", "Sealant Installation"]
+tags: ["Floor Coatings", "Exterior", "Commercial Projects", "Interior", "Sealant Installation"]
 category: Repaint
 quote: []
 location: Tampa
