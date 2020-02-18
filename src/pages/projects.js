@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { StateContext, storePageAction } from '../globalState';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
+import { StateContext, setSelectedPage, setSelectedTab } from '../globalState';
 import { Layout, SEO } from '../components/global';
 import { graphql } from 'gatsby';
 import {
@@ -7,7 +7,7 @@ import {
     ProjectsFilter,
     ProjectsPagination,
 } from '../components/projects';
-import Order from '../data/projectsOrderJSON.js'
+import Order from '../data/projectsOrderJSON.js';
 import styled from 'styled-components';
 
 function sortProjects(raw) {
@@ -22,12 +22,14 @@ function sortProjects(raw) {
         }
     }
     let orderedSpecified = specified.sort((a, b) =>
-        Order.indexOf(a.node.fields.slug) > Order.indexOf(b.node.fields.slug) ? 1 : -1
+        Order.indexOf(a.node.fields.slug) > Order.indexOf(b.node.fields.slug)
+            ? 1
+            : -1
     );
     let orderedUnspecified = unspecified.sort((a, b) =>
         a.node.frontmatter.title > b.node.frontmatter.title ? 1 : -1
     );
-    let projects = [ ...orderedSpecified, ...orderedUnspecified ];
+    let projects = [...orderedSpecified, ...orderedUnspecified];
 
     return projects;
 }
@@ -35,45 +37,34 @@ function sortProjects(raw) {
 const ProjectsPage = ({ data }) => {
     const [{ pageInfo }, dispatch] = useContext(StateContext);
     const [currentProjects, setCurrentProjects] = useState([]);
-    const [chosenPage, setChosenPage] = useState(pageInfo.number);
     const [displayedProjects, setDisplayedProjects] = useState([]);
-    const [selectedTab, setSelectedTab] = useState('show all');
 
-    let projects = sortProjects(data.allMarkdownRemark.edges);
-
+    let sortedProjects = useMemo(
+        () => sortProjects(data.allMarkdownRemark.edges),
+        [data.allMarkdownRemark.edges]
+    );
     let itemPerPage = 15;
 
     useEffect(() => {
-        let filteredProjects;
-        if (selectedTab === 'show all') filteredProjects = projects;
-        else if (selectedTab === 'new construction')
-            filteredProjects = projects.filter(
+        let filteredProjects = sortedProjects;
+        if (pageInfo.tab === 'Repaint')
+            filteredProjects = sortedProjects.filter(
+                project => project.node.frontmatter.category === 'Repaint'
+            );
+        else if (pageInfo.tab === 'New Construction')
+            filteredProjects = sortedProjects.filter(
                 project =>
                     project.node.frontmatter.category === 'New Construction'
             );
-        else
-            filteredProjects = projects.filter(
-                project => project.node.frontmatter.category === 'Repaint'
-            );
         let filterSliced = filteredProjects.slice(
-            itemPerPage * (pageInfo.number - 1),
-            itemPerPage * pageInfo.number
+            itemPerPage * (pageInfo.page - 1),
+            itemPerPage * pageInfo.page
         );
+
         setCurrentProjects(filteredProjects);
         setDisplayedProjects(filterSliced);
-    }, [selectedTab, itemPerPage, projects]);
-
-    const changePage = page => {
-        setChosenPage(page);
-        setDisplayedProjects(
-            currentProjects.slice(itemPerPage * (page - 1), itemPerPage * page)
-        );
         window.scroll(0, 0);
-    };
-
-    const storePage = () => {
-        storePageAction(dispatch, chosenPage);
-    };
+    }, [pageInfo.page, pageInfo.tab, itemPerPage, sortedProjects]);
 
     return (
         <Layout>
@@ -82,8 +73,9 @@ const ProjectsPage = ({ data }) => {
                 A Few of our Projects
             </h1>
             <ProjectsFilter
-                selectedTab={selectedTab}
+                selectedTab={pageInfo.tab}
                 setSelectedTab={setSelectedTab}
+                dispatch={dispatch}
             />
             <ProjectsContainer>
                 {displayedProjects.map(project => (
@@ -91,14 +83,14 @@ const ProjectsPage = ({ data }) => {
                         key={project.node.frontmatter.title}
                         data={project.node.frontmatter}
                         slug={project.node.fields.slug}
-                        storePage={storePage}
                     />
                 ))}
             </ProjectsContainer>
             <ProjectsPagination
-                changePage={changePage}
+                setSelectedPage={setSelectedPage}
+                dispatch={dispatch}
                 totalPages={Math.ceil(currentProjects.length / itemPerPage)}
-                chosenPage={chosenPage}
+                chosenPage={pageInfo.page}
             />
         </Layout>
     );

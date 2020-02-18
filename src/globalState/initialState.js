@@ -1,5 +1,7 @@
 export const initialState = {
     pageInfo: {
-        number: 1,
+        page: 1,
+        tab: "Show All"
     },
 };
+

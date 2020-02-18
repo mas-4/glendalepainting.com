@@ -3,11 +3,19 @@ export const mainReducer = (state, { type, payload }) => {
         case 'STORE_PAGE':
             return {
                 ...state,
-                pageInfo:{
+                pageInfo: {
                     ...state.pageInfo,
-                    number: payload
-                }
-            }
+                    page: payload,
+                },
+            };
+        case 'STORE_TAB':
+            return {
+                ...state,
+                pageInfo: {
+                    ...state.pageInfo,
+                    ...payload,
+                },
+            };
         default:
             return state;
     }
