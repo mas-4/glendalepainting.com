@@ -40,7 +40,7 @@ const Item = styled.div`
     }
 `
 
-const Panel =({info}) => {
+const Panel = ({info}) => {
     return (
         <Item>
             <img src={info.pic} style={{ width: '300px', margin: '2rem auto 0 auto' }} alt={info.h1} />
