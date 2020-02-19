@@ -308,4 +308,6 @@ const Data = [
             strict accordance to manufacturer recommendations along with strict
             quality control procedures put in place by Glendale Supervision.`,
         ]
-    }
+    },
+]
+export default Data
