@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
 const Main = styled.main`
     display: grid;
     grid-template-rows: 9.6rem auto;
+
+    .header-protector{
+        width: 100%;
+    }
 `;
 
 const Footer = styled.footer`
@@ -40,7 +44,7 @@ export const Layout = ({ children }) => {
             <GlobalStyle />
             <Header siteTitle={data.site.siteMetadata.title} />
             <Main>
-                <div />
+                <div className="header-protector"/>
                 {children}
             </Main>
             <Footer>

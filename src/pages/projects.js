@@ -92,7 +92,7 @@ const ProjectsPage = ({ data }) => {
                 changeFilters ={changeFilters}
                 dispatch={dispatch}
             />
-            <ProjectsContainer>
+            <ProjectsContainer size={displayedProjects.length}>
                 {displayedProjects.map(project => (
                     <Project
                         key={project.node.frontmatter.title}
@@ -143,10 +143,16 @@ export const query = graphql`
 `;
 
 const ProjectsContainer = styled.div`
-    max-width: 1320px;
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: align-start;
+    justify-content: ${({size}) => size < 3 ? 'flex-start' : 'center'};
     align-content: space-between;
     margin: 0 auto;
+
+    &::after{
+        content: "";
+        flex: 0 0 420px;
+        margin: 10px;
+    }
 `;

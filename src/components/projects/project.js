@@ -28,11 +28,10 @@ export const Project = ({ data, slug }) => {
 
 const ProjectContainer = styled.div`
     width: 420px;
-    margin: 10px 10px;
     height: auto;
     position: relative;
     overflow: hidden;
-
+    margin: 10px;
     &:hover img {
         transform: scale(1.2);
     }
