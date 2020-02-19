@@ -32,7 +32,7 @@ const HoverContainer = styled.div`
     padding: 10% 0;
 
     .project-title {
-        color: ${({ theme }) => theme.red};
+        color: ${({theme}) => theme.red};
         font-size: ${({ theme }) => theme.size3};
         font-weight: 700;
     }
@@ -65,3 +65,6 @@ const TagsContainer = styled.div`
     margin: 0 auto;
     justify-content: center;
 `;
+
+
+
