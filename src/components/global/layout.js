@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     ${global}
 `;
 
-const Main = styled.main`
+const MainScroll = styled.main`
     display: grid;
     grid-template-rows: 9.6rem auto;
     overflow: auto;
@@ -19,6 +19,11 @@ const Main = styled.main`
     left: 0;
     right: 0;
     bottom: 0;
+`;
+
+const MainNoScroll = styled.main`
+    display: grid;
+    grid-template-rows: 9.6rem auto;
 `;
 
 const Footer = styled.footer`
@@ -30,29 +35,36 @@ const Footer = styled.footer`
     font-size: ${({theme}) => theme.size2};
 `;
 
-export const Layout = ({ children }) => {
-    const data = useStaticQuery(graphql`
-        query SiteTitleQuery {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `);
-
+export const LayoutScroll = ({ children }) => {
     return (
         <>
             <GlobalStyle />
-            <Header siteTitle={data.site.siteMetadata.title} />
-            <Main>
+            <Header siteTitle='Glendale Painting' />
+            <MainScroll>
                 <div />
                 {children}
                 <Footer>
                     © {new Date().getFullYear()} Glendale Painting Corporation,{` `}
                     Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
                 </Footer>
-            </Main>
+            </MainScroll>
+        </>
+    );
+};
+
+export const Layout = ({ children }) => {
+    return (
+        <>
+            <GlobalStyle />
+            <Header siteTitle='Glendale Painting' />
+            <MainNoScroll>
+                <div />
+                {children}
+                <Footer>
+                    © {new Date().getFullYear()} Glendale Painting Corporation,{` `}
+                    Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
+                </Footer>
+            </MainNoScroll>
         </>
     );
 };
