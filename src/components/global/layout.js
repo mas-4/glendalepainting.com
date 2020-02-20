@@ -13,6 +13,12 @@ const GlobalStyle = createGlobalStyle`
 const Main = styled.main`
     display: grid;
     grid-template-rows: 9.6rem auto;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 `;
 
 const Footer = styled.footer`
@@ -42,11 +48,11 @@ export const Layout = ({ children }) => {
             <Main>
                 <div />
                 {children}
+                <Footer>
+                    © {new Date().getFullYear()} Glendale Painting Corporation,{` `}
+                    Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
+                </Footer>
             </Main>
-            <Footer>
-                © {new Date().getFullYear()} Glendale Painting Corporation,{` `}
-                Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </Footer>
         </>
     );
 };
