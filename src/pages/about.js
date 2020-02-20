@@ -3,15 +3,15 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
-
-import {Layout, SEO} from '../components/global'
+import { AboutNav } from '../components/about/nav'
+import { Layout, SEO } from '../components/global'
 
 const HeroTitle = styled.h1`
-    color: white;
-    font-size: 8rem;
+    color: ${({theme}) => theme.white};
+    font-size: ${({theme}) => theme.size8};
     margin: 0 auto;
     width: 25%;
-    border-left 1.6rem solid red;
+    border-left 1.6rem solid ${({theme}) => theme.red};
     padding-left: 1.6rem;
     line-height: 0.9;
 `
@@ -32,9 +32,9 @@ const Testimonial = styled.div`
     background: rgba(0, 0, 0, 0.2);
     width: 70%;
     padding: 1.6rem;
-    color: white;
+    color: ${({theme}) => theme.white};
     margin: 0 auto;
-    font-size: 1.6rem;
+    font-size: 1.6rem ;
 `
 
 class AboutPage extends React.Component {
@@ -51,6 +51,9 @@ class AboutPage extends React.Component {
                 >
                     <ParallaxLayer offset={0} speed={0}>
                         <Img fluid={heroImage} />
+                    </ParallaxLayer>
+                    <ParallaxLayer offset={0.105} speed={0}>
+                        <AboutNav />
                     </ParallaxLayer>
                     <ParallaxLayer offset={1} speed={0}>
                         <Img fluid={testimonialsImage} />
