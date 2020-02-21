@@ -13,11 +13,12 @@ const GlobalStyle = createGlobalStyle`
 const MainScroll = styled.main`
     display: grid;
     grid-template-rows: 9.6rem auto;
-    overflow-y: scroll;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
+    overflow-y: scroll;
 `;
 
 const MainNoScroll = styled.main`
