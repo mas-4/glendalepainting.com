@@ -1,5 +1,5 @@
 import React from 'react'
-import {Layout, SEO} from '../components/global'
+import {LayoutScroll, SEO} from '../components/global'
 import styled from 'styled-components'
 
 import Data from '../data/servicesJSON'
@@ -52,12 +52,12 @@ const Panel = ({info}) => {
 }
 
 const ServicesPage = () => (
-    <Layout>
+    <LayoutScroll>
         <SEO title="Services" />
         <Container>
             {Data.map(info => <Panel info={info} />)}
         </Container>
-    </Layout>
+    </LayoutScroll>
 )
 
 export default ServicesPage

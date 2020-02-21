@@ -1,5 +1,5 @@
 import React from "react"
-import {Layout, SEO} from "../components/global"
+import {LayoutScroll, SEO} from "../components/global"
 import styled from 'styled-components'
 import Data from '../data/teamJSON.js'
 import {AboutNav} from '../components/about/nav'
@@ -43,13 +43,13 @@ const Member = ({info}) => {
 }
 
 const TeamPage = () => (
-    <Layout>
+    <LayoutScroll>
         <SEO title="Team" />
         <AboutNav />
         <Team>
             {Data.map(info => <Member info={info} />)}
         </Team>
-    </Layout>
+    </LayoutScroll>
 )
 
 export default TeamPage

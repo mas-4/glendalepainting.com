@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, SEO } from '../components/global'
+import { LayoutScroll, SEO } from '../components/global'
 import { AboutNav } from '../components/about/nav'
 import styled from 'styled-components'
 
@@ -61,7 +61,7 @@ const TestimonialItem = ({ info }) => {
 
 const TestimonialsPage = () => {
     return (
-        <Layout>
+        <LayoutScroll>
             <SEO title="Testimonials" />
             <AboutNav />
             {Data.map((info, i) => (
@@ -70,7 +70,7 @@ const TestimonialsPage = () => {
                     {i !== Data.length-1 && <HR/>}
                 </>
             ))}
-        </Layout>
+        </LayoutScroll>
     );
 }
 

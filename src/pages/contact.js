@@ -1,11 +1,11 @@
 import React from "react"
-import {Layout, SEO} from "../components/global"
+import {LayoutScroll, SEO} from "../components/global"
 
 const ContactPage = () => (
-    <Layout>
+    <LayoutScroll>
         <SEO title="Contact" />
         <h1>Contact</h1>
-    </Layout>
+    </LayoutScroll>
 )
 
 export default ContactPage
