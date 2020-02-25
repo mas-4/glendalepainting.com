@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
-import { StateContext, setSelectedPage, setSelectedTab, changeFilters } from '../globalState';
-import { Layout, SEO } from '../components/global';
+import { StateContext, setSelectedPage, setSelectedTab } from '../globalState';
+import { LayoutScroll, SEO } from '../components/global';
 import { graphql } from 'gatsby';
 import {
     Project,
@@ -77,7 +77,7 @@ const ProjectsPage = ({ data }) => {
     }, [pageInfo.filters, pageInfo.page, pageInfo.tab, itemPerPage, sortedProjects]);
 
     return (
-        <Layout>
+        <LayoutScroll>
             <SEO title="Projects" />
             <h1 style={{ textAlign: 'center', marginBottom: '15px' }}>
                 A Few of our Projects
@@ -107,7 +107,7 @@ const ProjectsPage = ({ data }) => {
                 totalPages={Math.ceil(currentProjects.length / itemPerPage)}
                 chosenPage={pageInfo.page}
             />
-        </Layout>
+        </LayoutScroll>
     );
 };
 
