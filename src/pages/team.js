@@ -34,7 +34,7 @@ const Item = styled.div`
 const Member = ({info}) => {
     return (
         <Item>
-            <img src={info.image} />
+            <img src={info.image} alt={info.name} />
             <h1>{info.name}</h1>
             <h2>{info.title}</h2>
             <p>{info.bio}</p>

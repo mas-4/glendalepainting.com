@@ -203,7 +203,6 @@ class AboutPage extends React.Component {
                             </Link>
                         </SeeMore>
                     </ParallaxLayer>
-
                 </Parallax>
             </Layout>
         )
