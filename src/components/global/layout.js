@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const MainScroll = styled.main`
-    margin-top: 10rem;
+    padding-top: 12rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -34,13 +34,13 @@ const Footer = styled.footer`
     font-size: ${({ theme }) => theme.size2};
 `;
 
-export const LayoutScroll = ({ children }) => {
+export const LayoutScroll = React.forwardRef(({ children }, ref) => {
     return (
         <>
             <GlobalStyle />
             <Header siteTitle="Glendale Painting" />
             <MainScroll>
-                <div />
+                <div ref={ref}/>
                 {children}
                 <Footer>
                     © {new Date().getFullYear()} Glendale Painting Corporation,
@@ -50,7 +50,7 @@ export const LayoutScroll = ({ children }) => {
             </MainScroll>
         </>
     );
-};
+});
 
 export const Layout = ({ children }) => {
     return (

@@ -11,5 +11,6 @@ export const theme = {
     size5: '3.6rem',
     size6: '4.2rem',
     size7: '5rem',
-    size8: '8rem'
+    size8: '8rem',
+    boxShadow: 'rgba(0,0,0,0.4) 2px 3px 10px -3px',
 };
