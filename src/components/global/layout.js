@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
 const MainScroll = styled.main`
     padding-top: 12rem;
+    padding-bottom: 5rem;
     position: absolute;
     top: 0;
     left: 0;
