@@ -19,14 +19,14 @@ const Item = styled.div`
         margin: 1rem;
     }
     h1 {
-        font-size: ${({theme}) => theme.size4}
+        font-size: ${({theme}) => theme.size4};
     }
     h2 {
-        font-size: ${({theme}) => theme.size3}
-        color: ${({theme}) => theme.red}
+        font-size: ${({theme}) => theme.size3};
+        color: ${({theme}) => theme.red};
     }
     p {
-        font-size: ${({theme}) => theme.size2}
+        font-size: ${({theme}) => theme.size2};
         color: ${({ theme }) => theme.gray};
     }
 
