@@ -11,8 +11,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const MainScroll = styled.main`
-    display: grid;
-    grid-template-rows: 9.6rem auto;
+    margin-top: 10rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -28,23 +27,24 @@ const MainNoScroll = styled.main`
 
 const Footer = styled.footer`
     height: 8rem;
-    background-color: ${({theme}) => theme.lightGray};
+    background-color: ${({ theme }) => theme.lightGray};
     margin-top: 4rem;
     padding: 4rem;
     text-align: center;
-    font-size: ${({theme}) => theme.size2};
+    font-size: ${({ theme }) => theme.size2};
 `;
 
 export const LayoutScroll = ({ children }) => {
     return (
         <>
             <GlobalStyle />
-            <Header siteTitle='Glendale Painting' />
+            <Header siteTitle="Glendale Painting" />
             <MainScroll>
                 <div />
                 {children}
                 <Footer>
-                    © {new Date().getFullYear()} Glendale Painting Corporation,{` `}
+                    © {new Date().getFullYear()} Glendale Painting Corporation,
+                    {` `}
                     Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
                 </Footer>
             </MainScroll>
@@ -56,12 +56,13 @@ export const Layout = ({ children }) => {
     return (
         <>
             <GlobalStyle />
-            <Header siteTitle='Glendale Painting' />
+            <Header siteTitle="Glendale Painting" />
             <MainNoScroll>
                 <div />
                 {children}
                 <Footer>
-                    © {new Date().getFullYear()} Glendale Painting Corporation,{` `}
+                    © {new Date().getFullYear()} Glendale Painting Corporation,
+                    {` `}
                     Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
                 </Footer>
             </MainNoScroll>

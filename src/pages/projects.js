@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
-import { StateContext, setSelectedPage, setSelectedTab } from '../globalState';
+import { StateContext, setSelectedPage, setSelectedTab, changeFilters } from '../globalState';
 import { LayoutScroll, SEO } from '../components/global';
 import { graphql } from 'gatsby';
 import {
@@ -79,9 +79,7 @@ const ProjectsPage = ({ data }) => {
     return (
         <LayoutScroll>
             <SEO title="Projects" />
-            <h1 style={{ textAlign: 'center', marginBottom: '15px' }}>
-                A Few of our Projects
-            </h1>
+
             <ProjectsFilter
                 selectedTab={pageInfo.tab}
                 setSelectedTab={setSelectedTab}
