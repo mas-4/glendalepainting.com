@@ -4,23 +4,21 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { HoverData } from './hoverdata';
 
-export const Project = ({ data, slug }) => {
+export const Project = ({ data, slug, handleTagClick }) => {
     return (
         <ProjectContainer>
-            {data.featuredImage && (
-                <Img
-                    style={{ width: '100%' }}
-                    imgStyle={{
-                        transition: 'opacity 0.5s ease 0s, transform 1s ease',
-                    }}
-                    fixed={{
-                        ...data.featuredImage.childImageSharp.fixed,
-                        aspectRatio: 1.5,
-                    }}
-                />
-            )}
+            <Img
+                style={{ width: '100%' }}
+                imgStyle={{
+                    transition: 'opacity 0.5s ease 0s, transform 1s ease',
+                }}
+                fixed={{
+                    ...data.featuredImage.childImageSharp.fixed,
+                    aspectRatio: 1.5,
+                }}
+            />
             <Link to={`${slug}`}>
-                <HoverData data={data} />
+                <HoverData data={data} handleTagClick={handleTagClick} />
             </Link>
         </ProjectContainer>
     );
@@ -28,7 +26,7 @@ export const Project = ({ data, slug }) => {
 
 const ProjectContainer = styled.div`
     width: 420px;
-    height: auto;
+    height: 280px;
     position: relative;
     overflow: hidden;
     margin: 10px;
@@ -38,5 +36,9 @@ const ProjectContainer = styled.div`
 
     &:hover .mask {
         opacity: 1;
+    }
+
+    .hoverContainer {
+        cursor: pointer;
     }
 `;

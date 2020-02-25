@@ -46,6 +46,7 @@ function sortProjects(raw) {
 const ProjectsPage = ({ data }) => {
     let ITEM_PER_PAGE = 15;
     const [{ pageInfo }, dispatch] = useContext(StateContext);
+    console.log(pageInfo)
     //current-projects selected based on tabs/filters
     const [currentProjects, setCurrentProjects] = useState([]);
     //projects being shown on current page
@@ -115,6 +116,13 @@ const ProjectsPage = ({ data }) => {
         sortedProjects,
     ]);
 
+    const handleTagClick = (e, tag) => {
+        e.preventDefault()
+        if (pageInfo.filters.includes(tag))
+            changeFilters(dispatch, 'remove', tag);
+        else changeFilters(dispatch, 'add', tag);
+    }
+
     return (
         <LayoutScroll ref={scrollToDiv}>
             <SEO title="Projects" />
@@ -129,6 +137,7 @@ const ProjectsPage = ({ data }) => {
                 changeFilters={changeFilters}
                 dispatch={dispatch}
                 tags={currentTags}
+                handleTagClick = {handleTagClick}
             />
             <ProjectsContainer size={displayedProjects.length}>
                 {displayedProjects.map(project => (
@@ -136,6 +145,7 @@ const ProjectsPage = ({ data }) => {
                         key={project.node.frontmatter.title}
                         data={project.node.frontmatter}
                         slug={project.node.fields.slug}
+                        handleTagClick = {handleTagClick}
                     />
                 ))}
             </ProjectsContainer>

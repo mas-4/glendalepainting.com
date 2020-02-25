@@ -6,14 +6,9 @@ export const TagsFilter = ({
     changeFilters,
     dispatch,
     tags,
+    handleTagClick
 }) => {
     const [tagButtonText, setTagButtonText] = useState(true);
-
-    const handleClick = tag => {
-        if (selectedFilters.includes(tag))
-            changeFilters(dispatch, 'remove', tag);
-        else changeFilters(dispatch, 'add', tag);
-    };
 
     let displayedTags = tagButtonText ? tags.slice(0, 10) : tags;
 
@@ -22,7 +17,7 @@ export const TagsFilter = ({
             {displayedTags.map(tag => (
                 <Tag
                     chosen={selectedFilters.includes(tag[0])}
-                    onClick={() => handleClick(tag[0])}
+                    onClick={(e) => handleTagClick(e, tag[0])}
                     key={tag[0]}
                 >
                     {`${tag[0]} (${tag[1]})`}

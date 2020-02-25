@@ -60,6 +60,7 @@ const FilterButton = styled.button`
     &:hover {
         box-shadow: ${({ theme }) => theme.boxShadow};
     }
+
     &:focus {
         outline: none;
     }

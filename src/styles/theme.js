@@ -13,4 +13,5 @@ export const theme = {
     size7: '5rem',
     size8: '8rem',
     boxShadow: 'rgba(0,0,0,0.4) 2px 3px 10px -3px',
+    whiteBoxShadow: 'rgba(212,212,212,0.4) 2px 3px 10px 2px',
 };

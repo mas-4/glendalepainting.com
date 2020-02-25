@@ -10,40 +10,61 @@ export const ProjectsPagination = ({
     let pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) pageNumbers.push(i);
     return (
-        <PaginateContainer>
-            <TextButton onClick={() => setSelectedPage(dispatch, 1)} color="black">
-                START
-            </TextButton>
-            <TextButton
-                onClick={() => setSelectedPage(dispatch, chosenPage - 1)}
-                color="black"
-            >
-                PREV
-            </TextButton>
-            {pageNumbers.map(number => {
-                return (
-                    <PageButton
-                        chosen={number === chosenPage}
-                        key={number}
-                        onClick={() => setSelectedPage(dispatch, number)}
+        <>
+            {pageNumbers.length > 1 && (
+                <PaginateContainer>
+                    <TextButton
+                        onClick={() => setSelectedPage(dispatch, 1)}
+                        color="black"
                     >
-                        {number}
-                    </PageButton>
-                );
-            })}
-            <TextButton onClick={() => setSelectedPage(dispatch, chosenPage + 1)} color="red">
-                NEXT
-            </TextButton>
-            <TextButton onClick={() => setSelectedPage(dispatch, totalPages)} color="red">
-                END
-            </TextButton>
-        </PaginateContainer>
+                        START
+                    </TextButton>
+                    <TextButton
+                        onClick={() => {
+                            if (chosenPage > 1)
+                                setSelectedPage(dispatch, chosenPage - 1);
+                        }}
+                        color="black"
+                    >
+                        PREV
+                    </TextButton>
+                    {pageNumbers.map(number => {
+                        return (
+                            <PageButton
+                                chosen={number === chosenPage}
+                                key={number}
+                                onClick={() =>
+                                    setSelectedPage(dispatch, number)
+                                }
+                            >
+                                {number}
+                            </PageButton>
+                        );
+                    })}
+                    <TextButton
+                        onClick={() => {
+                            if (chosenPage < totalPages)
+                                setSelectedPage(dispatch, chosenPage + 1);
+                        }}
+                        color="red"
+                    >
+                        NEXT
+                    </TextButton>
+                    <TextButton
+                        onClick={() => setSelectedPage(dispatch, totalPages)}
+                        color="red"
+                    >
+                        END
+                    </TextButton>
+                </PaginateContainer>
+            )}
+        </>
     );
 };
 
 const PaginateContainer = styled.div`
     margin: 0 auto;
-    max-width: 600px;
+    width: 25%;
     display: flex;
     justify-content: space-between;
     height: 40px;
@@ -53,8 +74,8 @@ const PaginateContainer = styled.div`
 const PageButton = styled.button`
     width: 40px;
     background-color: #fff;
-    font-size: ${({theme}) => theme.size2};
-    color: ${({theme, chosen}) => chosen ? theme.red : theme.black};
+    font-size: ${({ theme }) => theme.size2};
+    color: ${({ theme, chosen }) => (chosen ? theme.red : theme.black)};
     border: none;
     font-weight: 700;
     cursor: pointer;
@@ -72,6 +93,10 @@ const TextButton = styled.button`
     border: none;
     cursor: pointer;
     font-weight: 700;
+    margin: 0 1rem;
+    &:hover {
+        box-shadow: ${({ theme }) => theme.boxShadow};
+    }
     &:focus {
         outline: none;
     }
