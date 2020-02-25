@@ -19,14 +19,14 @@ const Item = styled.div`
         margin: 1rem;
     }
     h1 {
-        font-size: ${({theme}) => theme.size4}
+        font-size: ${({theme}) => theme.size4};
     }
     h2 {
-        font-size: ${({theme}) => theme.size3}
-        color: ${({theme}) => theme.red}
+        font-size: ${({theme}) => theme.size3};
+        color: ${({theme}) => theme.red};
     }
     p {
-        font-size: ${({theme}) => theme.size2}
+        font-size: ${({theme}) => theme.size2};
         color: ${({ theme }) => theme.gray};
     }
 
@@ -34,7 +34,7 @@ const Item = styled.div`
 const Member = ({info}) => {
     return (
         <Item>
-            <img src={info.image} />
+            <img src={info.image} alt={info.name} />
             <h1>{info.name}</h1>
             <h2>{info.title}</h2>
             <p>{info.bio}</p>
