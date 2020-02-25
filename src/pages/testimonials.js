@@ -7,11 +7,9 @@ import Data from '../data/testimonialsJSON'
 
 const Thumb = styled.img`
     float: left;
-    width: 20%;
     max-width: 125px;
     height: auto;
     margin-right: 1rem;
-    margin-top 3rem;
 `
 
 const HR = styled.hr`
@@ -21,11 +19,9 @@ const HR = styled.hr`
 `
 const Testimonial = styled.div`
     margin: 5rem auto;
+    margin-bottom: 8rem;
     width: 75%;
     font-size: ${({theme}) => theme.size2};
-    hr {
-        width: 100%;
-    }
 `
 const Quote = styled.div`
     p {
@@ -34,6 +30,7 @@ const Quote = styled.div`
     }
 `
 const Attribution = styled.div`
+    color: ${({theme}) => theme.gray};
     text-align: right;
     margin-top: 2rem;
     margin-right: 4rem;

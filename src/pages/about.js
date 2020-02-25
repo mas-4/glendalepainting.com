@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
@@ -29,12 +29,32 @@ const AboutParagraph = styled.div`
     font-size: 2rem;
 `
 const Testimonial = styled.div`
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
     width: 70%;
     padding: 1.6rem;
     color: ${({theme}) => theme.white};
     margin: 0 auto;
     font-size: 1.6rem ;
+    p {
+        margin: 1rem;
+    }
+    p:last-child {
+        text-align: right;
+        color: red;
+        font-weight: bold;
+    }
+`
+const SeeMore = styled.div`
+    background-color: red;
+    margin: 0 auto;
+    width: fit-content;
+    a {
+        color: white;
+        font-weight: bold;
+        font-size: 3rem;
+        padding: 1rem;
+        text-decoration: none;
+    }
 `
 
 class AboutPage extends React.Component {
@@ -45,7 +65,7 @@ class AboutPage extends React.Component {
             <Layout>
                 <SEO title="About" />
                 <Parallax
-                    pages={2.15}
+                    pages={2.25}
                     ref={ref => (this.parallax = ref)}
                     style={{ backgroundColor: "#FFFFFF" }}
                 >
@@ -176,8 +196,13 @@ class AboutPage extends React.Component {
                             </p>
                         </Testimonial>
                     </ParallaxLayer>
-
-
+                    <ParallaxLayer offset={2} speed={0.07}>
+                        <SeeMore>
+                            <Link to='/testimonials'>
+                                See more testimonials
+                            </Link>
+                        </SeeMore>
+                    </ParallaxLayer>
                 </Parallax>
             </Layout>
         )
