@@ -2,21 +2,20 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 export const TagsFilter = ({
-    selectedFilters,
-    changeFilters,
-    dispatch,
+    selectedFilter,
     tags,
     handleTagClick
 }) => {
-    const [tagButtonText, setTagButtonText] = useState(true);
-
-    let displayedTags = tagButtonText ? tags.slice(0, 10) : tags;
+    const [tagButtonText, setTagButtonText] = useState(false);
+    let selectedIndex = tags.findIndex(tag => tag[0] === selectedFilter)
+    let sliceIndex = selectedIndex > 10 ? selectedIndex + 1 : 10
+    let displayedTags = tagButtonText ? tags : tags.slice(0, sliceIndex);
 
     return (
         <TagContainer>
             {displayedTags.map(tag => (
                 <Tag
-                    chosen={selectedFilters.includes(tag[0])}
+                    chosen={selectedFilter === (tag[0])}
                     onClick={(e) => handleTagClick(e, tag[0])}
                     key={tag[0]}
                 >
@@ -24,8 +23,8 @@ export const TagsFilter = ({
                 </Tag>
             ))}
             {tags.length > 10 && (
-                <TagButton onClick={() => setTagButtonText(!tagButtonText)}>
-                    {tagButtonText ? 'Show More' : 'Show Less'}
+                <TagButton onClick={() => setTagButtonText(prevState => !prevState)}>
+                    {tagButtonText ? 'Show Less' : 'Show More'}
                 </TagButton>
             )}
         </TagContainer>

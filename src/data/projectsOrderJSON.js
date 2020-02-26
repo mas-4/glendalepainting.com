@@ -1,4 +1,4 @@
-const Order = [
+const projectOrder = [
     '/westin-vue/',
     '/aria-at-park-shore/',
     '/belle-harbor/',
@@ -6,4 +6,4 @@ const Order = [
     '/orchid-beach-club/',
     '/oceanside-on-pompano-beach/',
 ]
-export default Order;
+export default projectOrder;
