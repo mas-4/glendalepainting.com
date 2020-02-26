@@ -22,19 +22,18 @@ const ProjectsPage = ({ data }) => {
     //current-projects selected based on tabs/filters
     const [currentProjects, setCurrentProjects] = useState([]);
     //projects being shown on current page
-    const [displayedProjects, setDisplayedProjects] = useState([]);
+    const [displayedProjects, setDisplayedProjects] = useState([])
 
     //Memoized so projects and tags are only sorted once or when edges changes
     let sortedProjects = useMemo(
         () => sortProjects(data.allMarkdownRemark.edges),
         [data.allMarkdownRemark.edges]
     );
-    let availableTags = useMemo(() => grabTags(sortedProjects) , [sortedProjects])
+    let availableTags = useMemo(() => grabTags(sortedProjects), [sortedProjects])
     let sortedTags = useMemo(() => sortTags(availableTags), [availableTags])
-
     //ref for a div inside layoutScroll to scroll into view on page change
     let scrollToDiv = useRef();
-
+    
     useEffect(() => {
         let filteredProjects = sortedProjects;
         //if any filters have been selected
@@ -95,7 +94,7 @@ const ProjectsPage = ({ data }) => {
             />
             <TagsFilter
                 selectedFilter={pageInfo.filter}
-                tags={sortedTags}
+                tags={availableTags}
                 handleTagClick = {handleTagClick}
             />
             <ProjectsContainer size={displayedProjects.length}>

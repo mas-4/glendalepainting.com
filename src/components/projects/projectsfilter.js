@@ -14,7 +14,7 @@ export const ProjectsFilter = ({ selectedTab, setSelectedTab, dispatch }) => {
             <FilterButton
                 onClick={e => setSelectedTab(dispatch, e.target.name)}
                 name="Show All"
-                width="120px"
+                width="18%"
                 chosen={tabSelected['Show All']}
             >
                 SHOW ALL
@@ -22,7 +22,7 @@ export const ProjectsFilter = ({ selectedTab, setSelectedTab, dispatch }) => {
             <FilterButton
                 onClick={e => setSelectedTab(dispatch, e.target.name)}
                 name="New Construction"
-                width="240px"
+                width="38%"
                 chosen={tabSelected['New Construction']}
             >
                 NEW CONSTRUCTION
@@ -30,7 +30,7 @@ export const ProjectsFilter = ({ selectedTab, setSelectedTab, dispatch }) => {
             <FilterButton
                 onClick={e => setSelectedTab(dispatch, e.target.name)}
                 name="Repaint"
-                width="240px"
+                width="38%"
                 chosen={tabSelected['Repaint']}
             >
                 REPAINT / RESTORATION
@@ -40,7 +40,7 @@ export const ProjectsFilter = ({ selectedTab, setSelectedTab, dispatch }) => {
 };
 
 const ButtonContainer = styled.div`
-    width: 32%;
+    width: 35%;
     margin: 0 auto 2rem;
     display: flex;
     justify-content: space-between;
