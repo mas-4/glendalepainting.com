@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
 
 const MainScroll = styled.main`
     padding-top: 12rem;
-    padding-bottom: 5rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -25,6 +24,9 @@ const MainNoScroll = styled.main`
     display: grid;
     grid-template-rows: 9.6rem auto;
 `;
+const Spacer = styled.div`
+    height: 5rem;
+`
 
 export const LayoutScroll = React.forwardRef(({ children }, ref) => {
     return (
@@ -34,6 +36,7 @@ export const LayoutScroll = React.forwardRef(({ children }, ref) => {
             <MainScroll>
                 <div ref={ref}/>
                 {children}
+                <Spacer />
                 <Footer />
             </MainScroll>
         </>
@@ -48,6 +51,7 @@ export const Layout = ({ children }) => {
             <MainNoScroll>
                 <div />
                 {children}
+                <Spacer />
                 <Footer />
             </MainNoScroll>
         </>
