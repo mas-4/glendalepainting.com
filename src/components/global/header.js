@@ -21,7 +21,8 @@ const Nav = styled.nav`
 
 const NavLink = styled(Link)`
     color: ${({ theme }) => theme.black};
-    font-size: ${({ theme }) => theme.size4};
+    font-size: ${({ theme }) => theme.size3};
+    font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
     padding: 0 1.6rem;
@@ -29,8 +30,7 @@ const NavLink = styled(Link)`
 
     &:hover,
     &.active {
-        background-color: ${({ theme }) => theme.red};
-        color: ${({ theme }) => theme.white};
+        color: ${({ theme }) => theme.red};
     }
 `;
 
@@ -72,5 +72,3 @@ export const Header = () => {
         </Nav>
     );
 };
-
-
