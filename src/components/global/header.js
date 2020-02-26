@@ -1,5 +1,6 @@
-import { Link } from 'gatsby';
 import React from 'react';
+import { globalHistory } from '@reach/router'
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import logo from '../../images/gpHeaderLogo.png';
 
@@ -34,9 +35,12 @@ const NavLink = styled(Link)`
 `;
 
 const Links = () => {
+    const abouts = ['/testimonials', '/team', '/about'];
+    const path = globalHistory.location.pathname;
+    const className = abouts.includes(path) ? 'active' : '';
     return (
         <>
-            <NavLink to="/about" activeClassName="active">
+            <NavLink to="/about" className={className}>
                 About
             </NavLink>
             <NavLink to="/projects" activeClassName="active">
