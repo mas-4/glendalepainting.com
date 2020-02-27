@@ -48,13 +48,16 @@ export const sortTags = raw => {
 };
 
 
-export const grabTags = projects => {
+export const grabTags = (projects, category) => {
     const tags = []
     const tagsDict = {}
+    
     for(let project of projects){
-        let tags = project.node.frontmatter.tags
-        for(let tag of tags){
-            tagsDict[tag] = (tagsDict[tag] || 0) + 1
+        if(category === 'Show All' || category === project.node.frontmatter.category){
+            let tags = project.node.frontmatter.tags
+            for(let tag of tags){
+                tagsDict[tag] = (tagsDict[tag] || 0) + 1
+            }
         }
     }
 
