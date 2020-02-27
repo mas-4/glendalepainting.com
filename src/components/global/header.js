@@ -1,5 +1,6 @@
-import { Link } from 'gatsby';
 import React from 'react';
+import { globalHistory } from '@reach/router'
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import logo from '../../images/gpHeaderLogo.png';
 
@@ -20,7 +21,8 @@ const Nav = styled.nav`
 
 const NavLink = styled(Link)`
     color: ${({ theme }) => theme.black};
-    font-size: ${({ theme }) => theme.size4};
+    font-size: ${({ theme }) => theme.size3};
+    font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
     padding: 0 1.6rem;
@@ -28,15 +30,17 @@ const NavLink = styled(Link)`
 
     &:hover,
     &.active {
-        background-color: ${({ theme }) => theme.red};
-        color: ${({ theme }) => theme.white};
+        color: ${({ theme }) => theme.red};
     }
 `;
 
 const Links = () => {
+    const abouts = ['/testimonials', '/team', '/about'];
+    const path = globalHistory.location.pathname;
+    const className = abouts.includes(path) ? 'active' : '';
     return (
         <>
-            <NavLink to="/about" activeClassName="active">
+            <NavLink to="/about" className={className}>
                 About
             </NavLink>
             <NavLink to="/projects" activeClassName="active">
@@ -68,5 +72,3 @@ export const Header = () => {
         </Nav>
     );
 };
-
-

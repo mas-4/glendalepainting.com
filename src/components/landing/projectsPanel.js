@@ -8,13 +8,13 @@ const TitlePanel = styled.div`
     margin: 16rem 0;
 `
 const Title = styled.h1`
-    font-size: 8rem;
+    font-size: 12rem;
     margin: 0 auto;
     text-align: center;
     padding: 2.4rem;
-    width: 20%;
+    width: 30%;
     line-height: 0.8;
-    border: 1.6rem solid red;
+    border: 2.5rem solid red;
 `
 
 const Panel = styled.div`

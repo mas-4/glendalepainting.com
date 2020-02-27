@@ -2,7 +2,7 @@ import React from 'react'
 
 import {Layout, SEO} from '../components/global'
 
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import styled from 'styled-components'
@@ -23,6 +23,15 @@ const HeroBlock = styled.div`
         font-size: ${({theme}) => theme.size5};
         margin: 30px 0;
     }
+    a {
+        transition: 0.33s;
+        color: ${({theme}) => theme.red};
+        font-weight: bold;
+        text-decoration: none;
+        &:hover {
+            color: ${({theme}) => theme.lightGray};
+        }
+    }
 `
 
 const MissionText = styled.h1`
@@ -39,12 +48,21 @@ const AboutBlock = styled.div`
     margin: 0 auto;
     width: 55%;
     background: rgba(255, 255, 255, 0.2);
-    font-size: ${({theme}) => theme.size7} ;
+    font-size: ${({theme}) => theme.size3};
     color: ${({theme}) => theme.white};
     padding: 4.8rem;
     font-family: Roboto;
     p{
         margin: 3.2rem 0;
+        a {
+            transition: 0.33s;
+            color: ${({theme}) => theme.black};
+            font-weight: bold;
+            text-decoration: none;
+            &:hover {
+                color: ${({theme}) => theme.lightGray};
+            }
+        }
     }
 `
 
@@ -75,10 +93,13 @@ class IndexPage extends React.Component {
                     </ParallaxLayer>
                     <ParallaxLayer offset={0.25} speed={0.2}>
                         <HeroBlock>
-                            <TitleBox width='48rem' color='white' borderColor='red'>Serving the Southeast since 1985</TitleBox>
+                            <TitleBox width='50rem' color='white' borderColor='red'>
+                                Serving the Southeast Since 1985
+                            </TitleBox>
                             <h2>
-                                With over three decades in the industry, Glendale has you
-                                covered.
+                                With over three decades in the industry,
+                                whatever <Link to='/projects'>the size of your
+                                project</Link>, Glendale has you covered.
                             </h2>
                         </HeroBlock>
                     </ParallaxLayer>
@@ -125,11 +146,13 @@ class IndexPage extends React.Component {
                                 quality painting and restoration contractor in Florida.
                             </p>
                             <p>
-                                Our work history speaks to our capabilities. Our
-                                testimonials speak to our quality and customer service. The
-                                age of our company speaks to our integrity, commitment and
-                                work ethic. The importance we place on communication with
-                                our clients speaks to our success.
+                                Our <Link to='/projects'>work history</Link> speaks to our capabilities. Our <Link
+                                to='/testimonials'>testimonials</Link> speak to
+                                our quality and customer service. The <Link
+                                to='/about'>age of our company</Link> speaks
+                                to our integrity, commitment and work ethic. The
+                                importance we place on communication with our
+                                clients speaks to our success.
                             </p>
                         </AboutBlock>
                     </ParallaxLayer>
