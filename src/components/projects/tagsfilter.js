@@ -61,8 +61,8 @@ const Tag = styled.div`
     &:hover {
         background: ${({ chosen, theme }) =>
             chosen ? theme.red : `rgba(255, 0, 0, 0.4)`};
-        transform: scale(1.05);
-    }
+        transition: 0.5s;
+        }
 `;
 
 const TagButton = styled.button`

@@ -59,6 +59,9 @@ const FilterButton = styled.button`
 
     &:hover {
         box-shadow: ${({ theme }) => theme.boxShadow};
+        background: ${({ chosen, theme }) =>
+            chosen ? theme.red : `rgba(255, 0, 0, 0.4)`};
+        transition: 0.3s;
     }
 
     &:focus {
