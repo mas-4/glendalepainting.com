@@ -29,18 +29,15 @@ export const mainReducer = (state, { type, payload }) => {
                 ...state,
                 pageInfo: {
                     ...state.pageInfo,
-                    filters: [...state.pageInfo.filters, payload],
+                    filter: payload
                 },
             };
         case REMOVE_FILTER:
-            let removedFilter = state.pageInfo.filters.filter(
-                filter => filter !== payload
-            );
             return {
                 ...state,
                 pageInfo: {
                     ...state.pageInfo,
-                    filters: [...removedFilter],
+                    filter: ''
                 },
             };
         case CLEAR_FILTERS:
@@ -48,7 +45,7 @@ export const mainReducer = (state, { type, payload }) => {
                 ...state,
                 pageInfo: {
                     ...state.pageInfo,
-                    filters: [],
+                    filter: ''
                 },
             };
         default:

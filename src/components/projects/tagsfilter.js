@@ -1,44 +1,50 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-export const TagsFilter = ({
-    selectedFilters,
-    changeFilters,
-    dispatch,
-    tags,
-    handleTagClick
-}) => {
-    const [tagButtonText, setTagButtonText] = useState(true);
-
-    let displayedTags = tagButtonText ? tags.slice(0, 10) : tags;
+export const TagsFilter = ({ selectedFilter, tags, handleTagClick }) => {
+    const [tagButtonText, setTagButtonText] = useState(false);
+    let selectedIndex = tags.findIndex(tag => tag[0] === selectedFilter);
+    let sliceIndex = selectedIndex > 10 ? selectedIndex + 1 : 10;
+    let displayedTags = tagButtonText ? tags : tags.slice(0, sliceIndex);
 
     return (
-        <TagContainer>
-            {displayedTags.map(tag => (
-                <Tag
-                    chosen={selectedFilters.includes(tag[0])}
-                    onClick={(e) => handleTagClick(e, tag[0])}
-                    key={tag[0]}
-                >
-                    {`${tag[0]} (${tag[1]})`}
-                </Tag>
-            ))}
+        <FilterContainer>
+            <TagContainer height={tagButtonText  ? 'auto' : '38px'}>
+                {tags.map(tag => (
+                    <Tag
+                        chosen={selectedFilter === tag[0]}
+                        onClick={e => handleTagClick(e, tag[0])}
+                        key={tag[0]}
+                    >
+                        {`${tag[0]} (${tag[1]})`}
+                    </Tag>
+                ))}
+            </TagContainer>
             {tags.length > 10 && (
-                <TagButton onClick={() => setTagButtonText(!tagButtonText)}>
-                    {tagButtonText ? 'Show More' : 'Show Less'}
+                <TagButton
+                    onClick={() => setTagButtonText(prevState => !prevState)}
+                >
+                    {tagButtonText ? 'Show Less' : 'Show More'}
                 </TagButton>
             )}
-        </TagContainer>
+        </FilterContainer>
     );
 };
+
+const FilterContainer = styled.div`
+    width: 69%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    align-content: flex-start;
+`
 
 const TagContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
-    margin: 0 auto;
-    justify-content: align-start;
-    margin-bottom: 2rem;
+    justify-content: flex-start;
+    max-height: ${({ height }) => height};
+    overflow: hidden;
 `;
 
 const Tag = styled.div`
@@ -55,8 +61,8 @@ const Tag = styled.div`
     &:hover {
         background: ${({ chosen, theme }) =>
             chosen ? theme.red : `rgba(255, 0, 0, 0.4)`};
-        transform: scale(1.05);
-    }
+        transition: 0.5s;
+        }
 `;
 
 const TagButton = styled.button`
@@ -64,13 +70,11 @@ const TagButton = styled.button`
     background: ${({ theme }) => theme.white};
     border: none;
     font-size: ${({ theme }) => theme.size1};
-    line-height: ${({ theme }) => theme.size1};
+    line-height: 38px;
     padding: 0;
     cursor: pointer;
-    flex: 10;
-    text-align: right;
-    margin: 5px;
-    padding-right: 15px;
+    white-space: nowrap;
+    height: 38px;
 
     &:focus {
         outline: none;

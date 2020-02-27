@@ -16,6 +16,7 @@ export const setSelectedPage = (dispatch, page) => {
 
 export const setSelectedTab = (dispatch, selection) => {
     dispatch({ type: STORE_TAB, payload: { page: 1, tab: selection } });
+    dispatch({type: CLEAR_FILTERS})
 };
 
 export const changeFilters = (dispatch, option, selection = '') => {

@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useContext, useMemo, useRef } from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-
-import Order from '../data/projectsOrderJSON.js';
-import { tags } from '../data/projectTags';
+import {sortProjects, sortTags, grabTags} from '../utils/sortingFunctions'
 import {
     StateContext,
     setSelectedPage,
@@ -18,61 +16,34 @@ import {
     TagsFilter,
 } from '../components/projects';
 
-//Function to sort projects based on clients preference; order stored in data folder
-function sortProjects(raw) {
-    const specified = [];
-    const unspecified = [];
-    for (let el of raw) {
-        let slug = el.node.fields.slug;
-        if (Order.includes(slug)) {
-            specified.push(el);
-        } else {
-            unspecified.push(el);
-        }
-    }
-    let orderedSpecified = specified.sort((a, b) =>
-        Order.indexOf(a.node.fields.slug) > Order.indexOf(b.node.fields.slug)
-            ? 1
-            : -1
-    );
-    let orderedUnspecified = unspecified.sort((a, b) =>
-        a.node.frontmatter.title > b.node.frontmatter.title ? 1 : -1
-    );
-    let projects = [...orderedSpecified, ...orderedUnspecified];
-
-    return projects;
-}
-
 const ProjectsPage = ({ data }) => {
     let ITEM_PER_PAGE = 15;
+
     const [{ pageInfo }, dispatch] = useContext(StateContext);
-    console.log(pageInfo)
     //current-projects selected based on tabs/filters
     const [currentProjects, setCurrentProjects] = useState([]);
     //projects being shown on current page
-    const [displayedProjects, setDisplayedProjects] = useState([]);
-    //only want tags present for current projects being filtered
+    const [displayedProjects, setDisplayedProjects] = useState([])
+    //tags being shown based on current tab selected
     const [currentTags, setCurrentTags] = useState([]);
+
     //Memoized so projects are only sorted once or when edges changes
     let sortedProjects = useMemo(
         () => sortProjects(data.allMarkdownRemark.edges),
         [data.allMarkdownRemark.edges]
     );
-
+    
     //ref for a div inside layoutScroll to scroll into view on page change
     let scrollToDiv = useRef();
-
+    
     useEffect(() => {
         let filteredProjects = sortedProjects;
         //if any filters have been selected
-        if (pageInfo.filters.length > 0) {
-            //get projects that have every filter in its tags
+        if (pageInfo.filter) {
+            //get projects that have matching filter
             filteredProjects = filteredProjects.filter(project => {
                 let projectTags = project.node.frontmatter.tags;
-                let allPresent = pageInfo.filters.every(tag =>
-                    projectTags.includes(tag)
-                );
-                if (allPresent) return project;
+                if (projectTags.includes(pageInfo.filter)) return project;
             });
         }
 
@@ -94,31 +65,28 @@ const ProjectsPage = ({ data }) => {
         setCurrentProjects(filteredProjects);
         setDisplayedProjects(filterSliced);
         
-        let tagsDict = {}
-        filteredProjects.forEach(project =>  {
-            let projectTags = project.node.frontmatter.tags
-            projectTags.forEach(tag => {
-                tagsDict[tag] = (tagsDict[tag] || 0) + 1
-            })
-        })
-        setCurrentTags(Object.entries(tagsDict))
-        
         if (scrollToDiv.current)
             scrollToDiv.current.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center',
             });
     }, [
-        pageInfo.filters,
+        pageInfo.filter,
         pageInfo.page,
         pageInfo.tab,
         ITEM_PER_PAGE,
         sortedProjects,
     ]);
+    
+    useEffect(() => {
+        let availableTags = grabTags(sortedProjects, pageInfo.tab)
+        let sortedTags = sortTags(availableTags)
+        setCurrentTags(sortedTags)
+    }, [pageInfo.tab, sortedProjects]);
 
     const handleTagClick = (e, tag) => {
         e.preventDefault()
-        if (pageInfo.filters.includes(tag))
+        if (pageInfo.filter === tag)
             changeFilters(dispatch, 'remove', tag);
         else changeFilters(dispatch, 'add', tag);
     }
@@ -133,9 +101,7 @@ const ProjectsPage = ({ data }) => {
                 dispatch={dispatch}
             />
             <TagsFilter
-                selectedFilters={pageInfo.filters}
-                changeFilters={changeFilters}
-                dispatch={dispatch}
+                selectedFilter={pageInfo.filter}
                 tags={currentTags}
                 handleTagClick = {handleTagClick}
             />
