@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Layout, SEO } from '../components/global';
+import { LayoutScroll, SEO } from '../components/global';
 import styled from 'styled-components'
 
 const Title = styled.h1`
@@ -40,7 +40,7 @@ const Tags = styled.div`
 export default ({ data }) => {
     const post = data.markdownRemark;
     return (
-        <Layout>
+        <LayoutScroll>
             <SEO title={post.frontmatter.title} />
             <div>
                 <Picture>
@@ -56,7 +56,7 @@ export default ({ data }) => {
                     <div dangerouslySetInnerHTML={{ __html: post.html }} />
                 </Description>
             </div>
-        </Layout>
+        </LayoutScroll>
     );
 };
 export const query = graphql`
