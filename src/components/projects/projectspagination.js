@@ -65,6 +65,7 @@ export const ProjectsPagination = ({
 const PaginateContainer = styled.div`
     margin: 0 auto;
     width: 25%;
+    max-width: 500px;
     display: flex;
     justify-content: space-between;
     height: 40px;

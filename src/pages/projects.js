@@ -15,6 +15,7 @@ import {
     ProjectsPagination,
     TagsFilter,
 } from '../components/projects';
+import {breakpoints} from '../styles/breakpoints'
 
 const ProjectsPage = ({ data }) => {
     let ITEM_PER_PAGE = 15;
@@ -162,6 +163,7 @@ const ProjectsContainer = styled.div`
     flex-wrap: wrap;
     align-content: space-between;
     margin: 0 auto;
+    max-width: 1344px;
 
     //if less than 3 photos, left align them
     justify-content: ${({ size }) =>
