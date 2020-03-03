@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import {HoverData} from './hoverData'
+import { HoverData } from './hoverData'
+import { breakpoints } from '../../styles/breakpoints'
 
 const TitlePanel = styled.div`
     width: 100%;
@@ -10,6 +11,9 @@ const TitlePanel = styled.div`
 `;
 const Title = styled.h1`
     font-size: 12rem;
+    ${breakpoints.vp13} {
+        font-size: 10rem;
+    }
     margin: 0 auto;
     text-align: center;
     padding: 2.4rem;
@@ -17,7 +21,6 @@ const Title = styled.h1`
     line-height: 0.8;
     border: 2.5rem solid red;
 `;
-
 const Panel = styled.div`
     background-color: rgba(41, 41, 41, 0.78);
     display: flex;

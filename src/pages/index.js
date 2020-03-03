@@ -41,7 +41,13 @@ const MissionText = styled.h1`
     border-left 3.2rem solid ${({theme}) => theme.black};
     color: ${({theme}) => theme.red};
     width: 35%;
-    margin: 0 0 0 45%;
+    margin-left: 45%;
+    ${breakpoints.vp13} {
+        width: 45%;
+        margin-left: 35%;
+        font-size: 6.4rem;
+        border-left-width: 2.5rem;
+    }
 `
 
 const AboutBlock = styled.div`
@@ -113,13 +119,23 @@ const BigIndex = ({ width, height }) => {
 
 
     let projectsOffset = 0.99;
-
     let missionOffset = 3.85;
-    if (width < numbers.vp13) {
-        missionOffset = 3.5;
-    }
+    let servicesImageOffset = 4.5;
+    let servicesTitleOffset = 4.8;
+    let servicesBoxOffset = 4.97;
+    let aboutImageOffset = 5.62;
     let aboutTitleOffset = 5.8;
     let aboutBodyOffset = 6.1;
+
+    if (width < numbers.vp13) {
+        projectsOffset = 0.8;
+        missionOffset = 3.2;
+        servicesImageOffset = 3.78;
+        servicesTitleOffset = 3.99;
+        servicesBoxOffset = 4.1;
+        aboutImageOffset = 4.64;
+        aboutTitleOffset = 4.8;
+    }
     return (
         <Parallax
             pages={7}
@@ -136,7 +152,11 @@ const BigIndex = ({ width, height }) => {
             </ParallaxLayer>
             <ParallaxLayer offset={0.25} speed={0.2}>
                 <HeroBlock>
-                    <TitleBox width='50rem' color='white' borderColor='red'>
+                    <TitleBox
+                        width='50rem'
+                        color='white'
+                        borderColor='red'
+                    >
                         Serving the Southeast Since 1985
                     </TitleBox>
                     <h2>
@@ -149,23 +169,31 @@ const BigIndex = ({ width, height }) => {
 
             <ParallaxLayer offset={missionOffset} speed={0.2}>
                 <MissionText>
-                    Take care of the customer and everything else will take care of itself.
+                    Take care of the customer and everything else will take care
+                    of itself.
                 </MissionText>
             </ParallaxLayer>
 
 
-            <ParallaxLayer offset={4.5} speed={0}>
+            <ParallaxLayer offset={servicesImageOffset} speed={0}>
                 <Img fluid={servicesImage} />
             </ParallaxLayer>
-            <ParallaxLayer offset={4.8} speed={0.2}>
-                <TitleBox width='32rem' color='white' borderColor='red' size='8rem'>What We Do</TitleBox>
+            <ParallaxLayer offset={servicesTitleOffset} speed={0.2}>
+                <TitleBox
+                    width='32rem'
+                    color='white'
+                    borderColor='red'
+                    size='8rem'
+                >
+                    What We Do
+                </TitleBox>
             </ParallaxLayer>
-            <ParallaxLayer offset={4.97} speed={0}>
+            <ParallaxLayer offset={servicesBoxOffset} speed={0}>
                 <ServicesBox />
             </ParallaxLayer>
 
 
-            <ParallaxLayer offset={5.62} speed={0}>
+            <ParallaxLayer offset={aboutImageOffset} speed={0}>
                 <Img fluid={aboutImage} />
             </ParallaxLayer>
             <ParallaxLayer offset={aboutTitleOffset} speed={0.09}>
@@ -174,7 +202,8 @@ const BigIndex = ({ width, height }) => {
                     color='white'
                     size='11.2rem'
                     borderColor='black'
-                    borderSize='3.2rem'>
+                    borderSize='3.2rem'
+                >
                     Who We Are
                 </TitleBox>
             </ParallaxLayer>
@@ -188,13 +217,7 @@ const BigIndex = ({ width, height }) => {
                         quality painting and restoration contractor in Florida.
                     </p>
                     <p>
-                        Our <Link to='/projects'>work history</Link> speaks to our capabilities. Our <Link
-                            to='/testimonials'>testimonials</Link> speak to
-                        our quality and customer service. The <Link
-                            to='/about'>age of our company</Link> speaks
-                        to our integrity, commitment and work ethic. The
-                        importance we place on communication with our
-                        clients speaks to our success.
+                        Our <Link to='/projects'>work history</Link> speaks to our capabilities. Our <Link to='/testimonials'>testimonials</Link> speak to our quality and customer service. The <Link to='/about'>age of our company</Link> speaks to our integrity, commitment and work ethic.  The importance we place on communication with our clients speaks to our success.
                     </p>
                 </AboutBlock>
             </ParallaxLayer>
