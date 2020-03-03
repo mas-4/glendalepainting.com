@@ -7,12 +7,14 @@ import styled from 'styled-components'
 import { Layout, SEO } from '../components/global'
 import { ProjectsPanel, ServicesBox } from '../components/landing'
 import { TitleBox } from '../styled-components'
+import { breakpoints, numbers} from '../styles/breakpoints'
 
 
 const HeroBlock = styled.div`
     margin: 0 auto;
     background: rgba(0, 0, 0, 0.2);
     padding: 6.4rem;
+    padding-bottom: 1rem;
     color: ${({theme}) => theme.white};
     width: 50%;
     text-align: center;
@@ -64,7 +66,7 @@ const AboutBlock = styled.div`
     }
 `
 
-const BigIndex = () => {
+const BigIndex = ({ width, height }) => {
     const data = useStaticQuery(graphql`
         # fragment for simple fluid imports
         fragment BGImg on File {
@@ -85,7 +87,7 @@ const BigIndex = () => {
                 fluid(
                     quality: 100
                     maxWidth: 1920
-                    duotone: { highlight: "#f00e2e", shadow: "#000000" }
+                    duotone: { highlight: "#ff0000", shadow: "#000000" }
                     toFormat: PNG
                 ) {
                     ...GatsbyImageSharpFluid
@@ -109,12 +111,21 @@ const BigIndex = () => {
     const aboutImage = data.about.childImageSharp.fluid;
     const servicesImage = data.services.childImageSharp.fluid;
 
+
+    let projectsOffset = 0.99;
+
+    let missionOffset = 3.85;
+    if (width < numbers.vp13) {
+        missionOffset = 3.5;
+    }
+    let aboutTitleOffset = 5.8;
+    let aboutBodyOffset = 6.1;
     return (
         <Parallax
             pages={7}
             style={{ backgroundColor: "#FFFFFF" }}
         >
-            <ParallaxLayer offset={1} speed={0}>
+            <ParallaxLayer offset={projectsOffset} speed={0}>
                 {/* this has to go above the hero panel so that it's underlying it */}
                 <ProjectsPanel />
             </ParallaxLayer>
@@ -136,7 +147,7 @@ const BigIndex = () => {
             </ParallaxLayer>
 
 
-            <ParallaxLayer offset={3.9} speed={0.2}>
+            <ParallaxLayer offset={missionOffset} speed={0.2}>
                 <MissionText>
                     Take care of the customer and everything else will take care of itself.
                 </MissionText>
@@ -157,7 +168,7 @@ const BigIndex = () => {
             <ParallaxLayer offset={5.62} speed={0}>
                 <Img fluid={aboutImage} />
             </ParallaxLayer>
-            <ParallaxLayer offset={5.95} speed={0.09}>
+            <ParallaxLayer offset={aboutTitleOffset} speed={0.09}>
                 <TitleBox
                     width='40rem'
                     color='white'
@@ -167,7 +178,7 @@ const BigIndex = () => {
                     Who We Are
                 </TitleBox>
             </ParallaxLayer>
-            <ParallaxLayer offset={6.25} speed={0.2}>
+            <ParallaxLayer offset={aboutBodyOffset} speed={0.2}>
                 <AboutBlock>
                     <p>
                         Glendale is a family business in the Tampa Bay Area
@@ -210,7 +221,7 @@ class IndexPage extends React.Component {
         return (
             <Layout>
                 <SEO title="Home" />
-                <BigIndex />
+                <BigIndex width={this.state.width} height={this.state.height} />
             </Layout>
         )
     }
