@@ -1,13 +1,10 @@
 import React from 'react'
-
-import { Layout, SEO } from '../components/global'
-
 import { useStaticQuery, graphql, Link } from 'gatsby'
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import Img from 'gatsby-image'
-
 import styled from 'styled-components'
 
-import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
+import { Layout, SEO } from '../components/global'
 import { ProjectsPanel, ServicesBox } from '../components/landing'
 import { TitleBox } from '../styled-components'
 
@@ -132,9 +129,8 @@ const BigIndex = () => {
                         Serving the Southeast Since 1985
                     </TitleBox>
                     <h2>
-                        With over three decades in the industry,
-                        whatever <Link to='/projects'>the size of your
-                            project</Link>, Glendale has you covered.
+                        With over three decades in the industry, Glendale has
+                        you covered.
                     </h2>
                 </HeroBlock>
             </ParallaxLayer>
