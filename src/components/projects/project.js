@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { HoverData } from './hoverdata';
 
 export const Project = ({ data, slug, handleTagClick }) => {
+    console.log(slug)
     return (
         <ProjectContainer>
             <Img
