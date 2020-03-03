@@ -37,6 +37,7 @@ const FilterContainer = styled.div`
     justify-content: flex-start;
     margin: 0 auto;
     align-content: flex-start;
+    max-width: 1330px;
 `
 
 const TagContainer = styled.div`
