@@ -1,5 +1,5 @@
 const numbers = {
-    vp3: 380,
+    vp3:    380,
     vp4_2:  420,
     vp4:    480,
     vp6:    600,

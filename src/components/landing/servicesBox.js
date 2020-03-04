@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { breakpoints } from '../../styles/breakpoints'
 
 export const ServicesBox = () => {
     const Boxes = styled.div`
@@ -16,6 +17,9 @@ export const ServicesBox = () => {
     const Text = styled.div`
         width: 70%;
         color: white;
+        ${breakpoints.vp12} {
+            width: 90%;
+        }
         h3{
             line-height: 0.8;
         }

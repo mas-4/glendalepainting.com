@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 import { Layout, SEO } from '../components/global'
 import { ProjectsPanel, ServicesBox } from '../components/landing'
-import { TitleBox } from '../styled-components'
+import { TitleBoxBland, TitleBox } from '../styled-components'
 import { breakpoints, numbers} from '../styles/breakpoints'
 
 
@@ -48,6 +48,10 @@ const MissionText = styled.h1`
         font-size: 6.4rem;
         border-left-width: 2.5rem;
     }
+    ${breakpoints.vp12} {
+        width: 65%;
+        margin-left: 25%;
+    }
 `
 
 const AboutBlock = styled.div`
@@ -69,6 +73,27 @@ const AboutBlock = styled.div`
                 color: ${({theme}) => theme.lightGray};
             }
         }
+    }
+    ${breakpoints.vp12} {
+        padding: 1rem 3rem;
+        p {
+            margin: 2rem 0;
+            font-size: ${({theme}) => theme.size3};
+        }
+    }
+`
+const AboutTitle = styled(TitleBoxBland)`
+    width: 40rem;
+    font-size: 11.2rem;
+    border-left-width: 2.5rem;
+    ${breakpoints.vp13} {
+        font-size: 9rem;
+        width: 30rem;
+        border-left-width: 2rem;
+    }
+    ${breakpoints.vp12} {
+        font-size: 8rem;
+        width: 55rem;
     }
 `
 
@@ -126,6 +151,7 @@ const BigIndex = ({ width, height }) => {
     let aboutImageOffset = 5.62;
     let aboutTitleOffset = 5.8;
     let aboutBodyOffset = 6.1;
+    let pageSize = 7;
 
     if (width < numbers.vp13) {
         projectsOffset = 0.8;
@@ -134,11 +160,23 @@ const BigIndex = ({ width, height }) => {
         servicesTitleOffset = 3.99;
         servicesBoxOffset = 4.1;
         aboutImageOffset = 4.64;
-        aboutTitleOffset = 4.8;
+        aboutTitleOffset = 4.75;
+        aboutBodyOffset = 5;
+        pageSize = 5.8;
+    } if (width < numbers.vp12) {
+        missionOffset = 3.05;
+        servicesImageOffset = 3.6;
+        servicesTitleOffset = 3.8;
+        servicesBoxOffset = 4;
+        aboutImageOffset = 4.45;
+        aboutTitleOffset = 4.56;
+        aboutBodyOffset = 4.75;
+        pageSize = 5.3;
     }
+
     return (
         <Parallax
-            pages={7}
+            pages={pageSize}
             style={{ backgroundColor: "#FFFFFF" }}
         >
             <ParallaxLayer offset={projectsOffset} speed={0}>
@@ -197,15 +235,12 @@ const BigIndex = ({ width, height }) => {
                 <Img fluid={aboutImage} />
             </ParallaxLayer>
             <ParallaxLayer offset={aboutTitleOffset} speed={0.09}>
-                <TitleBox
-                    width='40rem'
+                <AboutTitle
                     color='white'
-                    size='11.2rem'
                     borderColor='black'
-                    borderSize='3.2rem'
                 >
                     Who We Are
-                </TitleBox>
+                </AboutTitle>
             </ParallaxLayer>
             <ParallaxLayer offset={aboutBodyOffset} speed={0.2}>
                 <AboutBlock>
