@@ -269,6 +269,13 @@ const BigIndex = ({ width, height }) => {
         </Parallax>
     )
 }
+const SmallIndex = () => {
+    return (
+        <>
+            Hi
+        </>
+    )
+}
 
 class IndexPage extends React.Component {
     state = {
@@ -285,11 +292,11 @@ class IndexPage extends React.Component {
         this.setState({width: window.innerWidth, height: window.innerHeight})
     }
     render() {
-
+        const Index = this.state.width > numbers.vp9 ? BigIndex : SmallIndex;
         return (
             <Layout>
                 <SEO title="Home" />
-                <BigIndex width={this.state.width} height={this.state.height} />
+                <Index width={this.state.width} height={this.state.height} />
             </Layout>
         )
     }
