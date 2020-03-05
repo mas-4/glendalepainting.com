@@ -7,19 +7,24 @@ import { breakpoints } from '../../styles/breakpoints'
 
 const TitlePanel = styled.div`
     width: 100%;
-    margin: 16rem 0;
+    margin-top: 16rem;
+    margin-bottom: 10rem;
+    a {
+        text-decoration: none;
+        color: ${({theme}) => theme.black};
+    }
 `;
 const Title = styled.h1`
-    font-size: 12rem;
+    font-size: 10rem;
     ${breakpoints.vp13} {
-        font-size: 10rem;
+        font-size: 8rem;
     }
     margin: 0 auto;
     text-align: center;
-    padding: 2.4rem;
-    width: 30%;
+    padding: 2rem;
+    width: 40rem;
     line-height: 0.8;
-    border: 2.5rem solid red;
+    border: 2rem solid red;
 `;
 const Panel = styled.div`
     background-color: rgba(41, 41, 41, 0.78);
@@ -123,7 +128,11 @@ export const ProjectsPanel = () => {
     return (
         <>
             <TitlePanel>
-                <Title>What We've Done</Title>
+                <Link
+                    to='/projects'
+                >
+                    <Title>What We've Done</Title>
+                </Link>
             </TitlePanel>
             <Panel>
                 {dataArr.map(([key, data]) => {
@@ -139,8 +148,6 @@ export const ProjectsPanel = () => {
                             <Link to={`${data.fields.slug}`}>
                                 <HoverData data={data} />
                             </Link>
-                                
-                            
                         </Project>
                     );
                 })}
