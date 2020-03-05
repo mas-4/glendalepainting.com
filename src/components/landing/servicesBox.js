@@ -17,7 +17,7 @@ export const ServicesBox = () => {
     const Text = styled.div`
         width: 70%;
         color: white;
-        ${breakpoints.vp12} {
+        ${breakpoints.vp13} {
             width: 90%;
         }
         h3{

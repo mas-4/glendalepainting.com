@@ -84,7 +84,7 @@ const AboutBlock = styled.div`
 `
 const AboutTitle = styled(TitleBoxBland)`
     width: 40rem;
-    font-size: 11.2rem;
+    font-size: 10.5rem;
     border-left-width: 2.5rem;
     ${breakpoints.vp13} {
         font-size: 9rem;
@@ -148,14 +148,14 @@ const BigIndex = ({ width, height }) => {
     let servicesImageOffset = 4.5;
     let servicesTitleOffset = 4.8;
     let servicesBoxOffset = 4.97;
-    let aboutImageOffset = 5.62;
-    let aboutTitleOffset = 5.8;
-    let aboutBodyOffset = 6.1;
-    let pageSize = 7;
+    let aboutImageOffset = 5.4;
+    let aboutTitleOffset = 5.53;
+    let aboutBodyOffset = 5.9;
+    let pageSize = 6.4;
 
     if (width < numbers.vp13) {
         projectsOffset = 0.8;
-        missionOffset = 3.2;
+        missionOffset = 3.3;
         servicesImageOffset = 3.78;
         servicesTitleOffset = 3.99;
         servicesBoxOffset = 4.1;
@@ -163,15 +163,25 @@ const BigIndex = ({ width, height }) => {
         aboutTitleOffset = 4.75;
         aboutBodyOffset = 5;
         pageSize = 5.8;
-    } if (width < numbers.vp12) {
-        missionOffset = 3.05;
-        servicesImageOffset = 3.6;
-        servicesTitleOffset = 3.8;
-        servicesBoxOffset = 4;
-        aboutImageOffset = 4.45;
-        aboutTitleOffset = 4.56;
-        aboutBodyOffset = 4.75;
-        pageSize = 5.3;
+    } if (width < numbers.vp12 && height < 1030) {
+        missionOffset = 2.9;
+        servicesImageOffset = 3.3;
+        servicesTitleOffset = 3.4;
+        servicesBoxOffset = 3.6;
+        aboutImageOffset = 3.96;
+        aboutTitleOffset = 4;
+        aboutBodyOffset = 4.1;
+        pageSize = 4.7;
+    } if (width < numbers.vp12 && height < 770) {
+        missionOffset = 3.35;
+        servicesImageOffset = 3.8;
+        servicesTitleOffset = 3.9999;
+        servicesBoxOffset = 4.2;
+        aboutImageOffset = 4.7;
+        aboutTitleOffset = 4.8;
+        aboutBodyOffset = 4.999;
+        pageSize = 5.5;
+
     }
 
     return (
