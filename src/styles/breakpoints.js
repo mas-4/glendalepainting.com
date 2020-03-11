@@ -10,7 +10,7 @@ const numbers = {
 
 let breakpoints = {}
 for (const prop in numbers) {
-    breakpoints[prop] = `(max-width: ${numbers[prop]-1}px)`
+    breakpoints[prop] = `@media only screen and (max-width: ${numbers[prop]-1}px)`
 }
 
 export { numbers, breakpoints }

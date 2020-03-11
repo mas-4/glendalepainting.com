@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { breakpoints } from '../../styles/breakpoints';
 
 export const ProjectsFilter = ({ selectedTab, setSelectedTab, dispatch }) => {
     let tabSelected = {
@@ -40,10 +41,17 @@ export const ProjectsFilter = ({ selectedTab, setSelectedTab, dispatch }) => {
 };
 
 const ButtonContainer = styled.div`
-    width: 35%;
+    width: 90%;
+    max-width: 675px;
     margin: 0 auto 2rem;
     display: flex;
     justify-content: space-between;
+
+    ${breakpoints.vp7} {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center
+    }
 `;
 
 const FilterButton = styled.button`
@@ -56,6 +64,7 @@ const FilterButton = styled.button`
         props.chosen ? props.theme.red : props.theme.lightGray};
     border: none;
     cursor: pointer;
+    margin: 5px 0 5px;
 
     &:hover {
         box-shadow: ${({ theme }) => theme.boxShadow};
@@ -66,5 +75,9 @@ const FilterButton = styled.button`
 
     &:focus {
         outline: none;
+    }
+
+    ${breakpoints.vp7} {
+        width: 240px;
     }
 `;
