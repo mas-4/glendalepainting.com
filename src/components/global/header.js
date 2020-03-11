@@ -19,8 +19,8 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-    color: ${({ theme }) => theme.black};
-    font-size: ${({ theme }) => theme.size3};
+    color: ${({ theme, menuOpen }) => menuOpen ? theme.white : theme.black};
+    font-size: ${({ theme, menuOpen }) => menuOpen ? theme.size7 : theme.size3};
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
@@ -49,14 +49,15 @@ const LinkContainer = styled.div`
 
 const SlideoutContainer = styled.div`
     position: absolute;
-    padding-top: 10rem;
+    padding: 10rem 0 30rem;
     top: 0px;
-    width: 50%;
-    left: 50%;
+    width: 100%;
+    left: 0px;
     height: 100vh;
-    background: rgba(212, 0, 0, 0.4);
+    background: rgb(45, 45 , 45);
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 `;
 const SlideoutMenu = ({ menuOpen }) => {
@@ -64,7 +65,7 @@ const SlideoutMenu = ({ menuOpen }) => {
         <>
             {menuOpen && (
                 <SlideoutContainer>
-                    <Links />
+                    <Links menuOpen={menuOpen}/>
                 </SlideoutContainer>
             )}{' '}
         </>
@@ -79,7 +80,7 @@ const HamburgerMenu = ({ menuOpen, setMenuOpen }) => {
                     'is-active'}`}
                 type="button"
                 onClick={() => setMenuOpen(prevState => !prevState)}
-                style={{ outline: 'none', zIndex:'50' }}
+                style={{ outline: 'none', zIndex:'50'}}
             >
                 <span className="hamburger-box">
                     <span className="hamburger-inner"></span>
@@ -124,19 +125,19 @@ const LinkWrapper = () => {
         </>
     );
 };
-const Links = ({ className }) => {
+const Links = ({ className, menuOpen }) => {
     return (
         <>
-            <NavLink to="/about" className={className}>
+            <NavLink to="/about" className={className} menuOpen={menuOpen}>
                 About
             </NavLink>
-            <NavLink to="/projects" activeClassName="active">
+            <NavLink to="/projects" activeClassName="active" menuOpen={menuOpen}>
                 Projects
             </NavLink>
-            <NavLink to="/services" activeClassName="active">
+            <NavLink to="/services" activeClassName="active" menuOpen={menuOpen}>
                 Services
             </NavLink>
-            <NavLink to="/contact" activeClassName="active">
+            <NavLink to="/contact" activeClassName="active" menuOpen={menuOpen}>
                 Contact
             </NavLink>
         </>
