@@ -13,18 +13,28 @@ const TitlePanel = styled.div`
         text-decoration: none;
         color: ${({theme}) => theme.black};
     }
+    ${breakpoints.vp9} {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
 `;
 const Title = styled.h1`
     font-size: 10rem;
-    ${breakpoints.vp13} {
-        font-size: 8rem;
-    }
     margin: 0 auto;
     text-align: center;
     padding: 2rem;
     width: 40rem;
     line-height: 0.8;
     border: 2rem solid red;
+    ${breakpoints.vp13} {
+        font-size: 8rem;
+    }
+    ${breakpoints.vp9} {
+        font-size: 6rem;
+        padding: 2rem;
+        border: 1.5rem solid red;
+        width: 30rem;
+    }
 `;
 const Panel = styled.div`
     background-color: rgba(41, 41, 41, 0.78);
@@ -44,6 +54,9 @@ const Project = styled.div`
 
     .hoverContainer {
         cursor: pointer;
+    }
+    ${breakpoints.vp9} {
+        font-size: 1rem;
     }
 `;
 
@@ -124,7 +137,6 @@ export const ProjectsPanel = () => {
         }
     `);
     const dataArr = Object.entries(data);
-    console.log(dataArr);
     return (
         <>
             <TitlePanel>

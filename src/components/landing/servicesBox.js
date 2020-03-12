@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 import { breakpoints } from '../../styles/breakpoints'
 
 export const ServicesBox = () => {
@@ -34,31 +35,35 @@ export const ServicesBox = () => {
                 color="rgba(41, 41, 41, 0.78)"
                 align="end"
             >
-                <Text>
-                    <h3>Repaint &amp; Restoration</h3>
-                    <p>
-                        Whether it's the typical repaint, or a full-out
-                        restoration, our rehabilitation division has the
-                        knowledge and experience to get the job done.  Our
-                        employees know how to work with discerning clientele
-                        and make every resident happy with the end-product.
-                    </p>
-                </Text>
+                <Fade left>
+                    <Text>
+                        <h3>Repaint &amp; Restoration</h3>
+                        <p>
+                            Whether it's the typical repaint, or a full-out
+                            restoration, our rehabilitation division has the
+                            knowledge and experience to get the job done.  Our
+                            employees know how to work with discerning clientele
+                            and make every resident happy with the end-product.
+                        </p>
+                    </Text>
+                </Fade>
             </Box>
             <Box
                 color="rgba(241, 14, 14, 0.6)"
                 align="start"
             >
-                <Text>
-                    <h3>New Construction Painting</h3>
-                    <p>
-                        Our new construction division boasts some of the
-                        largest and most complex structures in Florida.  We
-                        know how to meet the ever tightening deadlines
-                        developers and general contractors require these
-                        days.
-                    </p>
-                </Text>
+                <Fade right>
+                    <Text>
+                        <h3>New Construction Painting</h3>
+                        <p>
+                            Our new construction division boasts some of the
+                            largest and most complex structures in Florida.  We
+                            know how to meet the ever tightening deadlines
+                            developers and general contractors require these
+                            days.
+                        </p>
+                    </Text>
+                </Fade>
             </Box>
         </Boxes>
     )

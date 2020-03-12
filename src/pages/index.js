@@ -1,37 +1,42 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import Img from 'gatsby-image'
+import BackgroundImage from 'gatsby-background-image'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
-import { Layout, SEO } from '../components/global'
+import { LayoutScroll, Layout, SEO } from '../components/global'
 import { ProjectsPanel, ServicesBox } from '../components/landing'
 import { TitleBoxBland, TitleBox } from '../styled-components'
 import { breakpoints, numbers} from '../styles/breakpoints'
 
 
 const HeroBlock = styled.div`
-    margin: 0 auto;
     background: rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
     padding: 6.4rem;
     padding-bottom: 1rem;
     color: ${({theme}) => theme.white};
-    width: 50%;
+    width: 60%;
     text-align: center;
+    h1 {
+        ${breakpoints.vp9} {
+            font-size: 6rem;
+            width: 95%;
+        }
+    }
     h2 {
         text-align: left;
         font-size: ${({theme}) => theme.size5};
         margin: 30px 0;
-    }
-    a {
-        transition: 0.33s;
-        color: ${({theme}) => theme.red};
-        font-weight: bold;
-        text-decoration: none;
-        &:hover {
-            color: ${({theme}) => theme.lightGray};
+        ${breakpoints.vp9} {
+            font-size: ${({theme}) => theme.size4};
         }
     }
+`
+const Spacer = styled.div`
+    height: 7rem;
 `
 
 const MissionText = styled.h1`
@@ -51,6 +56,11 @@ const MissionText = styled.h1`
     ${breakpoints.vp12} {
         width: 65%;
         margin-left: 25%;
+    }
+    ${breakpoints.vp9} {
+        font-size: ${({theme}) => theme.size7};
+        border-left-width: 2.5rem;
+        margin-top: 10rem;
     }
 `
 
@@ -81,6 +91,12 @@ const AboutBlock = styled.div`
             font-size: ${({theme}) => theme.size3};
         }
     }
+    ${breakpoints.vp9} {
+        margin-top: 4rem;
+        p {
+            font-size: ${({theme}) => theme.size2};
+        }
+    }
 `
 const AboutTitle = styled(TitleBoxBland)`
     width: 40rem;
@@ -95,54 +111,12 @@ const AboutTitle = styled(TitleBoxBland)`
         font-size: 8rem;
         width: 55rem;
     }
+    ${breakpoints.vp9} {
+        width: 40rem;
+    }
 `
 
-const BigIndex = ({ width, height }) => {
-    const data = useStaticQuery(graphql`
-        # fragment for simple fluid imports
-        fragment BGImg on File {
-            childImageSharp {
-                fluid(
-                    quality: 100
-                    maxWidth: 1920
-                    duotone: { highlight: "#000000", shadow: "#000000", opacity: 50 }
-                    toFormat: PNG
-                ) {
-                    # the duotone is just a black screen for darkening bg images. To be adjusted when desired.
-                        ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        fragment DuoToneImg on File {
-            childImageSharp {
-                fluid(
-                    quality: 100
-                    maxWidth: 1920
-                    duotone: { highlight: "#ff0000", shadow: "#000000" }
-                    toFormat: PNG
-                ) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        query {
-            hero: file(relativePath: { eq: "jobs/BelleHarbor.jpg" }) {
-                ...BGImg
-            }
-            about: file(relativePath: { eq: "office-stock.jpg" }) {
-                ...DuoToneImg
-            }
-            services: file(relativePath: { eq: "work/LaFirenzaDecksAdjusted.jpg" }) {
-                ...BGImg
-            }
-        }
-    `);
-
-    const heroImage = data.hero.childImageSharp.fluid;
-    const aboutImage = data.about.childImageSharp.fluid;
-    const servicesImage = data.services.childImageSharp.fluid;
-
-
+const BigIndex = ({ width, height, heroImage, aboutImage, servicesImage }) => {
     let projectsOffset = 0.99;
     let missionOffset = 3.85;
     let servicesImageOffset = 4.5;
@@ -185,20 +159,125 @@ const BigIndex = ({ width, height }) => {
     }
 
     return (
-        <Parallax
-            pages={pageSize}
-            style={{ backgroundColor: "#FFFFFF" }}
+        <Layout>
+            <SEO title="Home" />
+            <Parallax
+                pages={pageSize}
+                style={{ backgroundColor: "#FFFFFF" }}
+            >
+                <ParallaxLayer offset={projectsOffset} speed={0}>
+                    {/* this has to go above the hero panel so that it's underlying it */}
+                    <ProjectsPanel />
+                </ParallaxLayer>
+
+
+                <ParallaxLayer offset={0} speed={0.5}>
+                    <Img fluid={heroImage} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={0.25} speed={0.2}>
+                    <HeroBlock>
+                        <TitleBox
+                            width='50rem'
+                            color='white'
+                            borderColor='red'
+                        >
+                            Serving the Southeast Since 1985
+                        </TitleBox>
+                        <h2>
+                            With over three decades in the industry, Glendale has
+                            you covered.
+                        </h2>
+                    </HeroBlock>
+                </ParallaxLayer>
+
+
+                <ParallaxLayer offset={missionOffset} speed={0.2}>
+                    <MissionText>
+                        Take care of the customer and everything else will take care
+                        of itself.
+                    </MissionText>
+                </ParallaxLayer>
+
+
+                <ParallaxLayer offset={servicesImageOffset} speed={0}>
+                    <Img fluid={servicesImage} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={servicesTitleOffset} speed={0.2}>
+                    <TitleBox
+                        width='32rem'
+                        color='white'
+                        borderColor='red'
+                        size='8rem'
+                    >
+                        What We Do
+                    </TitleBox>
+                </ParallaxLayer>
+                <ParallaxLayer offset={servicesBoxOffset} speed={0}>
+                    <ServicesBox />
+                </ParallaxLayer>
+                <ParallaxLayer offset={aboutImageOffset} speed={0}>
+                    <Img fluid={aboutImage} />
+                </ParallaxLayer>
+                <ParallaxLayer offset={aboutTitleOffset} speed={0.09}>
+                    <AboutTitle
+                        color='white'
+                        borderColor='black'
+                    >
+                        Who We Are
+                    </AboutTitle>
+                </ParallaxLayer>
+                <ParallaxLayer offset={aboutBodyOffset} speed={0.2}>
+                    <AboutBlock>
+                        <p>
+                            Glendale is a family business in the Tampa Bay Area
+                            servicing the State of Florida for over 3 decades. Run
+                            by two brothers, Rick and Kevin, since 1985, over the
+                            last 33 years the company has grown into a premier
+                            quality painting and restoration contractor in Florida.
+                        </p>
+                        <p>
+                            Our <Link to='/projects'>work history</Link> speaks to our capabilities. Our <Link to='/testimonials'>testimonials</Link> speak to our quality and customer service. The <Link to='/about'>age of our company</Link> speaks to our integrity, commitment and work ethic.  The importance we place on communication with our clients speaks to our success.
+                        </p>
+                    </AboutBlock>
+                </ParallaxLayer>
+            </Parallax>
+        </Layout>
+    )
+}
+
+const Background = ({ image, className, children }) => {
+    return (
+        <BackgroundImage
+            Tag="section"
+            backgroundColor={`#040e18`}
+            fluid={image}
+            className={className}
         >
-            <ParallaxLayer offset={projectsOffset} speed={0}>
-                {/* this has to go above the hero panel so that it's underlying it */}
-                <ProjectsPanel />
-            </ParallaxLayer>
+            {children}
+        </BackgroundImage>
+    )
+}
+const StyledBackground = styled(Background)`
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+`
+const MissionPanel = styled.div`
+    height: 60rem;
+    padding: 10rem;
+`
+const ServicesTitle = styled(TitleBoxBland)`
+    margin-bottom: 5rem;
+`
 
-
-            <ParallaxLayer offset={0} speed={0.5}>
-                <Img fluid={heroImage} />
-            </ParallaxLayer>
-            <ParallaxLayer offset={0.25} speed={0.2}>
+const SmallIndex = ({ heroImage, servicesImage, aboutImage }) => {
+    return (
+        <LayoutScroll>
+            <SEO title="Home" />
+            <StyledBackground image={heroImage}>
+                <Spacer />
                 <HeroBlock>
                     <TitleBox
                         width='50rem'
@@ -212,47 +291,42 @@ const BigIndex = ({ width, height }) => {
                         you covered.
                     </h2>
                 </HeroBlock>
-            </ParallaxLayer>
-
-
-            <ParallaxLayer offset={missionOffset} speed={0.2}>
-                <MissionText>
-                    Take care of the customer and everything else will take care
-                    of itself.
-                </MissionText>
-            </ParallaxLayer>
-
-
-            <ParallaxLayer offset={servicesImageOffset} speed={0}>
-                <Img fluid={servicesImage} />
-            </ParallaxLayer>
-            <ParallaxLayer offset={servicesTitleOffset} speed={0.2}>
-                <TitleBox
-                    width='32rem'
-                    color='white'
-                    borderColor='red'
-                    size='8rem'
-                >
-                    What We Do
-                </TitleBox>
-            </ParallaxLayer>
-            <ParallaxLayer offset={servicesBoxOffset} speed={0}>
+                <Spacer />
+            </StyledBackground>
+            <ProjectsPanel />
+            <MissionPanel>
+                <Fade top>
+                    <MissionText>
+                        Take care of the customer and everything else will take care
+                        of itself.
+                    </MissionText>
+                </Fade>
+            </MissionPanel>
+            <StyledBackground
+                image={servicesImage}
+            >
+                <div style={{ height: '10rem' }} />
+                <Fade top>
+                    <ServicesTitle
+                        color='white'
+                        borderColor='red'
+                    >
+                        What We Do
+                    </ServicesTitle>
+                </Fade>
                 <ServicesBox />
-            </ParallaxLayer>
-
-
-            <ParallaxLayer offset={aboutImageOffset} speed={0}>
-                <Img fluid={aboutImage} />
-            </ParallaxLayer>
-            <ParallaxLayer offset={aboutTitleOffset} speed={0.09}>
+                <Spacer />
+            </StyledBackground>
+            <StyledBackground
+                image={aboutImage}
+            >
+                <Spacer />
                 <AboutTitle
                     color='white'
                     borderColor='black'
                 >
                     Who We Are
                 </AboutTitle>
-            </ParallaxLayer>
-            <ParallaxLayer offset={aboutBodyOffset} speed={0.2}>
                 <AboutBlock>
                     <p>
                         Glendale is a family business in the Tampa Bay Area
@@ -265,15 +339,9 @@ const BigIndex = ({ width, height }) => {
                         Our <Link to='/projects'>work history</Link> speaks to our capabilities. Our <Link to='/testimonials'>testimonials</Link> speak to our quality and customer service. The <Link to='/about'>age of our company</Link> speaks to our integrity, commitment and work ethic.  The importance we place on communication with our clients speaks to our success.
                     </p>
                 </AboutBlock>
-            </ParallaxLayer>
-        </Parallax>
-    )
-}
-const SmallIndex = () => {
-    return (
-        <>
-            Hi
-        </>
+                <Spacer />
+            </StyledBackground>
+        </LayoutScroll>
     )
 }
 
@@ -294,12 +362,60 @@ class IndexPage extends React.Component {
     render() {
         const Index = this.state.width > numbers.vp9 ? BigIndex : SmallIndex;
         return (
-            <Layout>
-                <SEO title="Home" />
-                <Index width={this.state.width} height={this.state.height} />
-            </Layout>
+            <Index
+                width={this.state.width}
+                height={this.state.height}
+                heroImage={this.props.data.hero.childImageSharp.fluid}
+                aboutImage={this.props.data.about.childImageSharp.fluid}
+                servicesImage={this.props.data.services.childImageSharp.fluid}
+            />
         )
     }
 }
 
 export default IndexPage
+
+// fragment for simple fluid imports
+export const BGImg = graphql`
+    fragment BGImg on File {
+        childImageSharp {
+            fluid(
+                quality: 100
+                maxWidth: 1920
+                duotone: { highlight: "#000000", shadow: "#000000", opacity: 50 }
+                toFormat: PNG
+            ) {
+                # the duotone is just a black screen for darkening bg images. To be adjusted when desired.
+                    ...GatsbyImageSharpFluid
+            }
+        }
+    }
+    `
+export const DuoToneImg = graphql`
+    fragment DuoToneImg on File {
+        childImageSharp {
+            fluid(
+                quality: 100
+                maxWidth: 1920
+                duotone: { highlight: "#f00e2e", shadow: "#000000" }
+                toFormat: PNG
+            ) {
+                ...GatsbyImageSharpFluid
+            }
+        }
+    }
+    `
+
+export const query = graphql`
+    query {
+        hero: file(relativePath: { eq: "jobs/BelleHarbor.jpg" }) {
+            ...BGImg
+        }
+        about: file(relativePath: { eq: "office-stock.jpg" }) {
+            ...DuoToneImg
+        }
+        services: file(relativePath: { eq: "work/LaFirenzaDecksAdjusted.jpg" }) {
+            ...BGImg
+        }
+    }
+    `
