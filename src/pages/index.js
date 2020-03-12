@@ -44,7 +44,9 @@ const HeroBlock = styled.div`
 const Spacer = styled.div`
     height: 7rem;
 `
-
+const ServicesTitle = styled(TitleBoxBland)`
+    margin-bottom: 5rem;
+`
 const MissionText = styled.h1`
     padding-left: 3.2rem;
     font-size: ${({theme}) => theme.size8};
@@ -73,6 +75,19 @@ const MissionText = styled.h1`
         border-left-width: 2rem;
         margin-left: 15%;
         padding-left: 2.5rem;
+    }
+    ${breakpoints.vp6} {
+        font-size: 5rem;
+        width: 90%;
+        margin-left: 5%;
+    }
+`
+const MissionPanel = styled.div`
+    height: 60rem;
+    padding: 10rem;
+    ${breakpoints.vp7} {
+        height: 50rem;
+        padding: 5rem;
     }
 `
 
@@ -111,6 +126,12 @@ const AboutBlock = styled.div`
     }
     ${breakpoints.vp7} {
         width: 75%;
+    }
+    ${breakpoints.vp6} {
+        width: 95%;
+        p{
+            font-size: ${({theme}) => theme.size3};
+        }
     }
 `
 const AboutTitle = styled(TitleBoxBland)`
@@ -182,7 +203,7 @@ const BigIndex = ({ width, height, heroImage, aboutImage, servicesImage }) => {
             >
                 <ParallaxLayer offset={projectsOffset} speed={0}>
                     {/* this has to go above the hero panel so that it's underlying it */}
-                    <ProjectsPanel />
+                    <ProjectsPanel  width={width} />
                 </ParallaxLayer>
 
 
@@ -279,19 +300,8 @@ const StyledBackground = styled(Background)`
     background-repeat: no-repeat;
     background-size: cover;
 `
-const MissionPanel = styled.div`
-    height: 60rem;
-    padding: 10rem;
-    ${breakpoints.vp7} {
-        height: 50rem;
-        padding: 5rem;
-    }
-`
-const ServicesTitle = styled(TitleBoxBland)`
-    margin-bottom: 5rem;
-`
 
-const SmallIndex = ({ heroImage, servicesImage, aboutImage }) => {
+const SmallIndex = ({ heroImage, servicesImage, aboutImage, width }) => {
     return (
         <LayoutScroll>
             <SEO title="Home" />
@@ -312,7 +322,7 @@ const SmallIndex = ({ heroImage, servicesImage, aboutImage }) => {
                 </HeroBlock>
                 <Spacer />
             </StyledBackground>
-            <ProjectsPanel />
+            <ProjectsPanel width={width} />
             <MissionPanel>
                 <Fade top>
                     <MissionText>

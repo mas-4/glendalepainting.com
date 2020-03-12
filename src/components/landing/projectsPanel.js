@@ -35,6 +35,11 @@ const Title = styled.h1`
         border: 1.5rem solid red;
         width: 30rem;
     }
+    ${breakpoints.vp7} {
+        font-size: 5rem;
+        padding: 1.5rem;
+        width: 25rem;
+    }
 `;
 const Panel = styled.div`
     background-color: rgba(41, 41, 41, 0.78);
@@ -58,9 +63,12 @@ const Project = styled.div`
     ${breakpoints.vp9} {
         font-size: 1rem;
     }
+    ${breakpoints.vp7} {
+        width: 50%;
+    }
 `;
 
-export const ProjectsPanel = () => {
+export const ProjectsPanel = ({ width }) => {
     const data = useStaticQuery(graphql`
         fragment test on MarkdownRemark {
             frontmatter {
@@ -137,6 +145,9 @@ export const ProjectsPanel = () => {
         }
     `);
     const dataArr = Object.entries(data);
+    if (width < 600) {
+        dataArr.splice(7, 1);
+    }
     return (
         <>
             <TitlePanel>
