@@ -18,15 +18,18 @@ export const ServicesBox = () => {
     const Text = styled.div`
         width: 70%;
         color: white;
-        ${breakpoints.vp13} {
-            width: 90%;
-        }
         h3{
             line-height: 0.8;
         }
         p{
             font-size: 1.6rem;
             margin-top: 3rem;
+        }
+        ${breakpoints.vp13} {
+            width: 90%;
+        }
+        ${breakpoints.vp7} {
+            width: 100%
         }
     `
     return (

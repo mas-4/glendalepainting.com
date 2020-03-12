@@ -18,12 +18,15 @@ const HeroBlock = styled.div`
     padding: 6.4rem;
     padding-bottom: 1rem;
     color: ${({theme}) => theme.white};
-    width: 60%;
+    width: 80%;
     text-align: center;
     h1 {
         ${breakpoints.vp9} {
             font-size: 6rem;
             width: 95%;
+        }
+        ${breakpoints.vp7} {
+            font-size: 5rem;
         }
     }
     h2 {
@@ -32,6 +35,9 @@ const HeroBlock = styled.div`
         margin: 30px 0;
         ${breakpoints.vp9} {
             font-size: ${({theme}) => theme.size4};
+        }
+        ${breakpoints.vp7} {
+            font-size: ${({theme}) => theme.size3};
         }
     }
 `
@@ -61,6 +67,12 @@ const MissionText = styled.h1`
         font-size: ${({theme}) => theme.size7};
         border-left-width: 2.5rem;
         margin-top: 10rem;
+    }
+    ${breakpoints.vp7} {
+        font-size: 4.5rem;
+        border-left-width: 2rem;
+        margin-left: 15%;
+        padding-left: 2.5rem;
     }
 `
 
@@ -96,6 +108,9 @@ const AboutBlock = styled.div`
         p {
             font-size: ${({theme}) => theme.size2};
         }
+    }
+    ${breakpoints.vp7} {
+        width: 75%;
     }
 `
 const AboutTitle = styled(TitleBoxBland)`
@@ -267,6 +282,10 @@ const StyledBackground = styled(Background)`
 const MissionPanel = styled.div`
     height: 60rem;
     padding: 10rem;
+    ${breakpoints.vp7} {
+        height: 50rem;
+        padding: 5rem;
+    }
 `
 const ServicesTitle = styled(TitleBoxBland)`
     margin-bottom: 5rem;

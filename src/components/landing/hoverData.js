@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { breakpoints } from '../../styles/breakpoints'
 
 export const HoverData = ({ data }) => {
     let title = data.frontmatter.title;
@@ -52,5 +53,8 @@ const HoverContainer = styled.div`
 
     .project-title {
         font-size: ${({ theme }) => theme.size5};
+        ${breakpoints.vp7} {
+            font-size: ${({theme}) => theme.size3};
+        }
     }
 `;
