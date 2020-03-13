@@ -18,8 +18,14 @@ const HeroBlock = styled.div`
     padding: 6.4rem;
     padding-bottom: 1rem;
     color: ${({theme}) => theme.white};
-    width: 80%;
+    width: 50%;
     text-align: center;
+    ${breakpoints.vp12} {
+        width: 70%;
+    }
+    ${breakpoints.vp7} {
+        width: 85%;
+    }
     h1 {
         ${breakpoints.vp9} {
             font-size: 6rem;

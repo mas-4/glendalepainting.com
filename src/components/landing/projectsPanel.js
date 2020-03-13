@@ -145,7 +145,7 @@ export const ProjectsPanel = ({ width }) => {
         }
     `);
     const dataArr = Object.entries(data);
-    if (width < 600) {
+    if (width < 770) {
         dataArr.splice(7, 1);
     }
     return (
