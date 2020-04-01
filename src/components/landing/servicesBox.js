@@ -14,6 +14,9 @@ export const ServicesBox = () => {
         flex-direction: column;
         align-items: flex-${props => props.align};
         padding: 5%;
+        ${breakpoints.vp4_2} {
+            padding: 2%;
+        }
     `
     const Text = styled.div`
         width: 70%;
@@ -31,6 +34,14 @@ export const ServicesBox = () => {
         ${breakpoints.vp7} {
             width: 100%
         }
+        ${breakpoints.vp4_2} {
+            h3 {
+                font-size: 1.9rem;
+                line-height: 1;
+            }
+            p {
+                margin-top: 1rem;
+            }
     `
     return (
         <Boxes>

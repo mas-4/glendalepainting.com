@@ -66,6 +66,9 @@ const Project = styled.div`
     ${breakpoints.vp7} {
         width: 50%;
     }
+    ${breakpoints.vp4_2} {
+        width: 100%;
+    }
 `;
 
 export const ProjectsPanel = ({ width }) => {
@@ -147,6 +150,9 @@ export const ProjectsPanel = ({ width }) => {
     const dataArr = Object.entries(data);
     if (width < 770) {
         dataArr.splice(7, 1);
+    }
+    if (width < 421) {
+        dataArr.splice(3,4);
     }
     return (
         <>

@@ -26,6 +26,9 @@ const HeroBlock = styled.div`
     ${breakpoints.vp7} {
         width: 85%;
     }
+    ${breakpoints.vp4_2} {
+        width: 100%;
+    }
     h1 {
         ${breakpoints.vp9} {
             font-size: 6rem;
@@ -49,9 +52,15 @@ const HeroBlock = styled.div`
 `
 const Spacer = styled.div`
     height: 7rem;
+    ${breakpoints.vp4_2} {
+        height: 5rem;
+    }
 `
 const ServicesTitle = styled(TitleBoxBland)`
     margin-bottom: 5rem;
+    ${breakpoints.vp4_2} {
+        font-size: 6rem;
+    }
 `
 const MissionText = styled.h1`
     padding-left: 3.2rem;
@@ -86,6 +95,12 @@ const MissionText = styled.h1`
         font-size: 5rem;
         width: 90%;
         margin-left: 5%;
+    }
+    ${breakpoints.vp4} {
+        font-size: 4rem;
+    }
+    ${breakpoints.vp4_2} {
+        margin-top: 5rem;
     }
 `
 const MissionPanel = styled.div`
@@ -139,6 +154,13 @@ const AboutBlock = styled.div`
             font-size: ${({theme}) => theme.size3};
         }
     }
+    ${breakpoints.vp4_2} {
+        width: 100%;
+        padding: 0.5rem 1.5rem;
+        p {
+            font-size: ${({theme}) => theme.size2};
+        }
+    }
 `
 const AboutTitle = styled(TitleBoxBland)`
     width: 40rem;
@@ -155,6 +177,10 @@ const AboutTitle = styled(TitleBoxBland)`
     }
     ${breakpoints.vp9} {
         width: 40rem;
+    }
+    ${breakpoints.vp4_2} {
+        font-size: 5rem;
+        width: 30rem;
     }
 `
 
@@ -340,7 +366,7 @@ const SmallIndex = ({ heroImage, servicesImage, aboutImage, width }) => {
             <StyledBackground
                 image={servicesImage}
             >
-                <div style={{ height: '10rem' }} />
+                <Spacer />
                 <Fade top>
                     <ServicesTitle
                         color='white'
