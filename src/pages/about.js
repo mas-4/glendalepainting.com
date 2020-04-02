@@ -211,8 +211,8 @@ class AboutPage extends React.Component {
 
 export default AboutPage
 
-export const BGImg = graphql`
-fragment BGImg on File {
+export const BGImgAbout = graphql`
+fragment BGImgAbout on File {
     childImageSharp {
         fluid(
             quality: 100
@@ -229,10 +229,10 @@ fragment BGImg on File {
 export const query = graphql`
 query {
     hero: file(relativePath: { eq: "work/ScaffoldBanner.jpg" }) {
-        ...BGImg
+        ...BGImgAbout
     }
     testimonials: file(relativePath: { eq: "jobs/OneSinger.jpg" }) {
-        ...BGImg
+        ...BGImgAbout
     }
 }
 `
