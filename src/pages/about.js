@@ -1,8 +1,10 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
+import BackgroundImage from 'gatsby-background-image'
 import styled from 'styled-components'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
+
 import { AboutNav } from '../components/about/nav'
 import { Layout, SEO } from '../components/global'
 import { breakpoints, numbers} from '../styles/breakpoints'
@@ -15,12 +17,18 @@ const HeroTitle = styled.h1`
     border-left 1.6rem solid ${({theme}) => theme.red};
     padding-left: 1.6rem;
     line-height: 0.9;
+    ${breakpoints.vp13} {
+        font-size: 6.5rem;
+    }
 `
 const AboutBox = styled.div`
     background: rgba(0, 0, 0, 0.2);
     width: 70%;
     margin: 0 auto;
     height: 96rem;
+    ${breakpoints.vp13} {
+        height: 78rem;
+    }
 `
 const AboutParagraph = styled.div`
     margin-left: ${props => props.left ? '48' : '64'}rem;
@@ -28,6 +36,13 @@ const AboutParagraph = styled.div`
     width: 45%;
     color: white;
     font-size: 2rem;
+
+    ${breakpoints.vp13} {
+        width: 55%;
+        margin-left: ${props => props.left ? '28' : '36'}rem;
+        margin-top: 3rem;
+        font-size: 1.75rem;
+    }
 `
 const Testimonial = styled.div`
     background: rgba(0, 0, 0, 0.3);
@@ -63,6 +78,24 @@ const SmallAbout = () => {
     )
 }
 const BigAbout = ({ heroImage, testimonialsImage, width }) => {
+    let aboutBoxOffset = 0.5;
+    let p1Offset = 0.5;
+    let p2Offset = 0.99;
+    let testimonialsImageOffset = 1;
+    let title2Offset = 1.25;
+    let quote1Offset = 1.5;
+    let quote2Offset = 1.75;
+    let quote3Offset = 1.99;
+    if ( width < numbers.vp13 ) {
+        aboutBoxOffset = 0.43;
+        p1Offset = 0.43;
+        p2Offset = 0.92;
+        title2Offset = 1.05;
+        testimonialsImageOffset = 1.15;
+        quote1Offset = 1.3;
+        quote2Offset = 1.65;
+        quote3Offset = 1.97;
+    }
     return (
         <Layout>
             <SEO title="About" />
@@ -76,16 +109,16 @@ const BigAbout = ({ heroImage, testimonialsImage, width }) => {
                 <ParallaxLayer offset={0.125} speed={0}>
                     <AboutNav />
                 </ParallaxLayer>
-                <ParallaxLayer offset={1} speed={0}>
+                <ParallaxLayer offset={testimonialsImageOffset} speed={0}>
                     <Img fluid={testimonialsImage} />
                 </ParallaxLayer>
                 <ParallaxLayer offset={0.25} speed={0.25}>
                     <HeroTitle>Who We Are</HeroTitle>
                 </ParallaxLayer>
-                <ParallaxLayer offset={0.50} speed={0.45}>
+                <ParallaxLayer offset={aboutBoxOffset} speed={0.45}>
                     <AboutBox />
                 </ParallaxLayer>
-                <ParallaxLayer offset={0.50} speed={0.45}>
+                <ParallaxLayer offset={p1Offset} speed={0.15}>
                     <AboutParagraph left={true}>
                         Founded in 1985, Glendale is one of the most successful
                         commercial painting contractors in the Southeast. Quality and
@@ -108,7 +141,7 @@ const BigAbout = ({ heroImage, testimonialsImage, width }) => {
                         performance bonds on request.
                     </AboutParagraph>
                 </ParallaxLayer>
-                <ParallaxLayer offset={0.99} speed={0.5}>
+                <ParallaxLayer offset={p2Offset} speed={0.25}>
                     <AboutParagraph left={true}>
                         Unlike most of the competition, our company directly employs all
                         its workers.  When you hire Glendale, you get Glendale. Unlike
@@ -126,10 +159,10 @@ const BigAbout = ({ heroImage, testimonialsImage, width }) => {
                         these new entrepreneurs have learned it the right way.
                     </AboutParagraph>
                 </ParallaxLayer>
-                <ParallaxLayer offset={1.25} speed={0.4}>
+                <ParallaxLayer offset={title2Offset} speed={0.4}>
                     <HeroTitle>What People Say</HeroTitle>
                 </ParallaxLayer>
-                <ParallaxLayer offset={1.5} speed={0.5}>
+                <ParallaxLayer offset={quote1Offset} speed={0.5}>
                     <Testimonial>
                         <p>
                             As Glendale nears the final stage of completing
@@ -154,7 +187,7 @@ const BigAbout = ({ heroImage, testimonialsImage, width }) => {
                         </p>
                     </Testimonial>
                 </ParallaxLayer>
-                <ParallaxLayer offset={1.75} speed={0.6}>
+                <ParallaxLayer offset={quote2Offset} speed={0.6}>
                     <Testimonial>
                         <p>
                             We can’t say enough to convey how pleased we
@@ -181,7 +214,7 @@ const BigAbout = ({ heroImage, testimonialsImage, width }) => {
                         </p>
                     </Testimonial>
                 </ParallaxLayer>
-                <ParallaxLayer offset={1.99} speed={0.7}>
+                <ParallaxLayer offset={quote3Offset} speed={0.7}>
                     <Testimonial>
                         <p>
                             Thanks for everything Rick.  The project has
