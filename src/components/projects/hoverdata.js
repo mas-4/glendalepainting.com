@@ -5,8 +5,8 @@ export const HoverData = ({ data, handleTagClick }) => {
     return (
         <HoverContainer className="mask">
             <span className="project-title">{data.title}</span>
-            <span className="project-category">{data.category}</span>
             <span className="project-location">{data.location}</span>
+            <span className="project-category">{data.category}</span>
             <TagsContainer>
                 {data.tags.map(tag => (
                     <Tag key={tag} onClick={(e) => handleTagClick(e, tag)}>{tag}</Tag>

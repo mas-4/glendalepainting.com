@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { HoverData } from './hoverdata';
 
 export const Project = ({ data, slug, handleTagClick }) => {
-    console.log(slug)
     return (
         <ProjectContainer>
             <Img
@@ -26,11 +25,14 @@ export const Project = ({ data, slug, handleTagClick }) => {
 };
 
 const ProjectContainer = styled.div`
-    width: 420px;
-    height: 280px;
+    --photo-width: calc((100% - 60px)/3);
+    width: var(--photo-width);
+    max-width: 420px;
+    min-width: 340px;
     position: relative;
     overflow: hidden;
     margin: 10px;
+
     &:hover img {
         transform: scale(1.2);
     }
@@ -41,5 +43,14 @@ const ProjectContainer = styled.div`
 
     .hoverContainer {
         cursor: pointer;
+    }
+
+    @media (max-width: 1200px){
+        --photo-width: calc((100% - 40px)/2);
+        width: var(--photo-width);
+    }
+
+    @media (max-width: 800px){
+        width: 100%;
     }
 `;

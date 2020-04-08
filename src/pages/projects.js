@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useMemo, useRef } from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import {sortProjects, sortTags, grabTags} from '../utils/sortingFunctions'
+import { sortProjects, sortTags, grabTags } from '../utils/sortingFunctions';
 import {
     StateContext,
     setSelectedPage,
@@ -15,16 +15,16 @@ import {
     ProjectsPagination,
     TagsFilter,
 } from '../components/projects';
-import {breakpoints} from '../styles/breakpoints'
+
 
 const ProjectsPage = ({ data }) => {
-    let ITEM_PER_PAGE = 15;
+    let ITEM_PER_PAGE = 12;
 
     const [{ pageInfo }, dispatch] = useContext(StateContext);
     //current-projects selected based on tabs/filters
     const [currentProjects, setCurrentProjects] = useState([]);
     //projects being shown on current page
-    const [displayedProjects, setDisplayedProjects] = useState([])
+    const [displayedProjects, setDisplayedProjects] = useState([]);
     //tags being shown based on current tab selected
     const [currentTags, setCurrentTags] = useState([]);
 
@@ -33,10 +33,10 @@ const ProjectsPage = ({ data }) => {
         () => sortProjects(data.allMarkdownRemark.edges),
         [data.allMarkdownRemark.edges]
     );
-    
+
     //ref for a div inside layoutScroll to scroll into view on page change
     let scrollToDiv = useRef();
-    
+
     useEffect(() => {
         let filteredProjects = sortedProjects;
         //if any filters have been selected
@@ -65,7 +65,7 @@ const ProjectsPage = ({ data }) => {
 
         setCurrentProjects(filteredProjects);
         setDisplayedProjects(filterSliced);
-        
+
         if (scrollToDiv.current)
             scrollToDiv.current.scrollIntoView({
                 behavior: 'smooth',
@@ -80,17 +80,16 @@ const ProjectsPage = ({ data }) => {
     ]);
     
     useEffect(() => {
-        let availableTags = grabTags(sortedProjects, pageInfo.tab)
-        let sortedTags = sortTags(availableTags)
-        setCurrentTags(sortedTags)
+        let availableTags = grabTags(sortedProjects, pageInfo.tab);
+        let sortedTags = sortTags(availableTags);
+        setCurrentTags(sortedTags);
     }, [pageInfo.tab, sortedProjects]);
 
     const handleTagClick = (e, tag) => {
-        e.preventDefault()
-        if (pageInfo.filter === tag)
-            changeFilters(dispatch, 'remove', tag);
+        e.preventDefault();
+        if (pageInfo.filter === tag) changeFilters(dispatch, 'remove', tag);
         else changeFilters(dispatch, 'add', tag);
-    }
+    };
 
     return (
         <LayoutScroll ref={scrollToDiv}>
@@ -104,7 +103,7 @@ const ProjectsPage = ({ data }) => {
             <TagsFilter
                 selectedFilter={pageInfo.filter}
                 tags={currentTags}
-                handleTagClick = {handleTagClick}
+                handleTagClick={handleTagClick}
             />
             <ProjectsContainer size={displayedProjects.length}>
                 {displayedProjects.map(project => (
@@ -112,7 +111,7 @@ const ProjectsPage = ({ data }) => {
                         key={project.node.frontmatter.title}
                         data={project.node.frontmatter}
                         slug={project.node.fields.slug}
-                        handleTagClick = {handleTagClick}
+                        handleTagClick={handleTagClick}
                     />
                 ))}
             </ProjectsContainer>
@@ -158,11 +157,12 @@ export const query = graphql`
 `;
 
 const ProjectsContainer = styled.div`
-    width: 70%;
+    --photo-width: calc((100% - 60px) / 3);
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;
     margin: 0 auto;
+    width: 90%;
     max-width: 1344px;
 
     //if less than 3 photos, left align them
@@ -172,7 +172,17 @@ const ProjectsContainer = styled.div`
     //if the last row has less than 3 photos, left align
     &::after {
         content: '';
-        flex: 0 0 420px;
+        flex: 0 0 var(--photo-width);
         margin: 10px;
+    }
+
+    @media (max-width: 1200px) {
+        --photo-width: calc((100% - 40px) / 2);
+        justify-content: space-evenly;
+        &::after {
+            content: '';
+            flex: 0 0 var(--photo-width);
+            margin: 10px;
+        }
     }
 `;
