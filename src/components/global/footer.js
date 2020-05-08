@@ -10,6 +10,8 @@ import linkedinred from '../../images/linkedinred.svg'
 import facebook from '../../images/facebook.svg'
 import facebookred from '../../images/facebookred.svg'
 
+import {breakpoints} from '../../styles/breakpoints'
+
 const FooterDiv = styled.footer`
     position:fixed;
     left:0px;
@@ -23,12 +25,18 @@ const FooterDiv = styled.footer`
     align-content: center;
     justify-content: center;
     padding: 5px;
+    ${breakpoints.vp4_2} {
+        font-size: 1.5rem;
+    }
 `;
 
 const Icon = styled.img`
     height: 25px;
     margin-left: 5px;
     color: red;
+    ${breakpoints.vp4_2} {
+        height: 20px;
+    }
 `
 
 export const Footer = () => {
