@@ -1,6 +1,7 @@
 import React from 'react'
 import {LayoutScroll, SEO} from '../components/global'
 import styled from 'styled-components'
+import {breakpoints} from '../styles/breakpoints'
 
 import Data from '../data/servicesJSON'
 
@@ -16,6 +17,13 @@ const Item = styled.div`
     padding: 0 3rem;
     border-radius: 1.6rem;
     border: 2px solid #d7d7d7;
+    ${breakpoints.vp7} {
+        width: 35rem;
+    }
+    ${breakpoints.vp6} {
+        width: 95%;
+        border-radius: 0.5rem;
+    }
 
     img {
         width: 100%;
