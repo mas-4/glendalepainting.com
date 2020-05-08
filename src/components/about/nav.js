@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { breakpoints } from '../../styles/breakpoints'
 
 const NavBar = styled.nav`
     width: fit-content;
@@ -18,6 +19,9 @@ const NavLink = styled(Link)`
     margin: 1rem;
     transition: 0.33s;
     background-color: ${({theme}) => theme.lightGray};
+    ${breakpoints.vp3} {
+        margin:0.1rem;
+    }
 
     &:hover,
     &.active {
@@ -28,7 +32,6 @@ const NavLink = styled(Link)`
         box-shadow: ${({ theme }) => theme.boxShadow};
     }
 `;
-
 
 export const AboutNav = () => {
     return (
