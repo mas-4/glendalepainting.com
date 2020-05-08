@@ -48,6 +48,8 @@ export const Footer = () => {
                     src={twitter}
                     onMouseOver={e => (e.currentTarget.src = twitterred)}
                     onMouseOut={e => (e.currentTarget.src = twitter)}
+                    onFocus={e => (e.currentTarget.src = twitterred)}
+                    onBlur={e => (e.currentTarget.src = twitter)}
                 />
             </a>
             <a href="https://www.facebook.com/Glendalepainting/">
@@ -55,6 +57,8 @@ export const Footer = () => {
                     src={facebook}
                     onMouseOver={e => (e.currentTarget.src = facebookred)}
                     onMouseOut={e => (e.currentTarget.src = facebook)}
+                    onFocus={e => (e.currentTarget.src = facebookred)}
+                    onBlur={e => (e.currentTarget.src = facebook)}
                 />
             </a>
             <a href="https://www.linkedin.com/company/glendale-painting-corp.">
@@ -62,6 +66,8 @@ export const Footer = () => {
                     src={linkedin}
                     onMouseOver={e => (e.currentTarget.src = linkedinred)}
                     onMouseOut={e => (e.currentTarget.src = linkedin)}
+                    onFocus={e => (e.currentTarget.src = linkedinred)}
+                    onBlur={e => (e.currentTarget.src = linkedin)}
                 />
             </a>
         </FooterDiv>

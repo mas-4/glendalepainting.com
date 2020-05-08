@@ -98,7 +98,7 @@ const LinkWrapper = () => {
     const className = abouts.includes(path) ? 'active' : '';
 
     useEffect(() => {
-        setWindowWidth(window.innerwidth);
+        setWindowWidth(window.innerWidth);
         window.addEventListener('resize', () =>
             setWindowWidth(window.innerWidth)
         );

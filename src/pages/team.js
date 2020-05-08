@@ -3,7 +3,7 @@ import { LayoutScroll, SEO } from "../components/global"
 import styled from 'styled-components'
 import Data from '../data/teamJSON.js'
 import { AboutNav } from '../components/about/nav'
-import { breakpoints, numbers} from '../styles/breakpoints'
+import { breakpoints } from '../styles/breakpoints'
 
 const Team = styled.div`
     display: flex;
