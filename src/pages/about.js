@@ -422,10 +422,14 @@ const BigAbout = ({ heroImage, testimonialsImage, width }) => {
 
 class AboutPage extends React.Component {
     state = {
-        width: window.innerWidth,
-        height: window.innerHeight
+        width: 1920,
+        height: 1080
     }
     componentDidMount() {
+        this.setState({
+            width: window.innerWidth,
+            height: window.innerHeight
+        })
         window.addEventListener('resize', this.handleResize)
     }
     componentWillUnmount(){
