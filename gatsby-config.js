@@ -1,4 +1,5 @@
 module.exports = {
+    pathPrefix: '/glendalepainting.com',
     siteMetadata: {
         title: `Glendale Painting`,
         description: `With over three decades in the industry, Glendale has you covered.`,
