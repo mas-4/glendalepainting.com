@@ -91,13 +91,14 @@ const HamburgerMenu = ({ menuOpen, setMenuOpen }) => {
 };
 
 const LinkWrapper = () => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState(1920);
     const [menuOpen, setMenuOpen] = useState(false);
     const abouts = ['/testimonials', '/team', '/about'];
     const path = globalHistory.location.pathname;
     const className = abouts.includes(path) ? 'active' : '';
 
     useEffect(() => {
+        setWindowWidth(window.innerwidth);
         window.addEventListener('resize', () =>
             setWindowWidth(window.innerWidth)
         );
