@@ -1,8 +1,9 @@
 import React from "react"
-import {LayoutScroll, SEO} from "../components/global"
+import { LayoutScroll, SEO } from "../components/global"
 import styled from 'styled-components'
 import Data from '../data/teamJSON.js'
-import {AboutNav} from '../components/about/nav'
+import { AboutNav } from '../components/about/nav'
+import { breakpoints, numbers} from '../styles/breakpoints'
 
 const Team = styled.div`
     display: flex;
@@ -10,10 +11,35 @@ const Team = styled.div`
     padding: 5rem;
     width: 75%;
     margin: 0 auto;
+    ${breakpoints.vp13} {
+        width: 85%;
+    }
+    ${breakpoints.vp9} {
+        width: 90%;
+    }
+    ${breakpoints.vp4} {
+        width: 100%;
+        padding: 2rem;
+    }
+    ${breakpoints.vp4_2} {
+        padding: 0;
+    }
 `
 const Item = styled.div`
-    width: 45%;
+    width: 35%;
     margin: 3rem;
+    ${breakpoints.vp13} {
+        width: 40%;
+    }
+    ${breakpoints.vp9} {
+        width: 95%;
+    }
+    ${breakpoints.vp4} {
+        width: 100%;
+    }
+    ${breakpoints.vp3} {
+        margin: 1rem;
+    }
     img {
         float: left;
         margin: 1rem;
@@ -29,6 +55,7 @@ const Item = styled.div`
         font-size: ${({theme}) => theme.size2};
         color: ${({ theme }) => theme.gray};
     }
+
 
 `
 const Member = ({info}) => {
