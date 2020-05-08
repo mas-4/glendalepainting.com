@@ -136,6 +136,7 @@ const SmallAbout = ({ heroImage, testimonialsImage, width }) => {
         <LayoutScroll>
             <SEO title="Home" />
             <StyledBackground image={heroImage}>
+                <AboutNav />
                 <Spacer />
                 <HeroTitle>Who We Are</HeroTitle>
                 <AboutBox>
